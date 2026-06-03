@@ -237,6 +237,13 @@ footer {
   .nav-links { display: none; }
   .container { padding: 0 var(--s3); }
   .footer-inner { flex-direction: column; gap: var(--s2); text-align: center; }
+
+  /* Force featured card single column — !important beats page-level CSS */
+  .featured-card { grid-template-columns: 1fr !important; overflow: hidden !important; }
+  .fc-left { padding: 24px 20px !important; border-right: none !important; }
+  .fc-right { display: none !important; }
+  .feat-desc { font-size: 13px !important; }
+  .feat-title { font-size: 22px !important; }
 }
 
 /* ── ANIMATIONS ── content always visible, animation is a bonus ── */
