@@ -14,21 +14,29 @@
     .page-h1 .blue { color:var(--blue); }
     .page-lead { font-size:16px; color:var(--light-muted); max-width:460px; line-height:1.75; }
     .featured-section { background:var(--dark); padding:var(--s6) 0; }
-    .featured-card { display:grid; grid-template-columns:1fr 1fr; background:var(--dark-surface); border:1px solid var(--dark-rule); border-radius:var(--radius-lg); overflow:hidden; margin-top:var(--s4); }
-    .fc-left { padding:var(--s5) var(--s4); border-right:1px solid var(--dark-rule); display:flex; flex-direction:column; }
-    .fc-right { padding:var(--s4); background:var(--dark-mid); display:flex; align-items:center; justify-content:center; }
-    @media (max-width:960px) {
-      .featured-card { grid-template-columns:1fr; }
-      .fc-right { display:none; }
-      .fc-left { padding:var(--s4) var(--s3); border-right:none; }
+
+    /* FEATURED CARD — mobile first */
+    .featured-card {
+      display:grid;
+      grid-template-columns:1fr;
+      background:var(--dark-surface);
+      border:1px solid var(--dark-rule);
+      border-radius:var(--radius-lg);
+      overflow:hidden;
+      margin-top:var(--s4);
     }
-    @media (max-width:600px) {
-      .featured-card { grid-template-columns:1fr; border-radius:var(--radius); }
-      .fc-left { padding:24px 20px; }
-      .feat-title { font-size:22px; }
-      .feat-desc { font-size:13px; }
-      .feat-link .fl-label { font-size:10px; }
+    .fc-left {
+      padding:24px 20px;
+      display:flex;
+      flex-direction:column;
     }
+    .fc-right { display:none; }
+    @media (min-width:900px) {
+      .featured-card { grid-template-columns:1fr 1fr; }
+      .fc-left { padding:var(--s5) var(--s4); border-right:1px solid var(--dark-rule); }
+      .fc-right { display:flex; padding:var(--s4); background:var(--dark-mid); align-items:center; justify-content:center; }
+    }
+
     .feat-badge { display:inline-flex; align-items:center; gap:7px; font-family:var(--f-mono); font-size:10px; letter-spacing:0.1em; color:var(--blue-lt); border:1px solid var(--blue-border); border-radius:99px; padding:4px 12px; margin-bottom:var(--s3); width:fit-content; }
     .feat-type { font-family:var(--f-mono); font-size:11px; color:var(--dark-muted); letter-spacing:0.06em; margin-bottom:8px; }
     .feat-title { font-size:clamp(22px,3vw,36px); font-weight:700; letter-spacing:-0.02em; color:var(--dark-text); line-height:1.15; margin-bottom:var(--s3); }
@@ -73,7 +81,7 @@
       display: flex;
       gap: 20px;
       width: max-content;
-      animation: scroll-cards 40s linear infinite;
+      animation: scroll-cards 38s linear infinite;
     }
     .carousel-track:hover { animation-play-state: paused; }
     @keyframes scroll-cards {
@@ -91,7 +99,7 @@
       cursor: default;
     }
     .tc:hover { border-color: var(--blue); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(37,99,235,0.15); }
-    .tc-stars { color: #f59e0b; font-size: 14px; letter-spacing: 2px; }
+    .tc-stars { color: #f59e0b; font-size: 13px; letter-spacing: 2px; }
     .tc-text { font-size: 13.5px; color: var(--dark-muted); line-height: 1.8; font-style: italic; flex: 1; }
     .tc-footer { display: flex; align-items: center; gap: 12px; }
     .tc-avatar {
@@ -223,7 +231,6 @@
             <a href="https://go.brickhouseunlimited.com/optin" target="_blank" rel="noopener" class="proj-link">View Live ↗</a>
           </div>
         </div>
-
         <div class="proj-card reveal" id="proj-reboot">
           <span class="proj-type">Custom HTML/CSS · Systeme.io</span>
           <h3 class="proj-title">Reboot Player One</h3>
@@ -275,11 +282,10 @@
             <a href="https://panicomputer.com" target="_blank" rel="noopener" class="proj-link">panicomputer.com ↗</a>
           </div>
         </div>
-
         <div class="proj-card reveal">
           <span class="proj-type">WordPress · Course Management · Social Media</span>
           <h3 class="proj-title">PaniTech Academy</h3>
-          <span class="proj-client">Cybersecurity & IT Training — US</span>
+          <span class="proj-client">Cybersecurity &amp; IT Training — US</span>
           <p class="proj-desc">Managed the full digital presence for a US-based cybersecurity academy. Built and maintained WordPress landing pages for CompTIA, SOC Analyst, and CySA+ courses. Handled Google Business profile, course quizzes and assignments, pricing changes, discount codes, bundle creation, and online bootcamp setup. Also ran social media across LinkedIn, Facebook, Instagram, and X.</p>
           <div class="proj-tags"><span class="tag tag-light">WordPress</span><span class="tag tag-light">Course Management</span><span class="tag tag-light">LinkedIn</span><span class="tag tag-light">Google Business</span><span class="tag tag-light">Social Media</span></div>
           <div class="proj-footer">
@@ -287,7 +293,6 @@
             <a href="https://laptopsbuyers.com" target="_blank" rel="noopener" class="proj-link">laptopsbuyers.com ↗</a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -297,179 +302,23 @@
       <div class="eyebrow">Client Feedback</div>
       <h2 style="font-size:clamp(22px,3vw,36px);font-weight:700;letter-spacing:-0.03em;color:var(--dark-text);margin-bottom:48px;">What clients say</h2>
     </div>
-
-    <!-- CAROUSEL TRACK -->
     <div class="carousel-outer">
       <div class="carousel-track" id="carouselTrack">
-
-        <!-- CARD 1 -->
-        <div class="tc">
-          <div class="tc-stars">★★★★★</div>
-          <p class="tc-text">"Argie built our entire operating system — funnels, Conversation AI, Voice AI, contract automation, access control, everything. The Voice AI alone replaced hours of manual calls every single week. It handles payment plans, sets due dates, sends reminders, and revokes access automatically. It just runs."</p>
-          <div class="tc-footer">
-            <div class="tc-avatar">CN</div>
-            <div><div class="tc-name">Coach Nia</div><div class="tc-role">Legacy Builder Empire · Virtual Real Estate</div></div>
-          </div>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="tc">
-          <div class="tc-stars">★★★★★</div>
-          <p class="tc-text">"The numerology funnel and automation Argie built changed how I run my business. Every month my clients automatically receive their Personal Month insights without me lifting a finger. The Make workflow is seamless and my clients love the personalised emails."</p>
-          <div class="tc-footer">
-            <div class="tc-avatar">SW</div>
-            <div><div class="tc-name">Sue</div><div class="tc-role">Healing Numbers 22 · Numerology</div></div>
-          </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="tc">
-          <div class="tc-stars">★★★★★</div>
-          <p class="tc-text">"Argie created something I didn't think was possible on a tight timeline — a website and funnel that genuinely feels like me. The design is warm, the copy lands, and it speaks directly to the women I work with. I've had multiple people reach out just from the site alone."</p>
-          <div class="tc-footer">
-            <div class="tc-avatar">FR</div>
-            <div><div class="tc-name">Fleur Romano</div><div class="tc-role">FleurRomano.com · Private Counselling &amp; Healing</div></div>
-          </div>
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="tc">
-          <div class="tc-stars">★★★★★</div>
-          <p class="tc-text">"The pixel-art funnel is unlike anything I've seen in the coaching space. Fully hand-coded, mobile-responsive, and it actually captures the game theme we were going for. My audience noticed immediately — the comments and DMs were insane when we launched."</p>
-          <div class="tc-footer">
-            <div class="tc-avatar">DX</div>
-            <div><div class="tc-name">Dexter</div><div class="tc-role">Reboot Player One · Gamified Coaching</div></div>
-          </div>
-        </div>
-
-        <!-- CARD 5 -->
-        <div class="tc">
-          <div class="tc-stars">★★★★★</div>
-          <p class="tc-text">"Our credit repair funnel and website look professional and convert well. Argie built it fast, handled all revisions without complaint, and the final product was exactly what we needed to present our services to clients with confidence."</p>
-          <div class="tc-footer">
-            <div class="tc-avatar">CW</div>
-            <div><div class="tc-name">Celeste</div><div class="tc-role">MacUnlimited Inc. · Credit Repair &amp; Funding</div></div>
-          </div>
-        </div>
-
-        <!-- CARD 6 -->
-        <div class="tc">
-          <div class="tc-stars">★★★★★</div>
-          <p class="tc-text">"Argie managed multiple WordPress sites, rebuilt landing pages, handled our blog content, and kept our LinkedIn, Facebook, and Instagram running consistently. On top of that he managed our course quizzes, assignments, pricing, discount codes, and bootcamp creation. A genuine all-rounder."</p>
-          <div class="tc-footer">
-            <div class="tc-avatar">FB</div>
-            <div><div class="tc-name">Fabrice</div><div class="tc-role">PaniTech Academy · Pullaris · Panicomputer · LaptopsBuyers</div></div>
-          </div>
-        </div>
-
-        <!-- CARD 7 -->
-        <div class="tc">
-          <div class="tc-stars">★★★★★</div>
-          <p class="tc-text">"Argie handled everything — the funnel, the website, the ads, and social media. She understood the brand's spiritual angle right away and produced content and campaigns that felt authentic. Reliable, creative, and always proactive."</p>
-          <div class="tc-footer">
-            <div class="tc-avatar">JV</div>
-            <div><div class="tc-name">Jada Vi</div><div class="tc-role">Jada VI · Manifestation &amp; Spirituality</div></div>
-          </div>
-        </div>
-
-        <!-- CARD 8 -->
-        <div class="tc">
-          <div class="tc-stars">★★★★★</div>
-          <p class="tc-text">"The $500K Business Scale Accelerator funnel Argie built for us was clean, professional, and ready to go before the webinar deadline. He understood the message immediately and turned it into a high-converting opt-in page that matched our brand positioning perfectly."</p>
-          <div class="tc-footer">
-            <div class="tc-avatar">LW</div>
-            <div><div class="tc-name">Lakeasha Williams</div><div class="tc-role">Brickhouse Unlimited Inc. · Business Scaling</div></div>
-          </div>
-        </div>
-
-        <!-- DUPLICATES for seamless loop -->
-        <div class="tc">
-          <div class="tc-stars">★★★★★</div>
-          <p class="tc-text">"Argie built our entire operating system — funnels, Conversation AI, Voice AI, contract automation, access control, everything. The Voice AI alone replaced hours of manual calls every single week. It handles payment plans, sets due dates, sends reminders, and revokes access automatically. It just runs."</p>
-          <div class="tc-footer">
-            <div class="tc-avatar">CN</div>
-            <div><div class="tc-name">Coach Nia</div><div class="tc-role">Legacy Builder Empire · Virtual Real Estate</div></div>
-          </div>
-        </div>
-        <div class="tc">
-          <div class="tc-stars">★★★★★</div>
-          <p class="tc-text">"The numerology funnel and automation Argie built changed how I run my business. Every month my clients automatically receive their Personal Month insights without me lifting a finger. The Make workflow is seamless and my clients love the personalised emails."</p>
-          <div class="tc-footer">
-            <div class="tc-avatar">SW</div>
-            <div><div class="tc-name">Sue</div><div class="tc-role">Healing Numbers 22 · Numerology</div></div>
-          </div>
-        </div>
-        <div class="tc">
-          <div class="tc-stars">★★★★★</div>
-          <p class="tc-text">"Argie created something I didn't think was possible on a tight timeline — a website and funnel that genuinely feels like me. The design is warm, the copy lands, and it speaks directly to the women I work with. I've had multiple people reach out just from the site alone."</p>
-          <div class="tc-footer">
-            <div class="tc-avatar">FR</div>
-            <div><div class="tc-name">Fleur Romano</div><div class="tc-role">FleurRomano.com · Private Counselling &amp; Healing</div></div>
-          </div>
-        </div>
-        <div class="tc">
-          <div class="tc-stars">★★★★★</div>
-          <p class="tc-text">"The pixel-art funnel is unlike anything I've seen in the coaching space. Fully hand-coded, mobile-responsive, and it actually captures the game theme we were going for. My audience noticed immediately — the comments and DMs were insane when we launched."</p>
-          <div class="tc-footer">
-            <div class="tc-avatar">DX</div>
-            <div><div class="tc-name">Dexter</div><div class="tc-role">Reboot Player One · Gamified Coaching</div></div>
-          </div>
-        </div>
-
-      </div><!-- /track -->
-    </div><!-- /outer -->
-
-    <style>
-      .testi-section { padding-bottom: var(--s6); }
-      .carousel-outer {
-        overflow: hidden;
-        padding: 8px 0 32px;
-        mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-      }
-      .carousel-track {
-        display: flex;
-        gap: 20px;
-        width: max-content;
-       ation: scroll-cards 38s linear infinite;
-      }
-      .carousel-track:hover {ation-play-state: paused; }
-      @keyframes scroll-cards {
-        from { transform: translateX(0); }
-        to   { transform: translateX(-50%); }
-      }
-      .tc {
-        width: 360px;
-        flex-shrink: 0;
-        background: var(--dark-surface);
-        border: 1px solid var(--dark-rule);
-        border-radius: var(--radius-lg);
-        padding: 28px;
-        display: flex; flex-direction: column; gap: 18px;
-        transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-        cursor: default;
-      }
-      .tc:hover {
-        border-color: var(--blue);
-        transform: translateY(-4px);
-        box-shadow: 0 12px 32px rgba(37,99,235,0.15);
-      }
-      .tc-stars { color: #f59e0b; font-size: 13px; letter-spacing: 2px; }
-      .tc-text {
-        font-size: 13.5px; color: var(--dark-muted);
-        line-height: 1.8; font-style: italic; flex: 1;
-      }
-      .tc-footer { display: flex; align-items: center; gap: 12px; }
-      .tc-avatar {
-        width: 40px; height: 40px; border-radius: 50%;
-        background: var(--blue-tint); border: 1px solid var(--blue-border);
-        display: flex; align-items: center; justify-content: center;
-        font-family: var(--f-mono); font-size: 11px; font-weight: 500;
-        color: var(--blue-lt); flex-shrink: 0;
-      }
-      .tc-name { font-size: 13px; font-weight: 600; color: var(--dark-text); }
-      .tc-role { font-family: var(--f-mono); font-size: 10px; color: var(--dark-muted); margin-top: 2px; }
-    </style>
+        <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Argie built our entire operating system — funnels, Conversation AI, Voice AI, contract automation, access control, everything. The Voice AI alone replaced hours of manual calls every single week. It handles payment plans, sets due dates, sends reminders, and revokes access automatically. It just runs."</p><div class="tc-footer"><div class="tc-avatar">CN</div><div><div class="tc-name">Coach Nia</div><div class="tc-role">Legacy Builder Empire · Virtual Real Estate</div></div></div></div>
+        <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"The numerology funnel and automation Argie built changed how I run my business. Every month my clients automatically receive their Personal Month insights without me lifting a finger. The Make workflow is seamless and my clients love the personalised emails."</p><div class="tc-footer"><div class="tc-avatar">SW</div><div><div class="tc-name">Sue</div><div class="tc-role">Healing Numbers 22 · Numerology</div></div></div></div>
+        <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Argie created something I didn't think was possible on a tight timeline — a website and funnel that genuinely feels like me. The design is warm, the copy lands, and it speaks directly to the women I work with. I've had multiple people reach out just from the site alone."</p><div class="tc-footer"><div class="tc-avatar">FR</div><div><div class="tc-name">Fleur Romano</div><div class="tc-role">FleurRomano.com · Private Counselling &amp; Healing</div></div></div></div>
+        <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"The pixel-art funnel is unlike anything I've seen in the coaching space. Fully hand-coded, mobile-responsive, and it actually captures the game theme we were going for. My audience noticed immediately — the comments and DMs were insane when we launched."</p><div class="tc-footer"><div class="tc-avatar">DX</div><div><div class="tc-name">Dexter</div><div class="tc-role">Reboot Player One · Gamified Coaching</div></div></div></div>
+        <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Our credit repair funnel and website look professional and convert well. Argie built it fast, handled all revisions without complaint, and the final product was exactly what we needed to present our services to clients with confidence."</p><div class="tc-footer"><div class="tc-avatar">CW</div><div><div class="tc-name">Celeste</div><div class="tc-role">MacUnlimited Inc. · Credit Repair &amp; Funding</div></div></div></div>
+        <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Argie managed multiple WordPress sites, rebuilt landing pages, handled our blog content, and kept our LinkedIn, Facebook, and Instagram running consistently. On top of that he managed our course quizzes, assignments, pricing, discount codes, and bootcamp creation. A genuine all-rounder."</p><div class="tc-footer"><div class="tc-avatar">FB</div><div><div class="tc-name">Fabrice</div><div class="tc-role">PaniTech Academy · Pullaris · Panicomputer · LaptopsBuyers</div></div></div></div>
+        <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Argie handled everything — the funnel, the website, the ads, and social media. She understood the brand's spiritual angle right away and produced content and campaigns that felt authentic. Reliable, creative, and always proactive."</p><div class="tc-footer"><div class="tc-avatar">JV</div><div><div class="tc-name">Jada Vi</div><div class="tc-role">Jada VI · Manifestation &amp; Spirituality</div></div></div></div>
+        <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"The $500K Business Scale Accelerator funnel Argie built for us was clean, professional, and ready to go before the webinar deadline. He understood the message immediately and turned it into a high-converting opt-in page that matched our brand positioning perfectly."</p><div class="tc-footer"><div class="tc-avatar">LW</div><div><div class="tc-name">Lakeasha Williams</div><div class="tc-role">Brickhouse Unlimited Inc. · Business Scaling</div></div></div></div>
+        <!-- duplicates for seamless loop -->
+        <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Argie built our entire operating system — funnels, Conversation AI, Voice AI, contract automation, access control, everything. The Voice AI alone replaced hours of manual calls every single week. It handles payment plans, sets due dates, sends reminders, and revokes access automatically. It just runs."</p><div class="tc-footer"><div class="tc-avatar">CN</div><div><div class="tc-name">Coach Nia</div><div class="tc-role">Legacy Builder Empire · Virtual Real Estate</div></div></div></div>
+        <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"The numerology funnel and automation Argie built changed how I run my business. Every month my clients automatically receive their Personal Month insights without me lifting a finger. The Make workflow is seamless and my clients love the personalised emails."</p><div class="tc-footer"><div class="tc-avatar">SW</div><div><div class="tc-name">Sue</div><div class="tc-role">Healing Numbers 22 · Numerology</div></div></div></div>
+        <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Argie created something I didn't think was possible on a tight timeline — a website and funnel that genuinely feels like me. The design is warm, the copy lands, and it speaks directly to the women I work with. I've had multiple people reach out just from the site alone."</p><div class="tc-footer"><div class="tc-avatar">FR</div><div><div class="tc-name">Fleur Romano</div><div class="tc-role">FleurRomano.com · Private Counselling &amp; Healing</div></div></div></div>
+        <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"The pixel-art funnel is unlike anything I've seen in the coaching space. Fully hand-coded, mobile-responsive, and it actually captures the game theme we were going for. My audience noticed immediately — the comments and DMs were insane when we launched."</p><div class="tc-footer"><div class="tc-avatar">DX</div><div><div class="tc-name">Dexter</div><div class="tc-role">Reboot Player One · Gamified Coaching</div></div></div></div>
+      </div>
+    </div>
   </section>
 </main>
 <footer>
