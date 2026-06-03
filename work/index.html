@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Work — Argie Rey</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    .page-hero { background:var(--white); padding:120px 0 64px; border-bottom:1px solid var(--light-rule); position:relative; overflow:hidden; }
+    .page-hero::before { content:''; position:absolute; inset:0; background-image:linear-gradient(var(--light-rule) 1px,transparent 1px),linear-gradient(90deg,var(--light-rule) 1px,transparent 1px); background-size:52px 52px; opacity:0.45; }
+    .page-hero::after { content:''; position:absolute; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,var(--blue-glow) 0%,transparent 65%); top:-100px; right:-80px; }
+    .ph-inner { position:relative; z-index:1; }
+    .page-h1 { font-size:clamp(34px,5vw,58px); font-weight:700; letter-spacing:-0.03em; line-height:1.1; color:var(--light-text); margin-bottom:16px; }
+    .page-h1 .blue { color:var(--blue); }
+    .page-lead { font-size:16px; color:var(--light-muted); max-width:460px; line-height:1.75; }
+    .featured-section { background:var(--dark); padding:var(--s6) 0; }
+    .featured-card { display:grid; grid-template-columns:1fr 1fr; background:var(--dark-surface); border:1px solid var(--dark-rule); border-radius:var(--radius-lg); overflow:hidden; margin-top:var(--s4); }
+    .fc-left { padding:var(--s5) var(--s4); border-right:1px solid var(--dark-rule); display:flex; flex-direction:column; }
+    .fc-right { padding:var(--s4); background:var(--dark-mid); display:flex; align-items:center; justify-content:center; }
+    .feat-badge { display:inline-flex; align-items:center; gap:7px; font-family:var(--f-mono); font-size:10px; letter-spacing:0.1em; color:var(--blue-lt); border:1px solid var(--blue-border); border-radius:99px; padding:4px 12px; margin-bottom:var(--s3); width:fit-content; }
+    .feat-type { font-family:var(--f-mono); font-size:11px; color:var(--dark-muted); letter-spacing:0.06em; margin-bottom:8px; }
+    .feat-title { font-size:clamp(22px,3vw,36px); font-weight:700; letter-spacing:-0.02em; color:var(--dark-text); line-height:1.15; margin-bottom:var(--s3); }
+    .feat-desc { font-size:14px; color:var(--dark-muted); line-height:1.85; margin-bottom:var(--s3); flex:1; }
+    .feat-desc strong { color:var(--dark-text); }
+    .feat-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:var(--s3); }
+    .feat-links { display:flex; flex-direction:column; gap:5px; margin-bottom:var(--s4); }
+    .feat-link { display:flex; align-items:center; gap:8px; font-family:var(--f-mono); font-size:11px; color:var(--blue-lt); padding:8px 12px; background:var(--blue-tint); border:1px solid var(--blue-border); border-radius:var(--radius); transition:background 0.15s; text-decoration:none; }
+    .feat-link:hover { background:rgba(37,99,235,0.18); }
+    .feat-link .fl-icon { font-size:12px; }
+    .feat-link .fl-label { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .feat-link .fl-arr { color:var(--blue); flex-shrink:0; }
+    .flow-viz { width:100%; font-family:var(--f-mono); font-size:11px; }
+    .fv-header { font-size:10px; color:var(--dark-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:12px; }
+    .fv-node { display:flex; align-items:center; gap:10px; background:var(--dark-surface); border:1px solid var(--dark-rule); border-radius:var(--radius); padding:10px 12px; margin-bottom:4px; color:var(--dark-muted); transition:border-color 0.2s,color 0.2s; font-size:11px; }
+    .fv-node:hover { border-color:var(--blue); color:var(--dark-text); }
+    .fv-arr { text-align:center; color:var(--blue); font-size:13px; line-height:1; margin:1px 0 4px; }
+    .fv-sep { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue-lt); margin:12px 0 6px; opacity:0.7; }
+    .projects-section { background:var(--white); padding:var(--s6) 0; }
+    .projects-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:var(--s4); }
+    .proj-card { background:var(--off-white); border:1px solid var(--light-rule); border-radius:var(--radius-lg); padding:var(--s4); display:flex; flex-direction:column; gap:10px; transition:border-color 0.2s,box-shadow 0.2s,transform 0.2s; }
+    .proj-card:hover { border-color:var(--blue); box-shadow:var(--shadow-blue); transform:translateY(-2px); }
+    .proj-type { font-family:var(--f-mono); font-size:10px; color:var(--blue); letter-spacing:0.08em; text-transform:uppercase; }
+    .proj-title { font-size:17px; font-weight:700; color:var(--light-text); line-height:1.2; letter-spacing:-0.01em; }
+    .proj-client { font-family:var(--f-mono); font-size:10px; color:var(--light-muted); }
+    .proj-desc { font-size:13px; color:var(--light-muted); line-height:1.7; flex:1; }
+    .proj-tags { display:flex; flex-wrap:wrap; gap:5px; }
+    .proj-footer { display:flex; align-items:center; gap:12px; margin-top:4px; padding-top:14px; border-top:1px solid var(--light-rule); flex-wrap:wrap; }
+    .proj-link { font-family:var(--f-mono); font-size:11px; color:var(--blue); display:inline-flex; align-items:center; gap:5px; transition:gap 0.15s; text-decoration:none; }
+    .proj-card:hover .proj-link { gap:8px; }
+    .proj-link.muted { color:var(--light-muted); cursor:default; }
+    .testi-section { background:var(--dark); padding:var(--s6) 0; }
+
+    /* CAROUSEL */
+    .carousel-outer {
+      overflow: hidden;
+      padding: 8px 0 40px;
+      mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    }
+    .carousel-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: scroll-cards 40s linear infinite;
+    }
+    .carousel-track:hover { animation-play-state: paused; }
+    @keyframes scroll-cards {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .tc {
+      width: 360px; flex-shrink: 0;
+      background: var(--dark-surface);
+      border: 1px solid var(--dark-rule);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex; flex-direction: column; gap: 18px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+    .tc:hover { border-color: var(--blue); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(37,99,235,0.15); }
+    .tc-stars { color: #f59e0b; font-size: 14px; letter-spacing: 2px; }
+    .tc-text { font-size: 13.5px; color: var(--dark-muted); line-height: 1.8; font-style: italic; flex: 1; }
+    .tc-footer { display: flex; align-items: center; gap: 12px; }
+    .tc-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--blue-tint); border: 1px solid var(--blue-border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--f-mono); font-size: 11px; font-weight: 500;
+      color: var(--blue-lt); flex-shrink: 0;
+    }
+    .tc-name { font-size: 13px; font-weight: 600; color: var(--dark-text); }
+    .tc-role { font-family: var(--f-mono); font-size: 10px; color: var(--dark-muted); margin-top: 2px; }
+    .testi-text { font-size:14px; color:var(--dark-muted); line-height:1.8; font-style:italic; flex:1; border-left:2px solid var(--blue); padding-left:16px; }
+    .testi-name { font-size:13px; font-weight:600; color:var(--dark-text); }
+    .testi-role { font-family:var(--f-mono); font-size:10px; color:var(--dark-muted); margin-top:2px; }
+    @media (max-width:960px) {
+      .featured-card { grid-template-columns:1fr; }
+      .fc-right { display:none; }
+      .projects-grid { grid-template-columns:1fr; }
+      .testi-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">argie<span class="dot">·</span>rey</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../work/index.html" class="active">Work</a></li>
+      <li><a href="../about/index.html">About</a></li>
+      <li><a href="../contact/index.html">Contact</a></li>
+    </ul>
+    <a href="../contact/index.html" class="btn btn-nav">Hire Me</a>
+  </div>
+</nav>
+<main>
+  <section class="page-hero">
+    <div class="container ph-inner">
+      <div class="eyebrow">Portfolio</div>
+      <h1 class="page-h1">Real work.<br><span class="blue">Real results.</span></h1>
+      <p class="page-lead">Funnels live in production, automations running 24/7, and AI agents replacing hours of manual work every day.</p>
+    </div>
+  </section>
+
+  <section class="featured-section dark-section">
+    <div class="container">
+      <div class="eyebrow">Featured Client</div>
+      <div class="featured-card">
+        <div class="fc-left">
+          <div class="feat-badge"><span style="width:6px;height:6px;border-radius:50%;background:var(--blue-lt);display:inline-block;"></span>Currently Active</div>
+          <div class="feat-type">GoHighLevel · n8n · Conversation AI · Voice AI</div>
+          <h2 class="feat-title">Legacy Builder Empire</h2>
+          <p class="feat-desc">
+            A full operating system built for Coach Nia's virtual real estate education brand — not just a funnel.
+            <br><br>
+            <strong>Conversation AI</strong> that auto-nurtures every lead messaging through SMS, Facebook, and Instagram — handling the entire conversation without human involvement.
+            <br><br>
+            <strong>Voice AI</strong> that outbound-calls clients on payment plans, discusses how to split payments based on the client's own situation, sets due dates, sends automated reminders, calls again on the due date, and automatically revokes course access when the grace period ends.
+            <br><br>
+            Also built: payment-triggered contract delivery, access gated until contract is signed, daily reminder emails for unsigned agreements, Telegram bot for webinar reminders with participant count captured every 10 minutes into a Google Sheet and auto-delivered post-webinar.
+          </p>
+          <div class="feat-tags">
+            <span class="tag tag-blue">GoHighLevel</span>
+            <span class="tag tag-blue">n8n</span>
+            <span class="tag tag-blue">Conversation AI</span>
+            <span class="tag tag-blue">Voice AI</span>
+            <span class="tag">Telegram Bot</span>
+            <span class="tag">Contract Automation</span>
+            <span class="tag">Access Control</span>
+            <span class="tag">Google Sheets</span>
+            <span class="tag">Skool</span>
+          </div>
+          <div class="feat-links">
+            <a href="https://legacybuilderempire.com/join-virtual-real-estate-1211" target="_blank" rel="noopener" class="feat-link"><span class="fl-icon">🔗</span><span class="fl-label">legacybuilderempire.com/join-virtual-real-estate-1211</span><span class="fl-arr">↗</span></a>
+            <a href="https://legacybuilderempire.com/2day-summit" target="_blank" rel="noopener" class="feat-link"><span class="fl-icon">🔗</span><span class="fl-label">legacybuilderempire.com/2day-summit</span><span class="fl-arr">↗</span></a>
+            <a href="https://legacybuilderempire.com/optin-1" target="_blank" rel="noopener" class="feat-link"><span class="fl-icon">🔗</span><span class="fl-label">legacybuilderempire.com/optin-1</span><span class="fl-arr">↗</span></a>
+            <a href="https://legacybuilderempire.com/optin-2" target="_blank" rel="noopener" class="feat-link"><span class="fl-icon">🔗</span><span class="fl-label">legacybuilderempire.com/optin-2</span><span class="fl-arr">↗</span></a>
+            <a href="https://legacybuilderempire.com/starter-system-page" target="_blank" rel="noopener" class="feat-link"><span class="fl-icon">🔗</span><span class="fl-label">legacybuilderempire.com/starter-system-page</span><span class="fl-arr">↗</span></a>
+          </div>
+          <a href="../contact/index.html" class="btn btn-primary" style="align-self:flex-start;">Work With Me →</a>
+        </div>
+        <div class="fc-right">
+          <div class="flow-viz">
+            <div class="fv-header">// lbe_full_system.flow</div>
+            <div class="fv-sep">Leads &amp; Nurture</div>
+            <div class="fv-node">💬 New message via SMS / FB / IG</div>
+            <div class="fv-arr">↓</div>
+            <div class="fv-node">🤖 Conversation AI responds 24/7</div>
+            <div class="fv-sep">Payment Plans</div>
+            <div class="fv-node">💳 Client enrolled on installment</div>
+            <div class="fv-arr">↓</div>
+            <div class="fv-node">📞 Voice AI outbound call</div>
+            <div class="fv-arr">↓</div>
+            <div class="fv-node">📅 Due dates set → reminders sent</div>
+            <div class="fv-arr">↓</div>
+            <div class="fv-node">🚫 Grace expired → access revoked</div>
+            <div class="fv-sep">Contracts &amp; Access</div>
+            <div class="fv-node">✅ Payment → contract auto-sent</div>
+            <div class="fv-arr">↓</div>
+            <div class="fv-node">🔒 Unsigned → daily reminder email</div>
+            <div class="fv-arr">↓</div>
+            <div class="fv-node">🎓 Signed → course access granted</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <div class="container">
+      <div class="eyebrow">All Projects</div>
+      <div class="projects-grid" id="all-projects">
+        <div class="proj-card reveal" id="proj-macunlimited">
+          <span class="proj-type">GHL · Funnels</span>
+          <h3 class="proj-title">MacUnlimited Inc.</h3>
+          <span class="proj-client">Credit Repair &amp; Funding</span>
+          <p class="proj-desc">Sales funnels and full website built in GoHighLevel for a credit repair and business funding company. Complete lead capture to offer flow.</p>
+          <div class="proj-tags"><span class="tag tag-light">GoHighLevel</span><span class="tag tag-light">Sales Funnel</span><span class="tag tag-light">Website</span></div>
+          <div class="proj-footer">
+            <a href="https://macunlimitedinc.com/credit-repair-and-funding" target="_blank" rel="noopener" class="proj-link">Funnel ↗</a>
+            <a href="https://macunlimitedinc.com/" target="_blank" rel="noopener" class="proj-link">Website ↗</a>
+          </div>
+        </div>
+        <div class="proj-card reveal" id="proj-brickhouse">
+          <span class="proj-type">GHL · Webinar Funnel</span>
+          <h3 class="proj-title">Brickhouse Unlimited Inc.</h3>
+          <span class="proj-client">Business Scaling &amp; Leadership</span>
+          <p class="proj-desc">Webinar opt-in funnel built in GoHighLevel for Lakeasha Williams — The Leadership Authority Queen. Funnel promotes her $500K Business Scale Accelerator, targeting entrepreneurs looking to eliminate operational chaos and scale with structure.</p>
+          <div class="proj-tags"><span class="tag tag-light">GoHighLevel</span><span class="tag tag-light">Webinar Funnel</span><span class="tag tag-light">Business Coaching</span></div>
+          <div class="proj-footer">
+            <a href="https://go.brickhouseunlimited.com/optin" target="_blank" rel="noopener" class="proj-link">View Live ↗</a>
+          </div>
+        </div>
+
+        <div class="proj-card reveal" id="proj-reboot">
+          <span class="proj-type">Custom HTML/CSS · Systeme.io</span>
+          <h3 class="proj-title">Reboot Player One</h3>
+          <span class="proj-client">Gamified Coaching Funnel</span>
+          <p class="proj-desc">Fully custom pixel-art themed sales funnel hand-coded in HTML and CSS. Gamified UI, character cards, retro styling, mobile-responsive, and a post-payment confirmation flow. Built inside Systeme.io using custom code injection.</p>
+          <div class="proj-tags"><span class="tag tag-light">HTML / CSS</span><span class="tag tag-light">CSS Animation</span><span class="tag tag-light">Systeme.io</span></div>
+          <div class="proj-footer">
+            <a href="https://www.rebootplayerone.com/" target="_blank" rel="noopener" class="proj-link">View Live ↗</a>
+          </div>
+        </div>
+        <div class="proj-card reveal" id="proj-healing">
+          <span class="proj-type">Make (Integromat) · Funnel · Website</span>
+          <h3 class="proj-title">Healing Numbers 22</h3>
+          <span class="proj-client">Numerology &amp; Personal Readings</span>
+          <p class="proj-desc">Sales funnel, readings page, and full website for a numerology brand. Built a Make automation that monthly recalculates each client's Personal Month and Personal Year using a custom formula, then automatically sends personalised email reminders so clients always know their current numerology cycle.</p>
+          <div class="proj-tags"><span class="tag tag-light">Make (Integromat)</span><span class="tag tag-light">Email Automation</span><span class="tag tag-light">Sales Funnel</span><span class="tag tag-light">Website</span></div>
+          <div class="proj-footer">
+            <a href="https://join.healingnumbers22.com/" target="_blank" rel="noopener" class="proj-link">Funnel ↗</a>
+            <a href="https://readings.healingnumbers22.com/" target="_blank" rel="noopener" class="proj-link">Readings ↗</a>
+            <a href="https://www.healingnumbers22.com/" target="_blank" rel="noopener" class="proj-link">Website ↗</a>
+          </div>
+        </div>
+        <div class="proj-card reveal">
+          <span class="proj-type">Website · Sales Funnel</span>
+          <h3 class="proj-title">Fleur Romano</h3>
+          <span class="proj-client">Private Counselling &amp; Healing Group Spaces</span>
+          <p class="proj-desc">Full website and sales funnel for a trauma-informed counsellor and coach. The brand centres on private counselling and healing group spaces for women — requiring a warm, grounded, trust-forward design that reflects the sensitivity of the work.</p>
+          <div class="proj-tags"><span class="tag tag-light">Website</span><span class="tag tag-light">Sales Funnel</span><span class="tag tag-light">Counselling</span><span class="tag tag-light">Coaching</span></div>
+          <div class="proj-footer">
+            <a href="https://www.fleurromano.com/" target="_blank" rel="noopener" class="proj-link">View Live ↗</a>
+          </div>
+        </div>
+        <div class="proj-card reveal">
+          <span class="proj-type">Funnels · Ads · Social</span>
+          <h3 class="proj-title">Jada VI</h3>
+          <span class="proj-client">Manifestation / Spirituality</span>
+          <p class="proj-desc">Full-scope management across sales funnels, Meta ad campaigns, website, and social media channels. Content strategy and paid traffic for a spirituality and manifestation brand.</p>
+          <div class="proj-tags"><span class="tag tag-light">Meta Ads</span><span class="tag tag-light">Funnels</span><span class="tag tag-light">Social Media</span></div>
+          <div class="proj-footer"><span class="proj-link muted">Completed</span></div>
+        </div>
+        <div class="proj-card reveal">
+          <span class="proj-type">WordPress · LMS · LinkedIn</span>
+          <h3 class="proj-title">Pani Computer &amp; Pullaris</h3>
+          <span class="proj-client">Cybersecurity Courses — US</span>
+          <p class="proj-desc">Multiple WordPress landing pages, website redesigns, blog management, Google Business courses, quiz and assignment management, course pricing, discounts, bundles, and online bootcamp creation. Heavy LinkedIn management + FB, IG, X.</p>
+          <div class="proj-tags"><span class="tag tag-light">WordPress</span><span class="tag tag-light">LMS</span><span class="tag tag-light">LinkedIn</span><span class="tag tag-light">Blog</span></div>
+          <div class="proj-footer">
+            <a href="https://pullaris.com" target="_blank" rel="noopener" class="proj-link">pullaris.com ↗</a>
+            <a href="https://panicomputer.com" target="_blank" rel="noopener" class="proj-link">panicomputer.com ↗</a>
+          </div>
+        </div>
+
+        <div class="proj-card reveal">
+          <span class="proj-type">WordPress · Course Management · Social Media</span>
+          <h3 class="proj-title">PaniTech Academy</h3>
+          <span class="proj-client">Cybersecurity & IT Training — US</span>
+          <p class="proj-desc">Managed the full digital presence for a US-based cybersecurity academy. Built and maintained WordPress landing pages for CompTIA, SOC Analyst, and CySA+ courses. Handled Google Business profile, course quizzes and assignments, pricing changes, discount codes, bundle creation, and online bootcamp setup. Also ran social media across LinkedIn, Facebook, Instagram, and X.</p>
+          <div class="proj-tags"><span class="tag tag-light">WordPress</span><span class="tag tag-light">Course Management</span><span class="tag tag-light">LinkedIn</span><span class="tag tag-light">Google Business</span><span class="tag tag-light">Social Media</span></div>
+          <div class="proj-footer">
+            <a href="https://panitechacademy.com" target="_blank" rel="noopener" class="proj-link">panitechacademy.com ↗</a>
+            <a href="https://laptopsbuyers.com" target="_blank" rel="noopener" class="proj-link">laptopsbuyers.com ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="testi-section dark-section">
+    <div class="container" style="padding-bottom:0;">
+      <div class="eyebrow">Client Feedback</div>
+      <h2 style="font-size:clamp(22px,3vw,36px);font-weight:700;letter-spacing:-0.03em;color:var(--dark-text);margin-bottom:48px;">What clients say</h2>
+    </div>
+
+    <!-- CAROUSEL TRACK -->
+    <div class="carousel-outer">
+      <div class="carousel-track" id="carouselTrack">
+
+        <!-- CARD 1 -->
+        <div class="tc">
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-text">"Argie built our entire operating system — funnels, Conversation AI, Voice AI, contract automation, access control, everything. The Voice AI alone replaced hours of manual calls every single week. It handles payment plans, sets due dates, sends reminders, and revokes access automatically. It just runs."</p>
+          <div class="tc-footer">
+            <div class="tc-avatar">CN</div>
+            <div><div class="tc-name">Coach Nia</div><div class="tc-role">Legacy Builder Empire · Virtual Real Estate</div></div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="tc">
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-text">"The numerology funnel and automation Argie built changed how I run my business. Every month my clients automatically receive their Personal Month insights without me lifting a finger. The Make workflow is seamless and my clients love the personalised emails."</p>
+          <div class="tc-footer">
+            <div class="tc-avatar">SW</div>
+            <div><div class="tc-name">Sue</div><div class="tc-role">Healing Numbers 22 · Numerology</div></div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="tc">
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-text">"Argie created something I didn't think was possible on a tight timeline — a website and funnel that genuinely feels like me. The design is warm, the copy lands, and it speaks directly to the women I work with. I've had multiple people reach out just from the site alone."</p>
+          <div class="tc-footer">
+            <div class="tc-avatar">FR</div>
+            <div><div class="tc-name">Fleur Romano</div><div class="tc-role">FleurRomano.com · Private Counselling &amp; Healing</div></div>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="tc">
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-text">"The pixel-art funnel is unlike anything I've seen in the coaching space. Fully hand-coded, mobile-responsive, and it actually captures the game theme we were going for. My audience noticed immediately — the comments and DMs were insane when we launched."</p>
+          <div class="tc-footer">
+            <div class="tc-avatar">DX</div>
+            <div><div class="tc-name">Dexter</div><div class="tc-role">Reboot Player One · Gamified Coaching</div></div>
+          </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="tc">
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-text">"Our credit repair funnel and website look professional and convert well. Argie built it fast, handled all revisions without complaint, and the final product was exactly what we needed to present our services to clients with confidence."</p>
+          <div class="tc-footer">
+            <div class="tc-avatar">CW</div>
+            <div><div class="tc-name">Celeste</div><div class="tc-role">MacUnlimited Inc. · Credit Repair &amp; Funding</div></div>
+          </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="tc">
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-text">"Argie managed multiple WordPress sites, rebuilt landing pages, handled our blog content, and kept our LinkedIn, Facebook, and Instagram running consistently. On top of that he managed our course quizzes, assignments, pricing, discount codes, and bootcamp creation. A genuine all-rounder."</p>
+          <div class="tc-footer">
+            <div class="tc-avatar">FB</div>
+            <div><div class="tc-name">Fabrice</div><div class="tc-role">PaniTech Academy · Pullaris · Panicomputer · LaptopsBuyers</div></div>
+          </div>
+        </div>
+
+        <!-- CARD 7 -->
+        <div class="tc">
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-text">"Argie handled everything — the funnel, the website, the ads, and social media. She understood the brand's spiritual angle right away and produced content and campaigns that felt authentic. Reliable, creative, and always proactive."</p>
+          <div class="tc-footer">
+            <div class="tc-avatar">JV</div>
+            <div><div class="tc-name">Jada Vi</div><div class="tc-role">Jada VI · Manifestation &amp; Spirituality</div></div>
+          </div>
+        </div>
+
+        <!-- CARD 8 -->
+        <div class="tc">
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-text">"The $500K Business Scale Accelerator funnel Argie built for us was clean, professional, and ready to go before the webinar deadline. He understood the message immediately and turned it into a high-converting opt-in page that matched our brand positioning perfectly."</p>
+          <div class="tc-footer">
+            <div class="tc-avatar">LW</div>
+            <div><div class="tc-name">Lakeasha Williams</div><div class="tc-role">Brickhouse Unlimited Inc. · Business Scaling</div></div>
+          </div>
+        </div>
+
+        <!-- DUPLICATES for seamless loop -->
+        <div class="tc">
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-text">"Argie built our entire operating system — funnels, Conversation AI, Voice AI, contract automation, access control, everything. The Voice AI alone replaced hours of manual calls every single week. It handles payment plans, sets due dates, sends reminders, and revokes access automatically. It just runs."</p>
+          <div class="tc-footer">
+            <div class="tc-avatar">CN</div>
+            <div><div class="tc-name">Coach Nia</div><div class="tc-role">Legacy Builder Empire · Virtual Real Estate</div></div>
+          </div>
+        </div>
+        <div class="tc">
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-text">"The numerology funnel and automation Argie built changed how I run my business. Every month my clients automatically receive their Personal Month insights without me lifting a finger. The Make workflow is seamless and my clients love the personalised emails."</p>
+          <div class="tc-footer">
+            <div class="tc-avatar">SW</div>
+            <div><div class="tc-name">Sue</div><div class="tc-role">Healing Numbers 22 · Numerology</div></div>
+          </div>
+        </div>
+        <div class="tc">
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-text">"Argie created something I didn't think was possible on a tight timeline — a website and funnel that genuinely feels like me. The design is warm, the copy lands, and it speaks directly to the women I work with. I've had multiple people reach out just from the site alone."</p>
+          <div class="tc-footer">
+            <div class="tc-avatar">FR</div>
+            <div><div class="tc-name">Fleur Romano</div><div class="tc-role">FleurRomano.com · Private Counselling &amp; Healing</div></div>
+          </div>
+        </div>
+        <div class="tc">
+          <div class="tc-stars">★★★★★</div>
+          <p class="tc-text">"The pixel-art funnel is unlike anything I've seen in the coaching space. Fully hand-coded, mobile-responsive, and it actually captures the game theme we were going for. My audience noticed immediately — the comments and DMs were insane when we launched."</p>
+          <div class="tc-footer">
+            <div class="tc-avatar">DX</div>
+            <div><div class="tc-name">Dexter</div><div class="tc-role">Reboot Player One · Gamified Coaching</div></div>
+          </div>
+        </div>
+
+      </div><!-- /track -->
+    </div><!-- /outer -->
+
+    <style>
+      .testi-section { padding-bottom: var(--s6); }
+      .carousel-outer {
+        overflow: hidden;
+        padding: 8px 0 32px;
+        mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      }
+      .carousel-track {
+        display: flex;
+        gap: 20px;
+        width: max-content;
+       ation: scroll-cards 38s linear infinite;
+      }
+      .carousel-track:hover {ation-play-state: paused; }
+      @keyframes scroll-cards {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+      }
+      .tc {
+        width: 360px;
+        flex-shrink: 0;
+        background: var(--dark-surface);
+        border: 1px solid var(--dark-rule);
+        border-radius: var(--radius-lg);
+        padding: 28px;
+        display: flex; flex-direction: column; gap: 18px;
+        transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        cursor: default;
+      }
+      .tc:hover {
+        border-color: var(--blue);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(37,99,235,0.15);
+      }
+      .tc-stars { color: #f59e0b; font-size: 13px; letter-spacing: 2px; }
+      .tc-text {
+        font-size: 13.5px; color: var(--dark-muted);
+        line-height: 1.8; font-style: italic; flex: 1;
+      }
+      .tc-footer { display: flex; align-items: center; gap: 12px; }
+      .tc-avatar {
+        width: 40px; height: 40px; border-radius: 50%;
+        background: var(--blue-tint); border: 1px solid var(--blue-border);
+        display: flex; align-items: center; justify-content: center;
+        font-family: var(--f-mono); font-size: 11px; font-weight: 500;
+        color: var(--blue-lt); flex-shrink: 0;
+      }
+      .tc-name { font-size: 13px; font-weight: 600; color: var(--dark-text); }
+      .tc-role { font-family: var(--f-mono); font-size: 10px; color: var(--dark-muted); margin-top: 2px; }
+    </style>
+  </section>
+</main>
+<footer>
+  <div class="footer-inner">
+    <span class="foot-copy">&copy; 2026 Argie Rey</span>
+    <div class="foot-links">
+      <a href="../index.html">Home</a><a href="../about/index.html">About</a><a href="../contact/index.html">Contact</a><a href="mailto:reyargieee@gmail.com">reyargieee@gmail.com</a>
+    </div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

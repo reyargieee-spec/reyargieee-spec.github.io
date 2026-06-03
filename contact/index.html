@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Argie Rey</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    /* LIGHT HERO */
+    .page-hero {
+      background: var(--white);
+      padding: 120px 0 64px;
+      border-bottom: 1px solid var(--light-rule);
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--light-rule) 1px, transparent 1px),
+        linear-gradient(90deg, var(--light-rule) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.5;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%);
+      top: -60px; right: -60px;
+    }
+    .ph-inner { position: relative; z-index: 1; }
+    .page-h1 {
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 700; letter-spacing: -0.03em;
+      line-height: 1.1; color: var(--light-text);
+      margin-bottom: var(--s3);
+    }
+    .page-h1 .blue { color: var(--blue); }
+    .page-lead { font-size: 16px; color: var(--light-muted); max-width: 460px; line-height: 1.75; }
+
+    /* CONTACT BODY — DARK */
+    .contact-section { background: var(--dark); padding: var(--s6) 0; }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 360px;
+      gap: var(--s5); align-items: start;
+    }
+
+    /* FORM */
+    .form-wrap {}
+    .form-group { margin-bottom: var(--s3); }
+    .form-label {
+      display: block;
+      font-family: var(--f-mono); font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--dark-muted); margin-bottom: 8px;
+    }
+    .form-label .req { color: var(--blue); }
+    .form-control {
+      width: 100%;
+      background: var(--dark-surface);
+      border: 1px solid var(--dark-rule);
+      border-radius: var(--radius);
+      color: var(--dark-text);
+      font-family: var(--f-sans); font-size: 14px;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.15s;
+      appearance: none;
+    }
+    .form-control:focus { border-color: var(--blue); }
+    .form-control::placeholder { color: var(--dark-muted); }
+    textarea.form-control { resize: vertical; min-height: 130px; }
+    select.form-control { cursor: pointer; }
+    select.form-control option { background: var(--dark-mid); }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); }
+
+    .form-submit {
+      width: 100%;
+      background: var(--blue);
+      color: #fff;
+      font-family: var(--f-sans); font-weight: 600; font-size: 15px;
+      padding: 14px 24px;
+      border: none; border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.15s;
+      margin-top: var(--s1);
+    }
+    .form-submit:hover { background: var(--blue-lt); }
+
+    /* SIDEBAR */
+    .contact-sidebar { display: flex; flex-direction: column; gap: var(--s3); }
+
+    .info-card {
+      background: var(--dark-surface);
+      border: 1px solid var(--dark-rule);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .ic-header {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--dark-rule);
+      font-family: var(--f-mono); font-size: 10px;
+      color: var(--dark-muted); letter-spacing: 0.1em;
+    }
+    .ic-row {
+      display: flex; flex-direction: column;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--dark-rule);
+      font-family: var(--f-mono); font-size: 12px;
+      gap: 3px;
+    }
+    .ic-row:last-child { border-bottom: none; }
+    .ic-key { font-size: 10px; color: var(--dark-muted); letter-spacing: 0.08em; }
+    .ic-val { color: var(--dark-text); }
+    .ic-val a { color: var(--blue-lt); }
+    .ic-val.green { color: #4ade80; }
+
+    /* Availability */
+    .avail-card {
+      background: var(--dark-surface);
+      border: 1px solid var(--dark-rule);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .avail-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--dark-rule);
+      font-family: var(--f-mono); font-size: 11px;
+    }
+    .avail-row:last-child { border-bottom: none; }
+    .avail-service { color: var(--dark-muted); }
+    .badge-open    { background: rgba(74,222,128,0.1); color: #4ade80; border: 1px solid rgba(74,222,128,0.25); border-radius: 99px; padding: 2px 10px; font-size: 10px; }
+    .badge-limited { background: rgba(251,191,36,0.1); color: #fbbf24; border: 1px solid rgba(251,191,36,0.25); border-radius: 99px; padding: 2px 10px; font-size: 10px; }
+
+    /* FAQ — LIGHT */
+    .faq-section { background: var(--white); padding: var(--s6) 0; border-top: 1px solid var(--light-rule); }
+    .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s3); margin-top: var(--s4); }
+    .faq-card {
+      background: var(--off-white);
+      border: 1px solid var(--light-rule);
+      border-radius: var(--radius);
+      padding: var(--s4);
+      transition: border-color 0.15s;
+    }
+    .faq-card:hover { border-color: var(--blue); }
+    .faq-q { font-size: 14px; font-weight: 600; color: var(--light-text); margin-bottom: var(--s2); }
+    .faq-a { font-size: 13px; color: var(--light-muted); line-height: 1.75; }
+
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">argie<span class="dot">·</span>rey</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../work/index.html">Work</a></li>
+      <li><a href="../about/index.html">About</a></li>
+      <li><a href="../contact/index.html" class="active">Contact</a></li>
+      <li><a href="../contact/index.html" class="btn btn-nav">Hire Me</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <!-- HERO — LIGHT -->
+  <section class="page-hero">
+    <div class="container ph-inner">
+      <div class="section-eyebrow">Get In Touch</div>
+      <h1 class="page-h1">Let's build<br>something <span class="blue">useful.</span></h1>
+      <p class="page-lead">Describe the problem, the tools you're using, and what success looks like. I'll tell you exactly how I can help.</p>
+    </div>
+  </section>
+
+  <!-- FORM + INFO — DARK -->
+  <section class="contact-section dark-section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- FORM -->
+        <div class="form-wrap">
+          <div class="section-eyebrow" style="margin-bottom:var(--s4);">Send a Message</div>
+          <form action="https://formspree.io/f/mvznpwgp" method="POST" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Name <span class="req">*</span></label>
+                <input type="text" class="form-control" placeholder="Your name" name="name" required/>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email <span class="req">*</span></label>
+                <input type="email" class="form-control" placeholder="your@email.com" name="email" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Service</label>
+              <select class="form-control" name="service">
+                <option value="">What do you need?</option>
+                <option>Workflow Automation (n8n)</option>
+                <option>AI Integration</option>
+                <option>Funnel / Landing Page Build</option>
+                <option>Email Marketing System</option>
+                <option>Systems Audit & Strategy</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Budget</label>
+              <select class="form-control" name="budget">
+                <option value="">Rough range...</option>
+                <option>Under $500</option>
+                <option>$500 – $1,500</option>
+                <option>$1,500 – $5,000</option>
+                <option>$5,000+</option>
+                <option>Let's discuss</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Project Details <span class="req">*</span></label>
+              <textarea class="form-control" name="message" placeholder="What's the problem you're trying to solve? What tools are you using? What does success look like?" required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message →</button>
+          </form>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="contact-sidebar">
+          <div class="info-card">
+            <div class="ic-header">// contact_info.json</div>
+            <div class="ic-row">
+              <span class="ic-key">email</span>
+              <span class="ic-val"><a href="mailto:reyargieee@gmail.com">reyargieee@gmail.com</a></span>
+            </div>
+            <div class="ic-row">
+              <span class="ic-key">whatsapp</span>
+              <span class="ic-val">+63 970 521 2413</span>
+            </div>
+            <div class="ic-row">
+              <span class="ic-key">location</span>
+              <span class="ic-val">Quezon City, Philippines</span>
+            </div>
+            <div class="ic-row">
+              <span class="ic-key">timezone</span>
+              <span class="ic-val">UTC+8 (Philippine Time)</span>
+            </div>
+            <div class="ic-row">
+              <span class="ic-key">response_time</span>
+              <span class="ic-val">Within 24 hours</span>
+            </div>
+            <div class="ic-row">
+              <span class="ic-key">status</span>
+              <span class="ic-val green">available</span>
+            </div>
+          </div>
+
+          <div class="avail-card">
+            <div class="ic-header">// availability · june_2026</div>
+            <div class="avail-row">
+              <span class="avail-service">Workflow Automation</span>
+              <span class="badge-open">Open</span>
+            </div>
+            <div class="avail-row">
+              <span class="avail-service">Funnel Builds</span>
+              <span class="badge-open">Open</span>
+            </div>
+            <div class="avail-row">
+              <span class="avail-service">AI Integration</span>
+              <span class="badge-limited">Limited</span>
+            </div>
+            <div class="avail-row">
+              <span class="avail-service">Retainer</span>
+              <span class="badge-open">Open</span>
+            </div>
+          </div>
+
+          <div style="background:var(--dark-surface);border:1px solid var(--dark-rule);border-radius:var(--radius);padding:var(--s3);">
+            <div style="font-family:var(--f-mono);font-size:10px;color:var(--dark-muted);margin-bottom:10px;letter-spacing:0.1em;">// note</div>
+            <p style="font-size:13px;color:var(--dark-muted);line-height:1.7;">I respond within <span style="color:var(--blue-lt);">24 hours</span> on business days. Mention urgency in your message and I'll prioritize the call.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ — LIGHT -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-eyebrow">FAQ</div>
+      <h2 style="font-size:clamp(24px,3vw,38px);font-weight:700;letter-spacing:-0.03em;color:var(--light-text);margin-bottom:0;">Common questions</h2>
+      <div class="faq-grid">
+        <div class="faq-card reveal">
+          <div class="faq-q">Do you work with international clients?</div>
+          <p class="faq-a">Yes — 100% remote. I work with clients in the US, Canada, Australia, and Europe. I'm flexible on meeting times to suit different timezones.</p>
+        </div>
+        <div class="faq-card reveal">
+          <div class="faq-q">What does a typical project look like?</div>
+          <p class="faq-a">Discovery call → written proposal with scope and timeline → staged delivery with regular check-ins. You see progress throughout — not just a final drop.</p>
+        </div>
+        <div class="faq-card reveal">
+          <div class="faq-q">Do I need to be technical?</div>
+          <p class="faq-a">Not at all. You describe the problem and the outcome. I handle the how. Everything is documented so your team can understand and manage it.</p>
+        </div>
+        <div class="faq-card reveal">
+          <div class="faq-q">How do you charge?</div>
+          <p class="faq-a">Fixed-price for defined scopes, hourly or retainer for ongoing work. We'll figure out what makes sense for your situation on the first call.</p>
+        </div>
+        <div class="faq-card reveal">
+          <div class="faq-q">Do you offer support after launch?</div>
+          <p class="faq-a">Yes. Most projects include a post-launch support window. Monthly retainers are available for ongoing maintenance and new workflow builds.</p>
+        </div>
+        <div class="faq-card reveal">
+          <div class="faq-q">Not sure what you need?</div>
+          <p class="faq-a">That's what the Systems Audit is for. I map your stack, find the bottlenecks, and deliver a prioritized roadmap — so you know exactly what to fix first.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="foot-copy">&copy; 2026 Argie Rey</span>
+    <div class="foot-links">
+      <a href="../index.html">Home</a>
+      <a href="../work/index.html">Work</a>
+      <a href="../about/index.html">About</a>
+      <a href="mailto:reyargieee@gmail.com">reyargieee@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .form-success {
+    display: none;
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 16px; text-align: center;
+    padding: var(--s5) var(--s4);
+    background: var(--dark-surface);
+    border: 1px solid rgba(34,197,94,0.3);
+    border-radius: var(--radius-lg);
+  }
+  .form-success.show { display: flex; }
+  .form-success .fs-icon { font-size: 40px; }
+  .form-success h3 { font-size: 20px; font-weight: 700; color: var(--dark-text); }
+  .form-success p { font-size: 14px; color: var(--dark-muted); line-height: 1.7; max-width: 360px; }
+</style>
+
+<script src="../js/main.js"></script>
+<script>
+  const form = document.getElementById('contactForm');
+  const successBox = document.createElement('div');
+  successBox.className = 'form-success';
+  successBox.innerHTML = `
+    <div class="fs-icon">✅</div>
+    <h3>Message sent!</h3>
+    <p>Thanks for reaching out. I'll get back to you within 24 hours at the email you provided.</p>
+  `;
+  form.parentNode.insertBefore(successBox, form.nextSibling);
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.form-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        successBox.classList.add('show');
+      } else {
+        btn.textContent = 'Something went wrong — try emailing directly';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Something went wrong — try emailing directly';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
