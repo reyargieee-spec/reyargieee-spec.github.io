@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Argie Rey — Automation & Systems Specialist</title>
+  <title>Argie Rey — GoHighLevel & Automation Systems Specialist</title>
+  <meta name="description" content="GoHighLevel and automation systems specialist. I design and build CRM pipelines, GHL workflows, n8n and Make automations, AI agents and integrations for coaches, agencies and service businesses."/>
   <link rel="stylesheet" href="css/style.css"/>
   <style>
     .hero-section {
@@ -113,7 +114,22 @@
     .ri-arrow { color: var(--light-muted); font-size: 16px; transition: color 0.15s, transform 0.15s; flex-shrink: 0; }
     .recent-item:hover .ri-arrow { color: var(--blue); transform: translateX(3px); }
 
+    .who-section { background:var(--white); border-bottom:1px solid var(--light-rule); }
+    .who-inner { display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding-top:22px; padding-bottom:22px; }
+    .who-lbl { font-family:var(--f-mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--light-muted); margin-right:6px; }
+    .who-chip { font-size:13px; color:var(--light-text); background:var(--off-white); border:1px solid var(--light-rule); border-radius:99px; padding:6px 13px; }
+    .cases-section { background:var(--white); padding:var(--s6) 0; border-bottom:1px solid var(--light-rule); }
+    .cases-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:var(--s4); }
+    .case { display:flex; flex-direction:column; gap:10px; padding:24px; background:var(--off-white); border:1px solid var(--light-rule); border-radius:var(--radius-lg); text-decoration:none; color:inherit; transition:border-color .2s, box-shadow .2s, transform .2s; }
+    .case:hover { border-color:var(--blue); box-shadow:var(--shadow-blue); transform:translateY(-2px); }
+    .case-tag { font-family:var(--f-mono); font-size:10px; color:var(--blue); letter-spacing:.06em; text-transform:uppercase; }
+    .case-title { font-size:18px; font-weight:700; color:var(--light-text); line-height:1.25; letter-spacing:-0.01em; }
+    .case-row { font-size:13px; color:var(--light-muted); line-height:1.65; }
+    .case-row b { display:block; font-family:var(--f-mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--light-text); margin-bottom:2px; }
+    .offer-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:var(--s4); }
+    .offer { background:var(--dark-surface); border:1px solid var(--blue-border); border-radius:var(--radius-lg); padding:24px; }
     @media (max-width: 960px) {
+      .cases-grid, .offer-grid { grid-template-columns:1fr; }
       .hero-inner { grid-template-columns: 1fr; }
       .code-card { display: none; }
       .stats-inner { grid-template-columns: repeat(2,1fr); }
@@ -135,7 +151,7 @@
       <li><a href="about/index.html">About</a></li>
       <li><a href="contact/index.html">Contact</a></li>
     </ul>
-    <a href="contact/index.html" class="btn btn-nav">Hire Me</a>
+    <a href="contact/index.html" class="btn btn-nav">Book a Call</a>
   </div>
 </nav>
 <main>
@@ -143,34 +159,33 @@
     <div class="container">
       <div class="hero-inner">
         <div>
-          <div class="hero-kicker reveal d1"><span class="status-dot"></span>Available for projects · Philippines / Remote</div>
-          <h1 class="hero-h1 reveal d2">I build systems<br>that <span class="blue">automate</span><br>your <span class="thin">business.</span></h1>
-          <p class="hero-desc reveal d3">Sales funnels, n8n and GHL automations, AI agents, and custom apps — built for online businesses that are done doing things manually.</p>
+          <div class="hero-kicker reveal d1"><span class="status-dot"></span>GoHighLevel &amp; Automation Systems Specialist</div>
+          <h1 class="hero-h1 reveal d2">I build the <span class="blue">GoHighLevel</span><br>systems that run<br><span class="thin">your business.</span></h1>
+          <p class="hero-desc reveal d3">CRM architecture, pipelines, workflows, AI agents and integrations for coaches, agencies and service businesses — designed, built, tested and documented so they keep running without you.</p>
           <div class="hero-actions reveal d4">
-            <a href="work/index.html" class="btn btn-primary">View My Work →</a>
-            <a href="contact/index.html" class="btn btn-secondary">Start a Project</a>
+            <a href="contact/index.html" class="btn btn-primary">Book a Systems Audit →</a>
+            <a href="work/index.html#automation-library" class="btn btn-secondary">See 52 Live Systems</a>
           </div>
         </div>
         <div class="code-card reveal d3">
           <div class="cc-bar">
             <div class="cc-dots"><div class="cc-dot r"></div><div class="cc-dot y"></div><div class="cc-dot g"></div></div>
-            <span class="cc-filename">lbe_ai_system.n8n.js</span>
+            <span class="cc-filename">masterclass_attendance.workflow</span>
           </div>
           <div class="cc-body">
-            <div class="ln"><span class="lnum">1</span><span><span class="cm">// LBE: AI agents + access control</span></span></div>
+            <div class="ln"><span class="lnum">1</span><span><span class="cm">// Zoom → Worker → n8n → GoHighLevel</span></span></div>
             <div class="ln"><span class="lnum">2</span><span></span></div>
-            <div class="ln"><span class="lnum">3</span><span><span class="kw">const</span> <span class="fn">onNewLead</span> = <span class="kw">async</span> (msg) => {</span></div>
-            <div class="ln"><span class="lnum">4</span><span>&nbsp;&nbsp;<span class="kw">const</span> reply = <span class="kw">await</span> <span class="fn">conversationAI</span>(msg);</span></div>
-            <div class="ln"><span class="lnum">5</span><span>&nbsp;&nbsp;<span class="fn">sms.send</span>(reply); <span class="fn">ig.send</span>(reply);</span></div>
-            <div class="ln"><span class="lnum">6</span><span>};</span></div>
-            <div class="ln"><span class="lnum">7</span><span></span></div>
-            <div class="ln"><span class="lnum">8</span><span><span class="kw">const</span> <span class="fn">onInstallment</span> = <span class="kw">async</span> (c) => {</span></div>
-            <div class="ln"><span class="lnum">9</span><span>&nbsp;&nbsp;<span class="kw">await</span> <span class="fn">voiceAI.call</span>(c.phone);</span></div>
-            <div class="ln"><span class="lnum">10</span><span>&nbsp;&nbsp;<span class="fn">schedule</span>(c.dueDate, <span class="str">'reminder'</span>);</span></div>
-            <div class="ln"><span class="lnum">11</span><span>};</span></div>
-            <div class="ln"><span class="lnum">12</span><span></span></div>
-            <div class="ln"><span class="lnum">13</span><span><span class="fn">trigger</span>.<span class="fn">on</span>(<span class="str">'grace_period_end'</span>,</span></div>
-            <div class="ln"><span class="lnum">14</span><span>&nbsp;&nbsp;<span class="fn">revokeAccess</span>); <span class="cursor"></span></span></div>
+            <div class="ln"><span class="lnum">3</span><span><span class="fn">zoom</span>.<span class="fn">on</span>(<span class="str">'meeting.ended'</span>, <span class="kw">async</span> (m) => {</span></div>
+            <div class="ln"><span class="lnum">4</span><span>&nbsp;&nbsp;<span class="kw">const</span> people = <span class="kw">await</span> <span class="fn">report</span>(m.id);</span></div>
+            <div class="ln"><span class="lnum">5</span><span>&nbsp;&nbsp;<span class="kw">for</span> (<span class="kw">const</span> p <span class="kw">of</span> <span class="fn">dedupe</span>(people)) {</span></div>
+            <div class="ln"><span class="lnum">6</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">await</span> <span class="fn">ghl.upsert</span>(p.email);</span></div>
+            <div class="ln"><span class="lnum">7</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">ghl.tag</span>(p, <span class="str">'webinar:attended'</span>);</span></div>
+            <div class="ln"><span class="lnum">8</span><span>&nbsp;&nbsp;}</span></div>
+            <div class="ln"><span class="lnum">9</span><span>});</span></div>
+            <div class="ln"><span class="lnum">10</span><span></span></div>
+            <div class="ln"><span class="lnum">11</span><span><span class="cm">// tag fires follow-up workflows</span></span></div>
+            <div class="ln"><span class="lnum">12</span><span><span class="fn">workflow</span>(<span class="str">'attended'</span>).<span class="fn">run</span>();</span></div>
+            <div class="ln"><span class="lnum">13</span><span><span class="fn">sheets</span>.<span class="fn">log</span>(); <span class="fn">telegram</span>.<span class="fn">ping</span>(); <span class="cursor"></span></span></div>
           </div>
         </div>
       </div>
@@ -179,25 +194,69 @@
 
   <div class="stats-bar">
     <div class="stats-inner">
-      <div class="stat"><div class="stat-num">3<span>+</span></div><div class="stat-label">Years experience</div></div>
-      <div class="stat"><div class="stat-num">10<span>+</span></div><div class="stat-label">Clients served</div></div>
-      <div class="stat"><div class="stat-num">50<span>+</span></div><div class="stat-label">Workflows built</div></div>
-      <div class="stat"><div class="stat-num">100<span>%</span></div><div class="stat-label">Remote-ready</div></div>
+      <div class="stat"><div class="stat-num">52</div><div class="stat-label">Workflows &amp; agents documented</div></div>
+      <div class="stat"><div class="stat-num">27</div><div class="stat-label">Running live in production</div></div>
+      <div class="stat"><div class="stat-num">8<span>+</span></div><div class="stat-label">Businesses systemised</div></div>
+      <div class="stat"><div class="stat-num">15<span>+</span></div><div class="stat-label">Tools integrated</div></div>
     </div>
   </div>
+
+  <section class="who-section">
+    <div class="container who-inner">
+      <span class="who-lbl">Systems built for</span>
+      <span class="who-chip">Coaches &amp; course creators</span>
+      <span class="who-chip">Real estate education &amp; investing</span>
+      <span class="who-chip">Home services &amp; contractors</span>
+      <span class="who-chip">Health &amp; wellness programs</span>
+      <span class="who-chip">Networking &amp; membership communities</span>
+      <span class="who-chip">Agencies (white-label builds)</span>
+    </div>
+  </section>
 
   <section class="services-section dark-section">
     <div class="container">
       <div class="eyebrow">What I Build</div>
-      <h2 style="font-size:clamp(24px,3.2vw,40px);font-weight:700;letter-spacing:-0.03em;color:var(--dark-text);max-width:420px;line-height:1.15;">Systems that work while you sleep</h2>
+      <h2 style="font-size:clamp(24px,3.2vw,40px);font-weight:700;letter-spacing:-0.03em;color:var(--dark-text);max-width:560px;line-height:1.15;">GoHighLevel and automation systems, end to end</h2>
       <div class="services-grid">
-        <div class="svc"><div class="svc-icon">⚡</div><span class="svc-num">01</span><div class="svc-title">Workflow Automation</div><p class="svc-desc">End-to-end n8n and Make workflows that connect your tools, eliminate repetitive tasks, and trigger the right actions automatically — including payment-triggered contracts, access gating, lead scoring, and Telegram webinar reminders.</p><div class="svc-tags"><span class="tag tag-blue">n8n</span><span class="tag">Make</span><span class="tag">Zapier</span></div></div>
-        <div class="svc"><div class="svc-icon">🤖</div><span class="svc-num">02</span><div class="svc-title">AI Agents</div><p class="svc-desc">Conversation and Voice AI that nurture leads and call clients, plus behind-the-scenes agents for reporting, SOP answers, and CRM operations — built in GHL Agent Studio and Claude.</p><div class="svc-tags"><span class="tag tag-blue">Conversation AI</span><span class="tag">Voice AI</span><span class="tag">Agent Studio</span></div></div>
-        <div class="svc"><div class="svc-icon">🚀</div><span class="svc-num">03</span><div class="svc-title">Funnel Building</div><p class="svc-desc">Full sales funnels in GHL, Systeme.io, or custom HTML/CSS — from opt-in to checkout. Built for conversion with pixel-perfect design, responsive layouts, and post-purchase flows.</p><div class="svc-tags"><span class="tag tag-blue">GHL</span><span class="tag">Systeme.io</span><span class="tag">HTML/CSS</span></div></div>
-        <div class="svc"><div class="svc-icon">📱</div><span class="svc-num">04</span><div class="svc-title">Apps & Products</div><p class="svc-desc">Custom web apps your customers actually use — like a real estate deal analyzer with an AI coach, and a digital wedding invitation platform with 50 animated templates and RSVP.</p><div class="svc-tags"><span class="tag tag-blue">Base44</span><span class="tag">JavaScript</span><span class="tag">Supabase</span></div></div>
-        <div class="svc"><div class="svc-icon">📧</div><span class="svc-num">05</span><div class="svc-title">Email & CRM Systems</div><p class="svc-desc">Automated onboarding sequences, behavioral segmentation, and monthly personal reminder campaigns. Including numerology-based monthly client notifications updated by formula.</p><div class="svc-tags"><span class="tag tag-blue">ActiveCampaign</span><span class="tag">GHL</span><span class="tag">Make</span></div></div>
-        <div class="svc"><div class="svc-icon">🌐</div><span class="svc-num">06</span><div class="svc-title">Websites & Community</div><p class="svc-desc">Squarespace and WordPress sites, Skool community builds and module management, blog posts, course pricing and bundles, Google Business, and social media management across FB, IG, X, and LinkedIn.</p><div class="svc-tags"><span class="tag tag-blue">WordPress</span><span class="tag">Squarespace</span><span class="tag">Skool</span></div></div>
+        <div class="svc"><div class="svc-icon">🏗️</div><span class="svc-num">01</span><div class="svc-title">GoHighLevel System Architecture</div><p class="svc-desc">Sub-account setup, pipelines and stages, custom fields and values, calendars, tags and naming conventions — a CRM structure your team can actually run and report on.</p><div class="svc-tags"><span class="tag tag-blue">GHL</span><span class="tag">Pipelines</span><span class="tag">Custom Fields</span></div></div>
+        <div class="svc"><div class="svc-icon">⚡</div><span class="svc-num">02</span><div class="svc-title">Workflow Automation</div><p class="svc-desc">GHL workflows, n8n, Make and Zapier: webinar and show-up engines, payment and invoice logic, onboarding, reminders and lead routing that handle edge cases.</p><div class="svc-tags"><span class="tag tag-blue">GHL Workflows</span><span class="tag">n8n</span><span class="tag">Make · Zapier</span></div></div>
+        <div class="svc"><div class="svc-icon">🤖</div><span class="svc-num">03</span><div class="svc-title">AI Agents &amp; Voice AI</div><p class="svc-desc">Conversation AI that qualifies DMs, Voice AI and Retell agents that confirm, qualify and book, and GHL Agent Studio agents for reporting, SOPs and CRM operations.</p><div class="svc-tags"><span class="tag tag-blue">Conversation AI</span><span class="tag">Voice AI</span><span class="tag">Agent Studio</span></div></div>
+        <div class="svc"><div class="svc-icon">🔌</div><span class="svc-num">04</span><div class="svc-title">Integrations &amp; APIs</div><p class="svc-desc">Connecting GHL to Zoom, Stripe, Slack, Telegram, Google, Meta and PropStream with webhooks, REST APIs and Cloudflare Workers when native triggers fall short.</p><div class="svc-tags"><span class="tag tag-blue">Webhooks</span><span class="tag">REST APIs</span><span class="tag">Cloudflare</span></div></div>
+        <div class="svc"><div class="svc-icon">🎯</div><span class="svc-num">05</span><div class="svc-title">Funnels &amp; Communities</div><p class="svc-desc">Conversion infrastructure wired to the CRM: webinar and sales funnels, checkouts and upsells, GHL Communities and Skool with gated access, trials and onboarding.</p><div class="svc-tags"><span class="tag tag-blue">GHL Funnels</span><span class="tag">Communities</span><span class="tag">Skool</span></div></div>
+        <div class="svc"><div class="svc-icon">📱</div><span class="svc-num">06</span><div class="svc-title">Custom Apps</div><p class="svc-desc">When GHL isn't enough: purpose-built apps like an AI deal-analysis tool for real estate students and a secure loan portal with AI agents.</p><div class="svc-tags"><span class="tag tag-blue">Base44</span><span class="tag">AI Agents</span><span class="tag">JavaScript</span></div></div>
+        
       </div>
+    </div>
+  </section>
+
+  <section class="cases-section">
+    <div class="container">
+      <div class="eyebrow">Featured Systems</div>
+      <h2 class="tools-h2">Problems solved with <span class="blue">systems</span>, not more manual work</h2>
+      <div class="cases-grid">
+        <a class="case reveal" href="work/index.html#automation-library">
+          <span class="case-tag">Zoom · Cloudflare Worker · n8n · GHL</span>
+          <h3 class="case-title">Masterclass attendance, fully automatic</h3>
+          <p class="case-row"><b>Problem</b>No reliable way to know who attended the weekly live class, so follow-up was guesswork.</p>
+          <p class="case-row"><b>System</b>Zoom ends → Worker validates and pulls the report → n8n tags attendees in GHL, logs a sheet and pings the team.</p>
+          <p class="case-row"><b>Result</b>Every attendee tagged within minutes, triggering the right follow-up with zero manual check-in.</p>
+        </a>
+        <a class="case reveal" href="work/index.html#automation-library">
+          <span class="case-tag">GHL Voice AI · n8n</span>
+          <h3 class="case-title">Voice AI that never gets the math wrong</h3>
+          <p class="case-row"><b>Problem</b>An AI caller negotiating payment plans couldn't be trusted to calculate splits.</p>
+          <p class="case-row"><b>System</b>Mid-call webhook to n8n: code calculates the split, a check verifies it, and the agent reads back the result live.</p>
+          <p class="case-row"><b>Result</b>Payment-plan calls handled end to end by AI, with every figure verified.</p>
+        </a>
+        <a class="case reveal" href="work/index.html#automation-library">
+          <span class="case-tag">GHL Invoices · Loops</span>
+          <h3 class="case-title">Past-due invoices, rebuilt to be reliable</h3>
+          <p class="case-row"><b>Problem</b>GHL skipped every wait on already-overdue invoices and fired all reminders at once.</p>
+          <p class="case-row"><b>System</b>Rebuilt with relative waits, a daily re-check loop, paid/partial exits and a loop cap.</p>
+          <p class="case-row"><b>Result</b>The owner hears about overdue invoices exactly once, at the right time.</p>
+        </a>
+      </div>
+      <div style="margin-top:20px;"><a href="work/index.html#automation-library" style="font-family:var(--f-mono);font-size:12px;color:var(--blue);">Browse all 52 workflows →</a></div>
     </div>
   </section>
 
@@ -206,35 +265,36 @@
       <div class="tools-layout">
         <div>
           <div class="eyebrow">Tech Stack</div>
-          <h2 class="tools-h2">Tools I use <span class="blue">daily</span></h2>
-          <p class="tools-desc">A focused stack I've gone deep on across real client projects — not a list collected from tutorials.</p>
+          <h2 class="tools-h2">GoHighLevel at the <span class="blue">core</span></h2>
+          <p class="tools-desc">GHL is the hub. n8n, Make, Zapier and custom code fill the gaps native features can't — every tool here is running in a client system today.</p>
         </div>
         <div class="tools-grid">
-          <div class="tool-chip reveal"><span class="tool-cat">Auto</span>n8n</div>
-          <div class="tool-chip reveal"><span class="tool-cat">Auto</span>Make (Integromat)</div>
-          <div class="tool-chip reveal"><span class="tool-cat">Auto</span>Zapier</div>
+          <div class="tool-chip reveal"><span class="tool-cat">CRM</span>GoHighLevel</div>
+          <div class="tool-chip reveal"><span class="tool-cat">CRM</span>GHL Workflows</div>
+          <div class="tool-chip reveal"><span class="tool-cat">CRM</span>GHL Pipelines</div>
           <div class="tool-chip reveal"><span class="tool-cat">AI</span>Conversation AI</div>
           <div class="tool-chip reveal"><span class="tool-cat">AI</span>Voice AI</div>
-          <div class="tool-chip reveal"><span class="tool-cat">AI</span>OpenAI API</div>
-          <div class="tool-chip reveal"><span class="tool-cat">AI</span>Claude API</div>
           <div class="tool-chip reveal"><span class="tool-cat">AI</span>GHL Agent Studio</div>
-          <div class="tool-chip reveal"><span class="tool-cat">AI</span>Claude Code</div>
-          <div class="tool-chip reveal"><span class="tool-cat">CRM</span>GoHighLevel</div>
-          <div class="tool-chip reveal"><span class="tool-cat">Funnel</span>Systeme.io</div>
-          <div class="tool-chip reveal"><span class="tool-cat">Code</span>HTML / CSS</div>
-          <div class="tool-chip reveal"><span class="tool-cat">Code</span>JavaScript</div>
-          <div class="tool-chip reveal"><span class="tool-cat">App</span>Base44</div>
-          <div class="tool-chip reveal"><span class="tool-cat">Data</span>Supabase</div>
-          <div class="tool-chip reveal"><span class="tool-cat">Web</span>Cloudflare Pages</div>
-          <div class="tool-chip reveal"><span class="tool-cat">Data</span>Airtable</div>
+          <div class="tool-chip reveal"><span class="tool-cat">AI</span>Retell AI</div>
+          <div class="tool-chip reveal"><span class="tool-cat">AI</span>OpenAI / Claude API</div>
+          <div class="tool-chip reveal"><span class="tool-cat">Auto</span>n8n</div>
+          <div class="tool-chip reveal"><span class="tool-cat">Auto</span>Make.com</div>
+          <div class="tool-chip reveal"><span class="tool-cat">Auto</span>Zapier</div>
+          <div class="tool-chip reveal"><span class="tool-cat">Auto</span>ManyChat</div>
+          <div class="tool-chip reveal"><span class="tool-cat">API</span>Webhooks &amp; REST</div>
+          <div class="tool-chip reveal"><span class="tool-cat">API</span>Cloudflare Workers</div>
+          <div class="tool-chip reveal"><span class="tool-cat">API</span>Zoom API</div>
+          <div class="tool-chip reveal"><span class="tool-cat">API</span>Meta CAPI</div>
+          <div class="tool-chip reveal"><span class="tool-cat">Pay</span>Stripe</div>
           <div class="tool-chip reveal"><span class="tool-cat">Data</span>Google Sheets</div>
+          <div class="tool-chip reveal"><span class="tool-cat">Data</span>Airtable</div>
+          <div class="tool-chip reveal"><span class="tool-cat">Data</span>Supabase</div>
+          <div class="tool-chip reveal"><span class="tool-cat">Comms</span>Slack</div>
           <div class="tool-chip reveal"><span class="tool-cat">Comms</span>Telegram Bots</div>
-          <div class="tool-chip reveal"><span class="tool-cat">Email</span>ActiveCampaign</div>
-          <div class="tool-chip reveal"><span class="tool-cat">Web</span>Squarespace</div>
-          <div class="tool-chip reveal"><span class="tool-cat">Web</span>WordPress</div>
-          <div class="tool-chip reveal"><span class="tool-cat">Ads</span>Meta Ads</div>
-          <div class="tool-chip reveal"><span class="tool-cat">Ads</span>Meta CAPI</div>
-          <div class="tool-chip reveal"><span class="tool-cat">Social</span>LinkedIn</div>
+          <div class="tool-chip reveal"><span class="tool-cat">Comms</span>A2P 10DLC</div>
+          <div class="tool-chip reveal"><span class="tool-cat">Comm</span>Skool</div>
+          <div class="tool-chip reveal"><span class="tool-cat">App</span>Base44</div>
+          <div class="tool-chip reveal"><span class="tool-cat">Code</span>HTML / CSS / JS</div>
         </div>
       </div>
     </div>
@@ -242,13 +302,19 @@
 
   <section class="process-section dark-section">
     <div class="container">
-      <div class="eyebrow">How I Work</div>
-      <h2 style="font-size:clamp(24px,3.2vw,40px);font-weight:700;letter-spacing:-0.03em;color:var(--dark-text);line-height:1.15;">From brief to running system</h2>
-      <div class="process-grid">
+      <div class="eyebrow">Engagements</div>
+      <h2 style="font-size:clamp(24px,3.2vw,40px);font-weight:700;letter-spacing:-0.03em;color:var(--dark-text);line-height:1.15;">Ways to work together</h2>
+      <div class="offer-grid">
+        <div class="offer"><span class="ps-num">// audit</span><div class="ps-title">GHL Systems Audit</div><p class="ps-desc">I review your account, workflows, pipelines and integrations, find what's broken or leaking leads, and hand you a prioritised fix-first roadmap.</p></div>
+        <div class="offer"><span class="ps-num">// build</span><div class="ps-title">System Build</div><p class="ps-desc">A scoped project: a webinar engine, payment and onboarding system, AI agent, community launch or integration — designed, built, tested and documented.</p></div>
+        <div class="offer"><span class="ps-num">// retainer</span><div class="ps-title">Systems Partner</div><p class="ps-desc">Ongoing monthly ownership of your GHL and automation stack: new workflows, fixes, monitoring and reporting, without hiring in-house.</p></div>
+      </div>
+      <div class="eyebrow" style="margin-top:var(--s5);">How a build runs</div>
+      <div class="process-grid" style="margin-top:var(--s3);">
         <div class="ps"><span class="ps-num">// 01</span><div class="ps-title">Discovery</div><p class="ps-desc">We map your workflow, tools, and goals. I find where automation gives you the most leverage and what needs fixing first.</p></div>
         <div class="ps"><span class="ps-num">// 02</span><div class="ps-title">Architecture</div><p class="ps-desc">I design the system — logic flows, tool selection, edge cases — before a single node is placed or line is written.</p></div>
         <div class="ps"><span class="ps-num">// 03</span><div class="ps-title">Build & Test</div><p class="ps-desc">Built, stress-tested across edge cases, then tested again. Nothing gets handed off until it handles failure states cleanly.</p></div>
-        <div class="ps"><span class="ps-num">// 04</span><div class="ps-title">Handoff</div><p class="ps-desc">Full documentation, walkthrough session, and post-launch support so you always know exactly how your system works.</p></div>
+        <div class="ps"><span class="ps-num">// 04</span><div class="ps-title">Handoff &amp; SOPs</div><p class="ps-desc">Written SOPs, a walkthrough, and post-launch support so your team knows exactly how the system works and how to change it.</p></div>
       </div>
     </div>
   </section>
@@ -258,10 +324,10 @@
       <div class="cta-grid">
         <div>
           <div class="eyebrow">Get Started</div>
-          <h2 class="cta-h2">Ready to stop<br>doing it <span class="blue">manually?</span></h2>
-          <p class="cta-p">Tell me what's slowing you down. I'll scope a solution and tell you exactly what it takes to fix it.</p>
+          <h2 class="cta-h2">Your GHL account should<br>be <span class="blue">working for you.</span></h2>
+          <p class="cta-p">Tell me what your business runs on today and where leads, payments or follow-ups slip through. I'll map the system that fixes it and tell you exactly what it takes.</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap;">
-            <a href="contact/index.html" class="btn btn-primary">Start a Project</a>
+            <a href="contact/index.html" class="btn btn-primary">Book a Systems Audit</a>
             <a href="work/index.html" class="btn btn-secondary">See My Work</a>
           </div>
         </div>
@@ -271,9 +337,10 @@
             <a href="work/index.html#apps" class="recent-item reveal"><div class="ri-left"><span class="ri-type">Web App · AI Coach</span><span class="ri-title">6 Figure Flip Deal Coach</span></div><span class="ri-arrow">→</span></a>
             <a href="work/index.html#agents" class="recent-item reveal"><div class="ri-left"><span class="ri-type">AI Agent Team</span><span class="ri-title">Reporting, SOP &amp; Operations Agents</span></div><span class="ri-arrow">→</span></a>
             <a href="work/index.html#funnels" class="recent-item reveal"><div class="ri-left"><span class="ri-type">GHL Funnels + Upsells</span><span class="ri-title">Legacy Builder Empire Masterclass</span></div><span class="ri-arrow">→</span></a>
-            <a href="work/index.html#apps" class="recent-item reveal"><div class="ri-left"><span class="ri-type">Web App · Own Business</span><span class="ri-title">Vowtique Wedding Invitations</span></div><span class="ri-arrow">→</span></a>
+            <a href="work/index.html#apps" class="recent-item reveal"><div class="ri-left"><span class="ri-type">Lending Portal · AI Agents</span><span class="ri-title">BrrrrLoans Portal</span></div><span class="ri-arrow">→</span></a>
+            <a href="work/index.html#communities" class="recent-item reveal"><div class="ri-left"><span class="ri-type">GHL Communities · Skool</span><span class="ri-title">3 Membership Communities</span></div><span class="ri-arrow">→</span></a>
             <a href="work/index.html#automation-library" class="recent-item reveal"><div class="ri-left"><span class="ri-type">GHL · n8n · Make · Zapier · AI</span><span class="ri-title">Automation Library (52 workflows)</span></div><span class="ri-arrow">→</span></a>
-            <a href="work/index.html#funnels" class="recent-item reveal"><div class="ri-left"><span class="ri-type">Custom HTML/CSS Gamified Funnel</span><span class="ri-title">Reboot Player One</span></div><span class="ri-arrow">→</span></a>
+            
           </div>
           <div style="margin-top:16px;"><a href="work/index.html" style="font-family:var(--f-mono);font-size:12px;color:var(--blue);">View all projects →</a></div>
         </div>

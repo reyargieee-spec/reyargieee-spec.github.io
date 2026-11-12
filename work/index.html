@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Work — Argie Rey</title>
+  <title>Work — Argie Rey · GoHighLevel &amp; Automation Systems</title>
+  <meta name="description" content="52 GoHighLevel, n8n, Make and Zapier workflows, AI agents, apps and communities built for real businesses."/>
   <link rel="stylesheet" href="../css/style.css"/>
   <style>
     .page-hero { background:var(--white); padding:120px 0 64px; border-bottom:1px solid var(--light-rule); position:relative; overflow:hidden; }
@@ -117,6 +118,45 @@
     .lib-more { text-align:center; margin-top:var(--s4); }
     @media (max-width:640px) { .lib-row { flex-direction:column; gap:4px; } .lib-lbl { padding-top:0; } }
     @media (max-width:960px) { .lib-grid { grid-template-columns:1fr; } }
+    .jump { background:var(--white); border-bottom:1px solid var(--light-rule); position:sticky; top:62px; z-index:20; }
+    .jump-inner { max-width:var(--max); margin:0 auto; padding:10px var(--s4); display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; }
+    .jump a { font-family:var(--f-mono); font-size:11px; color:var(--light-muted); padding:6px 12px; border-radius:99px; white-space:nowrap; text-decoration:none; border:1px solid transparent; }
+    .jump a:hover { color:var(--blue); border-color:var(--blue-border); }
+    .apps-section { background:var(--white); padding:var(--s6) 0; border-bottom:1px solid var(--light-rule); }
+    .sec-h2 { font-size:clamp(24px,3.2vw,40px); font-weight:700; letter-spacing:-0.03em; line-height:1.15; color:var(--light-text); }
+    .sec-h2 .blue { color:var(--blue); }
+    .dark-section .sec-h2 { color:var(--dark-text); }
+    .sec-lead { font-size:15px; color:var(--light-muted); line-height:1.75; max-width:620px; margin-top:12px; }
+    .dark-section .sec-lead { color:var(--dark-muted); }
+    .app { display:grid; grid-template-columns:1.05fr 1fr; gap:0; border:1px solid var(--light-rule); border-radius:var(--radius-lg); overflow:hidden; margin-top:var(--s4); background:var(--off-white); }
+    .app-l { padding:var(--s4); display:flex; flex-direction:column; gap:12px; }
+    .app-r { padding:var(--s4); background:linear-gradient(160deg,var(--blue-tint),transparent 70%); border-left:1px solid var(--light-rule); }
+    .app-kicker { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+    .app-title { font-size:clamp(22px,2.6vw,30px); font-weight:700; letter-spacing:-0.02em; color:var(--light-text); line-height:1.15; }
+    .app-desc { font-size:14px; color:var(--light-muted); line-height:1.8; }
+    .app-meta { font-family:var(--f-mono); font-size:11px; color:var(--light-muted); line-height:1.8; }
+    .app-meta b { color:var(--light-text); font-weight:500; }
+    .feat-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .fg { background:var(--white); border:1px solid var(--light-rule); border-radius:var(--radius); padding:12px; }
+    .fg-h { font-size:13px; font-weight:600; color:var(--light-text); margin-bottom:3px; }
+    .fg-d { font-size:12px; color:var(--light-muted); line-height:1.55; }
+    .fg.wide { grid-column:1 / -1; }
+    .app-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:auto; padding-top:8px; }
+    .app.small { grid-template-columns:1fr; }
+    .comm-section { background:var(--dark); padding:var(--s6) 0; }
+    .comm-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:var(--s4); }
+    .comm { background:var(--dark-surface); border:1px solid var(--dark-rule); border-radius:var(--radius-lg); padding:24px; display:flex; flex-direction:column; gap:12px; transition:border-color .2s; }
+    .comm:hover { border-color:var(--blue); }
+    .comm-plat { font-family:var(--f-mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--blue-lt); }
+    .comm-title { font-size:19px; font-weight:700; color:var(--dark-text); line-height:1.2; letter-spacing:-0.01em; }
+    .comm-what { font-size:13px; color:var(--dark-muted); line-height:1.7; }
+    .comm-role { font-size:12px; color:var(--dark-text); border-left:2px solid var(--blue); padding-left:10px; line-height:1.6; }
+    .comm ul { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
+    .comm li { font-size:12.5px; color:var(--dark-muted); line-height:1.6; padding-left:16px; position:relative; }
+    .comm li::before { content:'▸'; position:absolute; left:0; color:var(--blue-lt); }
+    .comm li b { color:var(--dark-text); font-weight:600; }
+    @media (max-width:960px) { .app { grid-template-columns:1fr; } .app-r { border-left:none; border-top:1px solid var(--light-rule); } .comm-grid { grid-template-columns:1fr; } }
+    @media (max-width:520px) { .feat-grid { grid-template-columns:1fr; } }
     .testi-section { background:var(--dark); padding:var(--s6) 0; }
 
     /* CAROUSEL */
@@ -179,21 +219,21 @@
       <li><a href="/about/">About</a></li>
       <li><a href="/contact/">Contact</a></li>
     </ul>
-    <a href="/contact/" class="btn btn-nav">Hire Me</a>
+    <a href="/contact/" class="btn btn-nav">Book a Call</a>
   </div>
 </nav>
 <main>
   <section class="page-hero">
     <div class="container ph-inner">
       <div class="eyebrow">Portfolio</div>
-      <h1 class="page-h1">Real work.<br><span class="blue">Real results.</span></h1>
-      <p class="page-lead">Sales funnels, automations, AI agents, and apps — built for real businesses and running in production.</p>
+      <h1 class="page-h1">Systems running<br><span class="blue">in production.</span></h1>
+      <p class="page-lead">GoHighLevel builds, automations, AI agents, apps and communities I've designed for real businesses — 52 documented, 27 live today.</p>
     </div>
   </section>
 
   <section class="featured-section dark-section">
     <div class="container">
-      <div class="eyebrow">Featured Client</div>
+      <div class="eyebrow">Featured System · Ongoing Client</div>
       <div class="featured-card">
         <div class="fc-left">
           <div class="feat-badge"><span style="width:6px;height:6px;border-radius:50%;background:var(--blue-lt);display:inline-block;"></span>Currently Active</div>
@@ -267,6 +307,10 @@
     </div>
   </section>
 
+  <nav class="jump" aria-label="Jump to section"><div class="jump-inner">
+    <a href="#automation-library">Automation Library</a><a href="#apps">Apps</a><a href="#communities">Communities</a><a href="#all-projects">Funnels &amp; Websites</a><a href="#feedback">Client Feedback</a>
+  </div></nav>
+
   <section class="lib-section" id="automation-library">
     <div class="container">
       <div class="eyebrow">Automation Library</div>
@@ -279,8 +323,8 @@
         <span class="lib-stat"><b>15+</b>tools connected</span>
       </div>
       <div class="lib-filters">
-        <div class="lib-row"><span class="lib-lbl">Client</span><div class="filter-bar"><button class="filter-btn lib-c on" data-v="all">All clients<span class="fc">52</span></button><button class="filter-btn lib-c" data-v="lbe">Legacy Builder Empire<span class="fc">27</span></button><button class="filter-btn lib-c" data-v="bsg">BSG Connect · Stacy Harris Consulting<span class="fc">8</span></button><button class="filter-btn lib-c" data-v="avision">Avision Windows &amp; Doors<span class="fc">4</span></button><button class="filter-btn lib-c" data-v="tms">Total Metabolic Solutions<span class="fc">5</span></button><button class="filter-btn lib-c" data-v="other">Other clients &amp; personal<span class="fc">8</span></button></div></div>
-        <div class="lib-row"><span class="lib-lbl">Tool</span><div class="filter-bar"><button class="filter-btn lib-p on" data-v="all">All tools</button><button class="filter-btn lib-p" data-v="ghl">GoHighLevel<span class="fc">45</span></button><button class="filter-btn lib-p" data-v="n8n">n8n<span class="fc">15</span></button><button class="filter-btn lib-p" data-v="make">Make.com<span class="fc">3</span></button><button class="filter-btn lib-p" data-v="zap">Zapier<span class="fc">1</span></button><button class="filter-btn lib-p" data-v="ai">AI &amp; Voice<span class="fc">7</span></button><button class="filter-btn lib-p" data-v="mc">ManyChat<span class="fc">2</span></button></div></div>
+        <div class="lib-row"><span class="lib-lbl">Client</span><div class="filter-bar"><button class="filter-btn lib-btn lib-c on" data-v="all">All clients<span class="fc">52</span></button><button class="filter-btn lib-btn lib-c" data-v="lbe">Legacy Builder Empire<span class="fc">27</span></button><button class="filter-btn lib-btn lib-c" data-v="bsg">BSG Connect · Stacy Harris Consulting<span class="fc">8</span></button><button class="filter-btn lib-btn lib-c" data-v="avision">Avision Windows &amp; Doors<span class="fc">4</span></button><button class="filter-btn lib-btn lib-c" data-v="tms">Total Metabolic Solutions<span class="fc">5</span></button><button class="filter-btn lib-btn lib-c" data-v="other">Other clients &amp; personal<span class="fc">8</span></button></div></div>
+        <div class="lib-row"><span class="lib-lbl">Tool</span><div class="filter-bar"><button class="filter-btn lib-btn lib-p on" data-v="all">All tools</button><button class="filter-btn lib-btn lib-p" data-v="ghl">GoHighLevel<span class="fc">45</span></button><button class="filter-btn lib-btn lib-p" data-v="n8n">n8n<span class="fc">15</span></button><button class="filter-btn lib-btn lib-p" data-v="make">Make.com<span class="fc">3</span></button><button class="filter-btn lib-btn lib-p" data-v="zap">Zapier<span class="fc">1</span></button><button class="filter-btn lib-btn lib-p" data-v="ai">AI &amp; Voice<span class="fc">7</span></button><button class="filter-btn lib-btn lib-p" data-v="mc">ManyChat<span class="fc">2</span></button></div></div>
       </div>
       <p class="lib-legend"><span class="st live">Live</span> running now <span class="st built">Built</span> ready, awaiting go-live <span class="st designed">Designed</span> spec delivered</p>
       <div class="lib-grid">
@@ -729,35 +773,120 @@
   })();
   </script>
 
+  <section class="apps-section" id="apps">
+    <div class="container">
+      <div class="eyebrow">Apps I Built</div>
+      <h2 class="sec-h2">Software people <span class="blue">actually use</span></h2>
+      <p class="sec-lead">Beyond funnels and workflows, I build full apps: an AI deal-analysis app for real estate students, and a secure loan portal with AI agents for a private lender.</p>
+
+      <div class="app reveal">
+        <div class="app-l">
+          <div class="app-kicker"><span class="plat ghl" style="background:#16a34a;">Live</span><span class="wf-client">Legacy Builder Empire · included in Elite &amp; Preferred tiers</span></div>
+          <h3 class="app-title">6 Figure Flip Deal Coach</h3>
+          <p class="app-desc">An AI real estate deal-analysis app for coaching students, built to end analysis paralysis. Students enter a property and know in minutes whether the deal is profitable, how much cash they need, and what to do next.</p>
+          <p class="app-meta"><b>Platform:</b> Base44 (first version on Lovable)<br><b>Users:</b> fix-and-flip and BRRRR students<br><b>Also:</b> researched App Store and Google Play publishing</p>
+          <p class="app-desc" style="font-size:13px;"><strong style="color:var(--light-text)">Related build:</strong> LBE Deal Desk, a one-page teaching tool with a comps/ARV calculator, a deal analyzer with a GO / MAYBE / PASS gauge, a property-finder playbook and a saved deal log.</p>
+          <div class="app-actions"><a href="https://six-figure-flip.base44.app/" target="_blank" rel="noopener" class="btn btn-primary">Open the app ↗</a></div>
+        </div>
+        <div class="app-r"><div class="feat-grid">
+          <div class="fg wide"><div class="fg-h">Deal Analyzer</div><div class="fg-d">Max allowable offer, ROI, cash needed and profit margin, each explained in plain language.</div></div>
+          <div class="fg"><div class="fg-h">BRRRR Calculator</div><div class="fg-d">Buy, rehab, rent, refinance, repeat — cash left in and returned.</div></div>
+          <div class="fg"><div class="fg-h">Repair Estimator</div><div class="fg-d">27 cost categories with missing-item flags.</div></div>
+          <div class="fg"><div class="fg-h">Pipeline CRM</div><div class="fg-d">Track every deal in progress by stage.</div></div>
+          <div class="fg"><div class="fg-h">AI Pocket Coach</div><div class="fg-d">Answers deal questions in context.</div></div>
+          <div class="fg wide"><div class="fg-h">Funding Readiness</div><div class="fg-d">A score and checklist before talking to lenders.</div></div>
+        </div></div>
+      </div>
+
+      <div class="app reveal">
+        <div class="app-l">
+          <div class="app-kicker"><span class="plat ghl" style="background:#2563eb;">Demo-ready</span><span class="wf-client">Private lender · bridge, fix-and-flip, ground-up &amp; DSCR loans</span></div>
+          <h3 class="app-title">BrrrrLoans Portal</h3>
+          <p class="app-desc">A secure loan-pipeline portal with AI agents. Borrowers track their loans and upload documents; the lender's team runs the whole pipeline from application to closing, with live LTC, LTV and DSCR math and a full audit trail.</p>
+          <p class="app-meta"><b>Platform:</b> Base44, backend functions, WhatsApp<br><b>Roles:</b> borrower, loan officer, processor, underwriter, closer, management, admin<br><b>Status:</b> prototype presented to the client; security phases continuing</p>
+          <p class="app-desc" style="font-size:13px;"><strong style="color:var(--light-text)">Debugging:</strong> traced a React useEffect bug that left the chat widget stuck on "Thinking…" through the platform logs and fixed it.</p>
+        </div>
+        <div class="app-r"><div class="feat-grid">
+          <div class="fg wide"><div class="fg-h">Borrower Dashboard</div><div class="fg-d">6-stage loan tracker, loan workspace, a conditions center with upload per requirement, and new-loan requests.</div></div>
+          <div class="fg"><div class="fg-h">Lender Pipeline</div><div class="fg-d">19-stage pipeline, auto-generated tasks on every stage change.</div></div>
+          <div class="fg"><div class="fg-h">Rule Engines</div><div class="fg-d">Configurable loan programs and a conditions engine with due dates.</div></div>
+          <div class="fg wide"><div class="fg-h">Bank-Grade Security</div><div class="fg-d">MFA, session controls, masked fields, audit trail, and a watermarked viewer that blocks saving and printing. Planned for GLBA / FTC Safeguards.</div></div>
+          <div class="fg"><div class="fg-h">AI Command Center</div><div class="fg-d">Answers loan updates, missing conditions, blockers and what closes this week from live data.</div></div>
+          <div class="fg"><div class="fg-h">WhatsApp Superagent</div><div class="fg-d">Sold separately; AI document review checks entity names, EIN, signatures and notarization.</div></div>
+        </div></div>
+      </div>
+
+      <div class="app small reveal">
+        <div class="app-l">
+          <div class="app-kicker"><span class="plat ghl" style="background:#16a34a;">Live</span><span class="wf-client">My own business · digital wedding invitations</span></div>
+          <h3 class="app-title" style="font-size:22px;">Vowtique</h3>
+          <p class="app-desc">A catalog of 50 digital wedding invitation templates, each with its own opening animation, live-generated music and a 13–15 section flow with RSVP. Premium adds a QR guest page with a live photo wall, wishes and polls on Supabase.</p>
+          <div class="app-actions" style="padding-top:0;"><a href="https://vowtique.pages.dev" target="_blank" rel="noopener" class="btn btn-secondary">View live ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="comm-section dark-section" id="communities">
+    <div class="container">
+      <div class="eyebrow">Communities I Manage</div>
+      <h2 class="sec-h2">Membership communities, <span class="blue" style="color:var(--blue-lt)">set up and run</span></h2>
+      <p class="sec-lead">Paid communities on GHL Communities and Skool: access rules, onboarding, events, trials and the automations that keep members engaged.</p>
+      <div class="comm-grid">
+        <div class="comm reveal">
+          <span class="comm-plat">GHL Communities · Stripe</span>
+          <h3 class="comm-title">Blue Collar Freedom Community</h3>
+          <p class="comm-what">A paid membership for blue-collar business owners: weekly calls, monthly networking, member intro videos and a recorded-content portal.</p>
+          <p class="comm-role">Full community setup and launch system, through the agency owner.</p>
+          <ul>
+            <li><b>Setup:</b> domains, branding, channels, the Learning tab and an admin-only "Meet the Members" channel.</li>
+            <li><b>Events:</b> weekly Freedom Call and a monthly networking meeting, alternating online and in person.</li>
+            <li><b>Founding launch:</b> invite-only founding rate, per-member checkouts, and auto-tagging on coupon redemption.</li>
+            <li><b>Onboarding:</b> order form with terms → intro video upload → a questionnaire that gates call access, with reminders on days 2–10.</li>
+            <li><b>Web assets:</b> landing page, two-step checkout, welcome page, signed member agreement and a 19-section Terms page.</li>
+          </ul>
+        </div>
+        <div class="comm reveal">
+          <span class="comm-plat">Skool · Telegram · Zoom · GHL</span>
+          <h3 class="comm-title">6 Figure Flip Formula Student Community</h3>
+          <p class="comm-what">The private community for Legacy Builder Empire's paying coaching students across VIP, Elite, Preferred and an invite-only consulting group. Now rebranded as Flip to Finish.</p>
+          <p class="comm-role">Built the access rules, onboarding and program automation around it.</p>
+          <ul>
+            <li><b>Tiered access:</b> VIP gets the first Skool modules and an entry-level Telegram group; Elite and Preferred get everything.</li>
+            <li><b>Gated onboarding:</b> client agreement first; syllabus, Zoom and Telegram only after signing. Skool and the Deal Coach app are invite-only.</li>
+            <li><b>Program engine:</b> split/full payment tagging, weekly class reminders, and graduation with automatic upsell or downsell.</li>
+            <li><b>Tracking:</b> class attendance and program-end alerts by tier length.</li>
+            <li><b>Sales assets:</b> 3-tier pricing funnel, an event version with a scroll-driven 3D house, and an Elite checkout.</li>
+          </ul>
+        </div>
+        <div class="comm reveal">
+          <span class="comm-plat">Skool · GHL · n8n · Stripe</span>
+          <h3 class="comm-title">Legacy Virtual Real Estate</h3>
+          <p class="comm-what">Legacy Builder Empire's monthly Skool community, which also serves its done-for-you clients.</p>
+          <p class="comm-role">Built the member-acquisition system and access controls.</p>
+          <ul>
+            <li><b>Three campaigns:</b> mastermind students, webinar attendees and bootcamp members, plus a 4,000-person past-leads list, each with its own branded invite email.</li>
+            <li><b>7-day free trial:</b> landing page and GHL form → n8n tracker with expiry, win-back and Stripe conversion sync.</li>
+            <li><b>Tier gating:</b> Standard and Premium tiers control access to Modules 1–8.</li>
+            <li><b>Trial dashboard:</b> Google Sheet with expiry dates, days left, color-coded status and conversion rate.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="projects-section">
     <div class="container">
-      <div class="eyebrow">All Projects</div>
+      <div class="eyebrow">Funnels, Websites &amp; Projects</div>
       <div class="filter-bar" role="toolbar" aria-label="Filter projects">
         <button class="filter-btn on" data-f="all">All<span class="fc"></span></button>
         <button class="filter-btn" data-f="funnels">Funnels<span class="fc"></span></button>
         <button class="filter-btn" data-f="automations">Automations<span class="fc"></span></button>
         <a href="#automation-library" class="filter-btn" style="text-decoration:none;border-style:dashed;">Automation Library ↑</a>
         <button class="filter-btn" data-f="agents">AI Agents<span class="fc"></span></button>
-        <button class="filter-btn" data-f="apps">Apps<span class="fc"></span></button>
         <button class="filter-btn" data-f="websites">Websites<span class="fc"></span></button>
       </div>
       <div class="projects-grid" id="all-projects">
-        <div class="proj-card reveal is-app" data-cat="apps">
-          <span class="proj-type">Web App · Base44</span>
-          <h3 class="proj-title">6 Figure Flip Deal Coach</h3>
-          <span class="proj-client">Real Estate Investing App — Legacy Builder Empire</span>
-          <p class="proj-desc">An app for beginner fix-and-flip and BRRRR investors. Deal Analyzer (MAO, ROI, cash needed, profit margin in plain English), BRRRR calculator, repair estimator with 27+ categories, an 11-stage deal pipeline CRM, funding readiness score, and an AI pocket coach that suggests the next best action on every deal.</p>
-          <div class="proj-tags"><span class="tag tag-light">Base44</span><span class="tag tag-light">AI Coach</span><span class="tag tag-light">Calculators</span><span class="tag tag-light">CRM</span></div>
-          <div class="proj-footer"><a href="https://six-figure-flip.base44.app/" target="_blank" rel="noopener" class="proj-link">Open App ↗</a></div>
-        </div>
-        <div class="proj-card reveal is-app" data-cat="apps">
-          <span class="proj-type">Web App · HTML/JS · Cloudflare</span>
-          <h3 class="proj-title">Vowtique</h3>
-          <span class="proj-client">Digital Wedding Invitation Platform</span>
-          <p class="proj-desc">My own digital invitation business. A catalog of 50 templates, each with its own opening animation, live-generated theme music, and a 13–15 section flow (story, venues with maps, calendar invite, RSVP, FAQs). Couples can preview with their own names. Premium tier adds a QR guest page with a live photo wall, wishes, quiz, and polls on a Supabase backend.</p>
-          <div class="proj-tags"><span class="tag tag-light">JavaScript</span><span class="tag tag-light">Web Audio</span><span class="tag tag-light">Supabase</span><span class="tag tag-light">Cloudflare Pages</span></div>
-          <div class="proj-footer"><a href="https://vowtique.pages.dev" target="_blank" rel="noopener" class="proj-link">View Live ↗</a></div>
-        </div>
         <div class="proj-card reveal is-agent" data-cat="agents">
           <span class="proj-type">AI Agent · Reporting</span>
           <h3 class="proj-title">Business Reporting Agent</h3>
@@ -900,30 +1029,30 @@
           </div>
         </div>
         <div class="proj-card reveal" data-cat="funnels">
-          <span class="proj-type">Funnels · Ads · Social</span>
+          <span class="proj-type">Funnels · Meta Ads</span>
           <h3 class="proj-title">Jada VI</h3>
           <span class="proj-client">Manifestation / Spirituality</span>
-          <p class="proj-desc">Full-scope management across sales funnels, Meta ad campaigns, website, and social media channels. Content strategy and paid traffic for a spirituality and manifestation brand.</p>
-          <div class="proj-tags"><span class="tag tag-light">Meta Ads</span><span class="tag tag-light">Funnels</span><span class="tag tag-light">Social Media</span></div>
+          <p class="proj-desc">Sales funnels and website built and connected to Meta ad campaigns for a spirituality and manifestation brand, from traffic to opt-in to offer.</p>
+          <div class="proj-tags"><span class="tag tag-light">Meta Ads</span><span class="tag tag-light">Funnels</span><span class="tag tag-light">Website</span></div>
           <div class="proj-footer"><span class="proj-link muted">Completed</span></div>
         </div>
         <div class="proj-card reveal" data-cat="websites">
-          <span class="proj-type">WordPress · LMS · LinkedIn</span>
+          <span class="proj-type">WordPress · LMS</span>
           <h3 class="proj-title">Pani Computer &amp; Pullaris</h3>
           <span class="proj-client">Cybersecurity Courses — US</span>
-          <p class="proj-desc">Multiple WordPress landing pages, website redesigns, blog management, Google Business courses, quiz and assignment management, course pricing, discounts, bundles, and online bootcamp creation. Heavy LinkedIn management + FB, IG, X.</p>
-          <div class="proj-tags"><span class="tag tag-light">WordPress</span><span class="tag tag-light">LMS</span><span class="tag tag-light">LinkedIn</span><span class="tag tag-light">Blog</span></div>
+          <p class="proj-desc">WordPress landing pages and site redesigns for two US cybersecurity training brands, plus LMS configuration: course pricing, discount and bundle logic, quizzes, assignments and online bootcamp setup.</p>
+          <div class="proj-tags"><span class="tag tag-light">WordPress</span><span class="tag tag-light">LMS</span><span class="tag tag-light">Course Setup</span></div>
           <div class="proj-footer">
             <a href="https://pullaris.com" target="_blank" rel="noopener" class="proj-link">pullaris.com ↗</a>
             <a href="https://panicomputer.com" target="_blank" rel="noopener" class="proj-link">panicomputer.com ↗</a>
           </div>
         </div>
         <div class="proj-card reveal" data-cat="websites">
-          <span class="proj-type">WordPress · Course Management · Social Media</span>
+          <span class="proj-type">WordPress · LMS</span>
           <h3 class="proj-title">PaniTech Academy</h3>
           <span class="proj-client">Cybersecurity &amp; IT Training — US</span>
-          <p class="proj-desc">Managed the full digital presence for a US-based cybersecurity academy. Built and maintained WordPress landing pages for CompTIA, SOC Analyst, and CySA+ courses. Handled Google Business profile, course quizzes and assignments, pricing changes, discount codes, bundle creation, and online bootcamp setup. Also ran social media across LinkedIn, Facebook, Instagram, and X.</p>
-          <div class="proj-tags"><span class="tag tag-light">WordPress</span><span class="tag tag-light">Course Management</span><span class="tag tag-light">LinkedIn</span><span class="tag tag-light">Google Business</span><span class="tag tag-light">Social Media</span></div>
+          <p class="proj-desc">Built and maintained WordPress landing pages for a US cybersecurity academy's CompTIA, SOC Analyst and CySA+ courses, and configured the LMS: pricing, discount codes, bundles, quizzes, assignments and bootcamp setup.</p>
+          <div class="proj-tags"><span class="tag tag-light">WordPress</span><span class="tag tag-light">LMS</span><span class="tag tag-light">Landing Pages</span></div>
           <div class="proj-footer">
             <a href="https://panitechacademy.com" target="_blank" rel="noopener" class="proj-link">panitechacademy.com ↗</a>
             <a href="https://laptopsbuyers.com" target="_blank" rel="noopener" class="proj-link">laptopsbuyers.com ↗</a>
@@ -951,7 +1080,7 @@
   })();
   </script>
 
-  <section class="testi-section dark-section">
+  <section class="testi-section dark-section" id="feedback">
     <div class="container" style="padding-bottom:0;">
       <div class="eyebrow">Client Feedback</div>
       <h2 style="font-size:clamp(22px,3vw,36px);font-weight:700;letter-spacing:-0.03em;color:var(--dark-text);margin-bottom:48px;">What clients say</h2>
