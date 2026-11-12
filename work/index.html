@@ -102,6 +102,20 @@
     .nd.if { border-color:#f59e0b; } .nd.if i { color:#d97706; }
     .ar { color:var(--blue); font-size:13px; }
     .wf-tags { display:flex; flex-wrap:wrap; gap:5px; }
+    .lib-filters { display:flex; flex-direction:column; gap:10px; margin-top:var(--s3); }
+    .lib-row { display:flex; gap:12px; align-items:flex-start; }
+    .lib-row .filter-bar { margin-top:0; }
+    .lib-lbl { font-family:var(--f-mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--light-muted); min-width:44px; padding-top:10px; }
+    .lib-legend { font-size:12px; color:var(--light-muted); margin-top:16px; display:flex; flex-wrap:wrap; gap:6px 10px; align-items:center; }
+    .st { font-family:var(--f-mono); font-size:10px; font-weight:600; padding:2px 7px; border-radius:99px; border:1px solid; }
+    .st.live { color:#15803d; border-color:#86efac; background:#f0fdf4; }
+    .st.built { color:#1d4ed8; border-color:#93c5fd; background:#eff6ff; }
+    .st.prog { color:#b45309; border-color:#fcd34d; background:#fffbeb; }
+    .st.designed { color:#6b7280; border-color:#d1d5db; background:#f9fafb; }
+    .star { font-family:var(--f-mono); font-size:10px; color:#d97706; margin-left:auto; }
+    .plat.ai { background:#9333ea; } .plat.mc { background:#0084ff; } .plat.cf { background:#f38020; }
+    .lib-more { text-align:center; margin-top:var(--s4); }
+    @media (max-width:640px) { .lib-row { flex-direction:column; gap:4px; } .lib-lbl { padding-top:0; } }
     @media (max-width:960px) { .lib-grid { grid-template-columns:1fr; } }
     .testi-section { background:var(--dark); padding:var(--s6) 0; }
 
@@ -257,141 +271,461 @@
     <div class="container">
       <div class="eyebrow">Automation Library</div>
       <h2 class="lib-h2">The workflows <span class="blue">behind the funnels</span></h2>
-      <p class="lib-lead">A look inside the automations I've built in GoHighLevel, n8n, Make.com, and Zapier — what triggers each one, what it does step by step, and the result for the business.</p>
+      <p class="lib-lead">52 workflows, automations and AI agents I've built for real clients and my own projects in GoHighLevel, n8n, Make.com and Zapier. Each card shows what starts it, every step, and its status.</p>
       <div class="lib-stats">
-        <span class="lib-stat"><b>150+</b>GHL workflows built and organised</span>
-        <span class="lib-stat"><b>4</b>automation platforms</span>
-        <span class="lib-stat"><b>24/7</b>running without manual work</span>
+        <span class="lib-stat"><b>52</b>workflows &amp; agents</span>
+        <span class="lib-stat"><b>27</b>live in production</span>
+        <span class="lib-stat"><b>8+</b>clients</span>
+        <span class="lib-stat"><b>15+</b>tools connected</span>
       </div>
-      <div class="filter-bar" role="toolbar" aria-label="Filter automations by platform">
-        <button class="filter-btn lib-btn on" data-p="all">All<span class="fc">16</span></button>
-        <button class="filter-btn lib-btn" data-p="ghl">GoHighLevel<span class="fc">10</span></button>
-        <button class="filter-btn lib-btn" data-p="n8n">n8n<span class="fc">4</span></button>
-        <button class="filter-btn lib-btn" data-p="make">Make.com<span class="fc">2</span></button>
+      <div class="lib-filters">
+        <div class="lib-row"><span class="lib-lbl">Client</span><div class="filter-bar"><button class="filter-btn lib-c on" data-v="all">All clients<span class="fc">52</span></button><button class="filter-btn lib-c" data-v="lbe">Legacy Builder Empire<span class="fc">27</span></button><button class="filter-btn lib-c" data-v="bsg">BSG Connect · Stacy Harris Consulting<span class="fc">8</span></button><button class="filter-btn lib-c" data-v="avision">Avision Windows &amp; Doors<span class="fc">4</span></button><button class="filter-btn lib-c" data-v="tms">Total Metabolic Solutions<span class="fc">5</span></button><button class="filter-btn lib-c" data-v="other">Other clients &amp; personal<span class="fc">8</span></button></div></div>
+        <div class="lib-row"><span class="lib-lbl">Tool</span><div class="filter-bar"><button class="filter-btn lib-p on" data-v="all">All tools</button><button class="filter-btn lib-p" data-v="ghl">GoHighLevel<span class="fc">45</span></button><button class="filter-btn lib-p" data-v="n8n">n8n<span class="fc">15</span></button><button class="filter-btn lib-p" data-v="make">Make.com<span class="fc">3</span></button><button class="filter-btn lib-p" data-v="zap">Zapier<span class="fc">1</span></button><button class="filter-btn lib-p" data-v="ai">AI &amp; Voice<span class="fc">7</span></button><button class="filter-btn lib-p" data-v="mc">ManyChat<span class="fc">2</span></button></div></div>
       </div>
+      <p class="lib-legend"><span class="st live">Live</span> running now <span class="st built">Built</span> ready, awaiting go-live <span class="st designed">Designed</span> spec delivered</p>
       <div class="lib-grid">
-        <div class="wf reveal" data-p="ghl">
-          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
-          <h3 class="wf-title">Webinar Registration → Show-Up Journey</h3>
-          <p class="wf-desc">The full registrant journey for a weekly live masterclass, split into numbered workflows (WF-0 to WF-4): registration, confirmation, nurture, a reminder ladder, and a live "we're starting" push for late arrivals. Over a thousand registrants have gone through it.</p>
-          <div class="flow"><span class="nd t"><i>Trigger</i>Registration form submitted</span><span class="ar">→</span><span class="nd"><i>Action</i>WF-0 · Tag + set webinar date</span><span class="ar">→</span><span class="nd"><i>Action</i>WF-1 · Email + SMS confirmation</span><span class="ar">→</span><span class="nd"><i>Action</i>WF-2 · Nurture sequence</span><span class="ar">→</span><span class="nd"><i>Action</i>WF-2D / 24H / 3H reminders</span><span class="ar">→</span><span class="nd"><i>Action</i>WF-4 · Live + late-arrival SMS</span></div>
-          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Email</span><span class="tag tag-light">SMS</span><span class="tag tag-light">Custom Values</span></div>
+        <div class="wf reveal" data-c="lbe" data-p="n8n ghl cf">
+          <div class="wf-head"><span class="plat n8n">n8n</span><span class="st live">Live</span><span class="star">★ Showcase</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Zoom Attendance Pipeline</h3>
+          <p class="wf-desc">Automatically tags who actually attended the live masterclass. A Cloudflare Worker handles Zoom's HMAC validation, pulls the participant report, dedupes and sums rejoins.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Zoom meeting.ended</span><span class="ar">→</span><span class="nd"><i>Action</i>Cloudflare Worker · validate + pull report</span><span class="ar">→</span><span class="nd"><i>Action</i>Dedupe, sum durations, recover emails</span><span class="ar">→</span><span class="nd"><i>Action</i>n8n · upsert GHL contact + attended tag</span><span class="ar">→</span><span class="nd"><i>Action</i>Google Sheet + Telegram ping</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Zoom API</span><span class="tag tag-light">Cloudflare Workers</span><span class="tag tag-light">n8n</span><span class="tag tag-light">GHL API</span><span class="tag tag-light">Google Sheets</span></div>
         </div>
-        <div class="wf reveal" data-p="ghl">
-          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
-          <h3 class="wf-title">SMS Reply Handling</h3>
-          <p class="wf-desc">Catches replies to webinar texts (WF-R), tags the contact by intent, and alerts the team so real questions get a human answer fast, without stopping the reminder sequence.</p>
-          <div class="flow"><span class="nd t"><i>Trigger</i>Contact replies to SMS</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Reply intent</span><span class="ar">→</span><span class="nd"><i>Action</i>Tag + update contact</span><span class="ar">→</span><span class="nd"><i>Action</i>Internal alert to team</span></div>
-          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">SMS</span><span class="tag tag-light">Alerts</span></div>
+        <div class="wf reveal" data-c="lbe" data-p="ai n8n ghl">
+          <div class="wf-head"><span class="plat ai">AI &amp; Voice</span><span class="st live">Live</span><span class="star">★ Showcase</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">"Jessica" · Voice AI Payment-Plan Caller</h3>
+          <p class="wf-desc">Collects payment-plan arrangements by phone. Mid-call, n8n does the math and checks it, so the agent never quotes a wrong number.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Outbound call to client</span><span class="ar">→</span><span class="nd ai"><i>AI</i>Negotiates a split</span><span class="ar">→</span><span class="nd"><i>Action</i>Mid-call webhook → n8n</span><span class="ar">→</span><span class="nd"><i>Action</i>Code calculates + IF verifies</span><span class="ar">→</span><span class="nd"><i>Action</i>Agent reads back result live</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Voice AI</span><span class="tag tag-light">n8n</span><span class="tag tag-light">Webhooks</span></div>
         </div>
-        <div class="wf reveal" data-p="ghl">
-          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
+        <div class="wf reveal" data-c="lbe" data-p="ai n8n ghl">
+          <div class="wf-head"><span class="plat ai">AI &amp; Voice</span><span class="st live">Live</span><span class="star">★ Showcase</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">"Hailey" · Masterclass Confirmation Voice Agent</h3>
+          <p class="wf-desc">Calls every registrant to confirm attendance, qualifies them, and books a consult if they can't make it live.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Outbound call with contact data</span><span class="ar">→</span><span class="nd ai"><i>AI</i>Confirm + 3 qualifying questions</span><span class="ar">→</span><span class="nd"><i>Action</i>n8n functions · check + book calendar</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Opt-out / human / voicemail</span><span class="ar">→</span><span class="nd"><i>Action</i>Outcome + hot/warm/cold → GHL</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Retell AI</span><span class="tag tag-light">n8n</span><span class="tag tag-light">GHL</span><span class="tag tag-light">Function Calling</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="ghl ai">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st live">Live</span><span class="star">★ Showcase</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Wholesale Cold-Calling Pipeline &amp; Power Dialer</h3>
+          <p class="wf-desc">Lets two non-technical callers work ~4,500 property-owner leads while GHL moves every lead through the pipeline by itself.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Load to dialer</span><span class="ar">→</span><span class="nd"><i>Action</i>Opportunity + call task</span><span class="ar">→</span><span class="nd if"><i>Condition</i>No answer → retry in 1–2 days (max 6)</span><span class="ar">→</span><span class="nd"><i>Action</i>Disposition button moves stage</span><span class="ar">→</span><span class="nd"><i>Action</i>Branded caller ID + A2P</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Pipelines</span><span class="tag tag-light">Power Dialer</span><span class="tag tag-light">Call Triggers</span></div>
+        </div>
+        <div class="wf reveal" data-c="avision" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st live">Live</span><span class="star">★ Showcase</span></div>
+          <span class="wf-client">Avision Windows &amp; Doors</span>
+          <h3 class="wf-title">Invoice Past-Due Internal Reminder</h3>
+          <p class="wf-desc">Alerts the admin and owner when an invoice is overdue. Rebuilt with relative waits and a capped loop after GHL fired every reminder at once on already-past due dates.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Invoice sent</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Due date 2+ days ago?</span><span class="ar">→</span><span class="nd"><i>Action</i>No → wait 1 day, loop back</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Paid or partially paid?</span><span class="ar">→</span><span class="nd"><i>Action</i>Internal overdue alert</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Invoices</span><span class="tag tag-light">Loops</span><span class="tag tag-light">Debugging</span></div>
+        </div>
+        <div class="wf reveal" data-c="other" data-p="n8n ai">
+          <div class="wf-head"><span class="plat n8n">n8n</span><span class="st built">Built</span><span class="star">★ Showcase</span></div>
+          <span class="wf-client">Personal</span>
+          <h3 class="wf-title">AI Lead-Generation Engine</h3>
+          <p class="wf-desc">Finds people actively hiring automation specialists every day and drafts a personal pitch for each.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Daily schedule</span><span class="ar">→</span><span class="nd"><i>Action</i>Search Reddit + Google</span><span class="ar">→</span><span class="nd"><i>Action</i>Code scores posts vs my skills</span><span class="ar">→</span><span class="nd ai"><i>AI</i>LLM drafts outreach email</span><span class="ar">→</span><span class="nd"><i>Action</i>Airtable + Gmail alert for 25+</span></div>
+          <div class="wf-tags"><span class="tag tag-light">n8n</span><span class="tag tag-light">Groq LLM</span><span class="tag tag-light">Serper</span><span class="tag tag-light">Airtable</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st live">Live</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Webinar Reminder Sequence</h3>
+          <p class="wf-desc">Lifts show-up rate (was 5–10%) with email and SMS reminders that recalculate for every registrant based on when they signed up.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Tag "Webinar Registered"</span><span class="ar">→</span><span class="nd"><i>Action</i>Instant email + SMS</span><span class="ar">→</span><span class="nd"><i>Action</i>Wait-Until ladder · 3d / 1d / AM / 1h / 15m / live</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Late registrant? skip old reminders</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Attended?</span><span class="ar">→</span><span class="nd"><i>Action</i>Follow-up or replay email</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Workflows</span><span class="tag tag-light">Custom Values</span><span class="tag tag-light">Email</span><span class="tag tag-light">SMS</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st built">Built</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">60-Day Re-Engagement Nurture</h3>
+          <p class="wf-desc">Wins back registrants who never bought, with buyers removed automatically before every send.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Registered 60 days ago, no purchase</span><span class="ar">→</span><span class="nd"><i>Action</i>5 emails over ~10 days</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Purchase tag? exit</span><span class="ar">→</span><span class="nd"><i>Action</i>Tag "60-Day Nurture Complete"</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Workflows</span><span class="tag tag-light">HTML Email</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="n8n ghl">
+          <div class="wf-head"><span class="plat n8n">n8n</span><span class="st built">Built</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Webinar Calendar-Invite Automation</h3>
+          <p class="wf-desc">Puts the webinar on every registrant's real calendar with a native RSVP invite, batched hourly so earlier guests aren't spammed with updates.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Staff set date in GHL</span><span class="ar">→</span><span class="nd"><i>Action</i>n8n computes UTC + readable date</span><span class="ar">→</span><span class="nd"><i>Action</i>Create Google Calendar event</span><span class="ar">→</span><span class="nd"><i>Action</i>Hourly batch adds pending guests</span><span class="ar">→</span><span class="nd"><i>Action</i>Live .ics feed for Apple users</span></div>
+          <div class="wf-tags"><span class="tag tag-light">n8n</span><span class="tag tag-light">Google Calendar API</span><span class="tag tag-light">GHL API</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="n8n ghl cf">
+          <div class="wf-head"><span class="plat n8n">n8n</span><span class="st built">Built</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Mentee Attendance &amp; Program-End Alerts</h3>
+          <p class="wf-desc">Tracks whether coaching mentees attend weekly class and warns staff before each program (4, 8 or 16 weeks) ends.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Mentee class ends</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Stayed 1+ hour?</span><span class="ar">→</span><span class="nd"><i>Action</i>Dated tag + sheet row</span><span class="ar">→</span><span class="nd"><i>Action</i>Read program length from tag</span><span class="ar">→</span><span class="nd"><i>Action</i>Alerts 1w / 3d / 1d / due</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Zoom</span><span class="tag tag-light">n8n</span><span class="tag tag-light">GHL API</span><span class="tag tag-light">Google Sheets</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="n8n">
+          <div class="wf-head"><span class="plat n8n">n8n</span><span class="st live">Live</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Weekly Stats Report to Slack</h3>
+          <p class="wf-desc">One Monday-morning snapshot of the business, with no logins: attendees, bookings, consult forms, purchases and Meta ad stats.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Every Monday 8 AM</span><span class="ar">→</span><span class="nd"><i>Action</i>Pull GHL + Meta Ads data</span><span class="ar">→</span><span class="nd"><i>Action</i>Code node totals + formats</span><span class="ar">→</span><span class="nd"><i>Action</i>Post to Slack channel</span></div>
+          <div class="wf-tags"><span class="tag tag-light">n8n</span><span class="tag tag-light">GHL API</span><span class="tag tag-light">Meta Ads API</span><span class="tag tag-light">Slack</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="n8n ghl">
+          <div class="wf-head"><span class="plat n8n">n8n</span><span class="st live">Live</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Real-Time Consultation Alerts</h3>
+          <p class="wf-desc">Lets the team call new consult bookings within minutes, with lead details and times in ET and Manila time.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Booking on coach's calendar</span><span class="ar">→</span><span class="nd"><i>Action</i>GHL webhook → n8n</span><span class="ar">→</span><span class="nd"><i>Action</i>Format lead + form answers</span><span class="ar">→</span><span class="nd"><i>Action</i>Slack + Telegram "BOOKED" alert</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Workflows</span><span class="tag tag-light">n8n</span><span class="tag tag-light">Slack</span><span class="tag tag-light">Telegram</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="n8n">
+          <div class="wf-head"><span class="plat n8n">n8n</span><span class="st built">Built</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Zoom Meeting Reminders to Telegram</h3>
+          <p class="wf-desc">Makes sure the owner never misses a Zoom call, with a catch-up window and memory so nothing repeats.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Every minute</span><span class="ar">→</span><span class="nd"><i>Action</i>Zoom S2S OAuth token</span><span class="ar">→</span><span class="nd"><i>Action</i>List upcoming meetings</span><span class="ar">→</span><span class="nd if"><i>Condition</i>24h / 3h / 1h / 5m out?</span><span class="ar">→</span><span class="nd"><i>Action</i>Telegram message + join link</span></div>
+          <div class="wf-tags"><span class="tag tag-light">n8n</span><span class="tag tag-light">Zoom API</span><span class="tag tag-light">Telegram Bot</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="n8n ghl">
+          <div class="wf-head"><span class="plat n8n">n8n</span><span class="st built">Built</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Instagram Reels Feed for Confirmation Page</h3>
+          <p class="wf-desc">Shows the coach's 3 latest reels on the webinar confirmation page automatically, with the token kept server-side and self-refreshing.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Every 30 minutes</span><span class="ar">→</span><span class="nd"><i>Action</i>Instagram Graph API · newest 3 videos</span><span class="ar">→</span><span class="nd"><i>Action</i>Cache + serve via webhook</span><span class="ar">→</span><span class="nd"><i>Action</i>Page renders modal player</span></div>
+          <div class="wf-tags"><span class="tag tag-light">n8n</span><span class="tag tag-light">Instagram Graph API</span><span class="tag tag-light">Custom JS</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="ai ghl">
+          <div class="wf-head"><span class="plat ai">AI &amp; Voice</span><span class="st live">Live</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">"Jade" · Conversation AI DM Bot</h3>
+          <p class="wf-desc">Turns Instagram and Facebook commenters into registrants or qualified call leads, with no human involved until the lead is hot.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Lead replies to first DM</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Response gate · spam / reels / promos</span><span class="ar">→</span><span class="nd ai"><i>AI</i>Adapts by interest area</span><span class="ar">→</span><span class="nd ai"><i>AI</i>Silent lead scoring</span><span class="ar">→</span><span class="nd"><i>Action</i>Hot → ready_for_call + team alert</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Conversation AI</span><span class="tag tag-light">GHL Workflows</span><span class="tag tag-light">Lead Scoring</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="ghl ai">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st live">Live</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">AI Kill Switch</h3>
+          <p class="wf-desc">Stops the AI bot from talking over the owner during live negotiations.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Human replies or deal in negotiation</span><span class="ar">→</span><span class="nd"><i>Action</i>Tag bot-paused / negotiation-active</span><span class="ar">→</span><span class="nd"><i>Action</i>Guard keeps Conversation AI off</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Workflows</span><span class="tag tag-light">Conversation AI</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="ai ghl">
+          <div class="wf-head"><span class="plat ai">AI &amp; Voice</span><span class="st built">Built</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">AI Workforce · Content &amp; Branding Agent</h3>
+          <p class="wf-desc">The first of a set of agents covering the owner's daily work, built on a verified-facts knowledge base.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Team request</span><span class="ar">→</span><span class="nd ai"><i>AI</i>Knowledge base · brand, offers, compliance</span><span class="ar">→</span><span class="nd"><i>Action</i>6 skills · content batch, reels, stories, flyers, captions</span><span class="ar">→</span><span class="nd"><i>Action</i>Brand / compliance check</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Agent Studio</span><span class="tag tag-light">Knowledge Base</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="mc ghl">
+          <div class="wf-head"><span class="plat mc">ManyChat</span><span class="st live">Live</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">ManyChat Comment-to-DM Webinar Funnel</h3>
+          <p class="wf-desc">Converts podcast-post comments into webinar registrations on Instagram and Facebook.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Keyword comment</span><span class="ar">→</span><span class="nd"><i>Action</i>Public "check your DMs" reply</span><span class="ar">→</span><span class="nd if"><i>Condition</i>5 objection branches</span><span class="ar">→</span><span class="nd"><i>Action</i>"Yes" → GHL webhook + tag</span><span class="ar">→</span><span class="nd"><i>Action</i>3 follow-ups until registered</span></div>
+          <div class="wf-tags"><span class="tag tag-light">ManyChat</span><span class="tag tag-light">GHL Webhooks</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st live">Live</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Facebook Comment Automation</h3>
+          <p class="wf-desc">Sends people who comment "interested" to the free masterclass first, with UTM tags for attribution.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Keyword comment on post</span><span class="ar">→</span><span class="nd"><i>Action</i>DM with masterclass link + UTMs</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Social Triggers</span><span class="tag tag-light">UTM Tracking</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st built">Built</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Order-Form Abandonment Recovery</h3>
+          <p class="wf-desc">Recovers people who open the checkout but don't buy, with separate sequences for full-pay and deposit pages.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Checkout opened, no purchase</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Full-pay or deposit page</span><span class="ar">→</span><span class="nd"><i>Action</i>7 touches / 5 days or 5 touches / 3 days</span><span class="ar">→</span><span class="nd"><i>Action</i>Exit on purchase</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Workflows</span><span class="tag tag-light">Email</span><span class="tag tag-light">SMS</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st live">Live</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Program Payment · Split vs Full Pay</h3>
+          <p class="wf-desc">Tags and announces Elite buyers correctly whether they pay in full or in two installments, notifying only once.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Invoice status = Paid</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Full or installment amount</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Already has Elite tag?</span><span class="ar">→</span><span class="nd"><i>Action</i>Add Elite tag + notify team</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Invoices</span><span class="tag tag-light">Conditions</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st built">Built</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Program Pipeline, Graduation &amp; Class Reminders</h3>
+          <p class="wf-desc">Runs the 8-week coaching program hands-off: class reminders while enrolled, then automatic graduation and the next offer.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Fully paid</span><span class="ar">→</span><span class="nd"><i>Action</i>Sheet row + end-date formula</span><span class="ar">→</span><span class="nd"><i>Action</i>Class reminders to active stage only</span><span class="ar">→</span><span class="nd"><i>Action</i>After 8 weeks → Graduated</span><span class="ar">→</span><span class="nd"><i>Action</i>Next-tier upsell or downsell</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Pipelines</span><span class="tag tag-light">Google Sheets</span><span class="tag tag-light">Workflows</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="ghl n8n">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st built">Built</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Skool Free-Trial Automation</h3>
+          <p class="wf-desc">Runs a 7-day trial for the paid Skool community across three audiences and tracks conversion.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Trial form submitted</span><span class="ar">→</span><span class="nd"><i>Action</i>Tag + Skool invite</span><span class="ar">→</span><span class="nd"><i>Action</i>n8n logs trial + expiry</span><span class="ar">→</span><span class="nd"><i>Action</i>Daily check · expired → win-back</span><span class="ar">→</span><span class="nd"><i>Action</i>Stripe webhook → tag paid</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL</span><span class="tag tag-light">n8n</span><span class="tag tag-light">Google Sheets</span><span class="tag tag-light">Stripe</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st designed">Designed</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Done-for-You Client Onboarding</h3>
+          <p class="wf-desc">Onboards a high-ticket client with no manual steps, from invoice to community access.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Invoice paid</span><span class="ar">→</span><span class="nd"><i>Action</i>Welcome email + survey</span><span class="ar">→</span><span class="nd t"><i>Trigger</i>Survey completed</span><span class="ar">→</span><span class="nd"><i>Action</i>Skool access + 8-week Zoom link</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Workflows</span><span class="tag tag-light">Surveys</span><span class="tag tag-light">Skool</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="n8n ghl">
+          <div class="wf-head"><span class="plat n8n">n8n</span><span class="st live">Live</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">PropStream → GHL Skip-Trace Sync</h3>
+          <p class="wf-desc">Turns PropStream property exports into clean, callable GHL contacts.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Export lands in Drive / Sheets</span><span class="ar">→</span><span class="nd"><i>Action</i>Clean, dedupe, mobile first</span><span class="ar">→</span><span class="nd"><i>Action</i>Remove DNC + litigators</span><span class="ar">→</span><span class="nd"><i>Action</i>Upsert into acquisition pipeline</span></div>
+          <div class="wf-tags"><span class="tag tag-light">n8n</span><span class="tag tag-light">Google Drive</span><span class="tag tag-light">GHL API</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st designed">Designed</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Digital Product Purchase Alert</h3>
+          <p class="wf-desc">Notifies the team the moment a store product sells.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Payment Received</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Which product</span><span class="ar">→</span><span class="nd"><i>Action</i>Product tag</span><span class="ar">→</span><span class="nd"><i>Action</i>Internal notification</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Payments</span></div>
+        </div>
+        <div class="wf reveal" data-c="lbe" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st live">Live</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
           <h3 class="wf-title">Priority Lead Scoring &amp; Routing</h3>
-          <p class="wf-desc">Scores every registrant from their qualification answers, sends a "qualified lead" event to Meta so ads find more buyers like them, and gets high-intent leads a reminder call.</p>
-          <div class="flow"><span class="nd t"><i>Trigger</i>Form answers saved</span><span class="ar">→</span><span class="nd if"><i>Condition</i>$5K+ set aside OR 680+ credit + owns property</span><span class="ar">→</span><span class="nd"><i>Action</i>Tag priority-lead</span><span class="ar">→</span><span class="nd"><i>Action</i>Meta CAPI qualified event</span><span class="ar">→</span><span class="nd"><i>Action</i>Pipeline card + caller task + SMS</span></div>
-          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Meta CAPI</span><span class="tag tag-light">Pipelines</span><span class="tag tag-light">Lead Scoring</span></div>
+          <p class="wf-desc">Scores registrants from their qualification answers, sends a qualified-lead event to Meta, and routes hot leads to reminder calls.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Form answers saved</span><span class="ar">→</span><span class="nd if"><i>Condition</i>$5K+ OR 680+ credit + owns property</span><span class="ar">→</span><span class="nd"><i>Action</i>Tag priority-lead</span><span class="ar">→</span><span class="nd"><i>Action</i>Meta CAPI event</span><span class="ar">→</span><span class="nd"><i>Action</i>Pipeline card + caller task</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Workflows</span><span class="tag tag-light">Meta CAPI</span><span class="tag tag-light">Pipelines</span></div>
         </div>
-        <div class="wf reveal" data-p="ghl">
-          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
-          <h3 class="wf-title">Registrants → Power Dialer</h3>
-          <p class="wf-desc">Loads each new webinar registrant straight into the call team's power dialer queue, so reps spend their time talking, not building call lists.</p>
-          <div class="flow"><span class="nd t"><i>Trigger</i>Registered for this week</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Has phone + not a student</span><span class="ar">→</span><span class="nd"><i>Action</i>Add to Power Dialer list</span><span class="ar">→</span><span class="nd"><i>Action</i>Assign to call team</span></div>
-          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Power Dialer</span><span class="tag tag-light">Sales Ops</span></div>
-        </div>
-        <div class="wf reveal" data-p="ghl">
-          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
-          <h3 class="wf-title">Weekly Webinar Date Rotation</h3>
-          <p class="wf-desc">A system workflow that rolls the "next webinar" date forward every week, so every email, SMS, and page always shows the right Thursday without anyone editing templates.</p>
-          <div class="flow"><span class="nd t"><i>Trigger</i>Weekly schedule</span><span class="ar">→</span><span class="nd"><i>Action</i>Calculate next Thursday 7 PM ET</span><span class="ar">→</span><span class="nd"><i>Action</i>Update custom value</span><span class="ar">→</span><span class="nd"><i>Action</i>All messages pick up new date</span></div>
-          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Custom Values</span><span class="tag tag-light">Scheduling</span></div>
-        </div>
-        <div class="wf reveal" data-p="ghl">
-          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
-          <h3 class="wf-title">Attended → Free Gift Delivery</h3>
-          <p class="wf-desc">Thanks people who actually showed up to the masterclass with a free resource, and keeps no-shows on a different path.</p>
-          <div class="flow"><span class="nd t"><i>Trigger</i>Tag webinar:attended</span><span class="ar">→</span><span class="nd"><i>Action</i>Wait</span><span class="ar">→</span><span class="nd"><i>Action</i>Free gift email + SMS</span><span class="ar">→</span><span class="nd"><i>Action</i>Move to follow-up stage</span></div>
-          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Email</span><span class="tag tag-light">Tags</span></div>
-        </div>
-        <div class="wf reveal" data-p="ghl">
-          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
-          <h3 class="wf-title">Playbook Purchase → Instant Delivery</h3>
-          <p class="wf-desc">Delivers each digital playbook bought on the upsell pages ($27 Deal Pack, $17 Underwriting Playbook): download email, buyer tags, and a buyer-only follow-up path.</p>
-          <div class="flow"><span class="nd t"><i>Trigger</i>Order form purchase</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Which product</span><span class="ar">→</span><span class="nd"><i>Action</i>Tag buyer</span><span class="ar">→</span><span class="nd"><i>Action</i>Delivery email with PDF</span><span class="ar">→</span><span class="nd"><i>Action</i>Buyer follow-up</span></div>
-          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Payments</span><span class="tag tag-light">Digital Delivery</span></div>
-        </div>
-        <div class="wf reveal" data-p="ghl">
-          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
-          <h3 class="wf-title">Payment → Agreement → Classroom Access</h3>
-          <p class="wf-desc">Sends the client agreement when a payment lands, keeps course access locked until it is signed, nudges unsigned clients every day, and unlocks the classroom the moment they sign.</p>
-          <div class="flow"><span class="nd t"><i>Trigger</i>Payment received</span><span class="ar">→</span><span class="nd"><i>Action</i>Send client agreement</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Signed?</span><span class="ar">→</span><span class="nd"><i>Action</i>Daily reminder if unsigned</span><span class="ar">→</span><span class="nd"><i>Action</i>Grant classroom access</span></div>
-          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Documents &amp; Contracts</span><span class="tag tag-light">Memberships</span></div>
-        </div>
-        <div class="wf reveal" data-p="ghl">
-          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
-          <h3 class="wf-title">Installments &amp; Grace-Period Access Control</h3>
-          <p class="wf-desc">Tracks payment-plan due dates, triggers Voice AI reminder calls, and removes course access automatically if the grace period passes without payment.</p>
-          <div class="flow"><span class="nd t"><i>Trigger</i>Installment due date</span><span class="ar">→</span><span class="nd ai"><i>AI</i>Voice AI reminder call</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Paid within grace period?</span><span class="ar">→</span><span class="nd"><i>Action</i>Keep access</span><span class="ar">→</span><span class="nd"><i>Action</i>Revoke classroom access</span></div>
-          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Voice AI</span><span class="tag tag-light">Payments</span></div>
-        </div>
-        <div class="wf reveal" data-p="ghl">
-          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
-          <h3 class="wf-title">Consultation Call Confirmations &amp; Reminders</h3>
-          <p class="wf-desc">Confirms every booked consultation call, reminds the lead before it starts, and alerts the team, so fewer calls are missed.</p>
-          <div class="flow"><span class="nd t"><i>Trigger</i>Appointment booked</span><span class="ar">→</span><span class="nd"><i>Action</i>Confirmation email + SMS</span><span class="ar">→</span><span class="nd"><i>Action</i>Reminders before call</span><span class="ar">→</span><span class="nd"><i>Action</i>Team alert</span></div>
-          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Calendars</span><span class="tag tag-light">SMS</span></div>
-        </div>
-        <div class="wf reveal" data-p="n8n">
-          <div class="wf-head"><span class="plat n8n">n8n</span><span class="wf-client">Legacy Builder Empire</span></div>
-          <h3 class="wf-title">Zoom Attendance → GHL + Google Sheet</h3>
-          <p class="wf-desc">When the masterclass ends, a worker posts the Zoom attendee list to n8n. n8n upserts each person into GoHighLevel, tags them as attended (which fires the follow-up workflows), and logs them to an attendance sheet.</p>
-          <div class="flow"><span class="nd t"><i>Trigger</i>Webhook from Zoom worker</span><span class="ar">→</span><span class="nd"><i>Action</i>Code · prepare attendee</span><span class="ar">→</span><span class="nd"><i>Action</i>GHL · upsert contact</span><span class="ar">→</span><span class="nd"><i>Action</i>GHL · add attended tags</span><span class="ar">→</span><span class="nd"><i>Action</i>Google Sheet · log row</span></div>
-          <div class="wf-tags"><span class="tag tag-light">n8n</span><span class="tag tag-light">Webhooks</span><span class="tag tag-light">GHL API</span><span class="tag tag-light">Google Sheets</span></div>
-        </div>
-        <div class="wf reveal" data-p="n8n">
-          <div class="wf-head"><span class="plat n8n">n8n</span><span class="wf-client">Legacy Builder Empire</span></div>
-          <h3 class="wf-title">Telegram Webinar Bot + Live Headcount</h3>
-          <p class="wf-desc">A Telegram bot sends webinar reminders, counts live participants every 10 minutes into a Google Sheet, and delivers the attendance report automatically when the session ends.</p>
-          <div class="flow"><span class="nd t"><i>Trigger</i>Webinar schedule</span><span class="ar">→</span><span class="nd"><i>Action</i>Telegram reminders</span><span class="ar">→</span><span class="nd"><i>Action</i>Every 10 min · count participants</span><span class="ar">→</span><span class="nd"><i>Action</i>Google Sheet</span><span class="ar">→</span><span class="nd"><i>Action</i>Post-webinar report</span></div>
-          <div class="wf-tags"><span class="tag tag-light">n8n</span><span class="tag tag-light">Telegram Bot</span><span class="tag tag-light">Google Sheets</span></div>
-        </div>
-        <div class="wf reveal" data-p="n8n">
-          <div class="wf-head"><span class="plat n8n">n8n</span><span class="wf-client">Legacy Builder Empire</span></div>
+        <div class="wf reveal" data-c="lbe" data-p="n8n ghl">
+          <div class="wf-head"><span class="plat n8n">n8n</span><span class="st live">Live</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
           <h3 class="wf-title">Student &amp; Depositor Records Sync</h3>
-          <p class="wf-desc">Two webhook flows that catch every $1,497 enrollment and $500 deposit from GoHighLevel order forms and write them to the right Google Sheet in real time.</p>
-          <div class="flow"><span class="nd t"><i>Trigger</i>GHL order form webhook</span><span class="ar">→</span><span class="nd if"><i>Condition</i>$1,497 student or $500 deposit</span><span class="ar">→</span><span class="nd"><i>Action</i>Google Sheets · append row</span></div>
+          <p class="wf-desc">Logs every $1,497 enrollment and $500 deposit from GHL order forms to the right Google Sheet in real time.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>GHL order webhook</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Student or depositor</span><span class="ar">→</span><span class="nd"><i>Action</i>Append Google Sheet row</span></div>
           <div class="wf-tags"><span class="tag tag-light">n8n</span><span class="tag tag-light">Webhooks</span><span class="tag tag-light">Google Sheets</span></div>
         </div>
-        <div class="wf reveal" data-p="n8n">
-          <div class="wf-head"><span class="plat n8n">n8n</span><span class="wf-client">Internal tool</span></div>
-          <h3 class="wf-title">AI Automation Lead Gatherer</h3>
-          <p class="wf-desc">Runs every day to find people asking for automation help: it searches Reddit and Google, extracts the posts with code, merges and de-duplicates the results, and saves fresh leads to Airtable.</p>
-          <div class="flow"><span class="nd t"><i>Trigger</i>Daily schedule</span><span class="ar">→</span><span class="nd"><i>Action</i>Search Reddit</span><span class="ar">→</span><span class="nd"><i>Action</i>Search Google</span><span class="ar">→</span><span class="nd"><i>Action</i>Code · extract posts</span><span class="ar">→</span><span class="nd"><i>Action</i>Merge results</span><span class="ar">→</span><span class="nd"><i>Action</i>Airtable · save leads</span></div>
-          <div class="wf-tags"><span class="tag tag-light">n8n</span><span class="tag tag-light">HTTP Requests</span><span class="tag tag-light">Code</span><span class="tag tag-light">Airtable</span></div>
+        <div class="wf reveal" data-c="lbe" data-p="n8n">
+          <div class="wf-head"><span class="plat n8n">n8n</span><span class="st live">Live</span></div>
+          <span class="wf-client">Legacy Builder Empire</span>
+          <h3 class="wf-title">Telegram Webinar Bot + Live Headcount</h3>
+          <p class="wf-desc">Sends webinar reminders, logs the live participant count every 10 minutes, and delivers the attendance report afterwards.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Webinar schedule</span><span class="ar">→</span><span class="nd"><i>Action</i>Telegram reminders</span><span class="ar">→</span><span class="nd"><i>Action</i>Every 10 min · headcount to Sheet</span><span class="ar">→</span><span class="nd"><i>Action</i>Post-webinar report</span></div>
+          <div class="wf-tags"><span class="tag tag-light">n8n</span><span class="tag tag-light">Telegram Bot</span><span class="tag tag-light">Google Sheets</span></div>
         </div>
-        <div class="wf reveal" data-p="make">
-          <div class="wf-head"><span class="plat make">Make.com</span><span class="wf-client">Reboot Player One</span></div>
-          <h3 class="wf-title">Custom Funnel Form → Systeme.io Leads</h3>
-          <p class="wf-desc">Connects the hand-coded Reboot Player One funnel to Systeme.io. The custom opt-in form posts to a Make.com webhook, and Make creates the contact in Systeme.io so every lead lands in the coaching program's email list.</p>
-          <div class="flow"><span class="nd t"><i>Trigger</i>Funnel form submitted</span><span class="ar">→</span><span class="nd"><i>Action</i>Make webhook receives lead</span><span class="ar">→</span><span class="nd"><i>Action</i>Map name + email</span><span class="ar">→</span><span class="nd"><i>Action</i>Systeme.io · create contact</span></div>
-          <div class="wf-tags"><span class="tag tag-light">Make.com</span><span class="tag tag-light">Webhooks</span><span class="tag tag-light">Systeme.io</span><span class="tag tag-light">Custom HTML Form</span></div>
+        <div class="wf reveal" data-c="bsg" data-p="ghl cf">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st live">Live</span></div>
+          <span class="wf-client">BSG Connect</span>
+          <h3 class="wf-title">Connection Room Attendance Tracking</h3>
+          <p class="wf-desc">Records who actually attends each Connection Room call. With 89+ active contacts, manual check-in wasn't workable.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Zoom participant_joined</span><span class="ar">→</span><span class="nd"><i>Action</i>Cloudflare Worker validates + forwards</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Joined + valid email?</span><span class="ar">→</span><span class="nd"><i>Action</i>Upsert contact + cr-attended tag</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Zoom Webhooks</span><span class="tag tag-light">Cloudflare Workers</span><span class="tag tag-light">GHL Inbound Webhook</span></div>
         </div>
-        <div class="wf reveal" data-p="make">
-          <div class="wf-head"><span class="plat make">Make.com</span><span class="wf-client">Healing Numbers 22</span></div>
+        <div class="wf reveal" data-c="bsg" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st live">Live</span></div>
+          <span class="wf-client">BSG Connect</span>
+          <h3 class="wf-title">Connection Room Auto-Tagging on Booking</h3>
+          <p class="wf-desc">Puts every Connection Room booker into the referral and authority-interview systems.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Connection Room booked</span><span class="ar">→</span><span class="nd"><i>Action</i>Tag referral request</span><span class="ar">→</span><span class="nd"><i>Action</i>Tag authority interview request</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Calendars</span><span class="tag tag-light">Tags</span></div>
+        </div>
+        <div class="wf reveal" data-c="bsg" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st built">Built</span></div>
+          <span class="wf-client">BSG Connect</span>
+          <h3 class="wf-title">Connection Room 30-Day Resurfacing</h3>
+          <p class="wf-desc">Flags attendees who haven't come back in 30 days so the coach can re-invite them.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Appointment = Showed</span><span class="ar">→</span><span class="nd"><i>Action</i>Upcoming-booking tag stand-in</span><span class="ar">→</span><span class="nd"><i>Action</i>Wait 30 days</span><span class="ar">→</span><span class="nd if"><i>Condition</i>No upcoming booking?</span><span class="ar">→</span><span class="nd"><i>Action</i>VA task + coach notification</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Workflows</span><span class="tag tag-light">Tags</span><span class="tag tag-light">Tasks</span></div>
+        </div>
+        <div class="wf reveal" data-c="bsg" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st built">Built</span></div>
+          <span class="wf-client">BSG Connect</span>
+          <h3 class="wf-title">"Promote" Member System</h3>
+          <p class="wf-desc">A smooth hand-off when the coach decides to promote a member.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Tag "Promote"</span><span class="ar">→</span><span class="nd"><i>Action</i>Email with intake page</span><span class="ar">→</span><span class="nd"><i>Action</i>VA task</span><span class="ar">→</span><span class="nd t"><i>Trigger</i>Intake submitted</span><span class="ar">→</span><span class="nd"><i>Action</i>Notify VA</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Workflows</span><span class="tag tag-light">Forms</span><span class="tag tag-light">Tasks</span></div>
+        </div>
+        <div class="wf reveal" data-c="bsg" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st built">Built</span></div>
+          <span class="wf-client">Stacy Harris Consulting</span>
+          <h3 class="wf-title">Roundtable Referral System</h3>
+          <p class="wf-desc">Asks contacts to refer people to Stacy's roundtables, sending only on set weekdays during business hours.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Referral tag added</span><span class="ar">→</span><span class="nd"><i>Action</i>Referral emails in Stacy's voice</span><span class="ar">→</span><span class="nd"><i>Action</i>Business-hours wait windows</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Form / booking / reply → exit</span><span class="ar">→</span><span class="nd"><i>Action</i>Follow-up to referred person</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Workflows</span><span class="tag tag-light">Advanced Waits</span></div>
+        </div>
+        <div class="wf reveal" data-c="bsg" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st live">Live</span></div>
+          <span class="wf-client">Stacy Harris Consulting</span>
+          <h3 class="wf-title">Progress Meeting Appointment Workflows</h3>
+          <p class="wf-desc">Handles confirmations, reschedules, cancellations and showed/no-show follow-ups for bi-weekly client calls.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Appointment status change</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Confirmed / rescheduled / cancelled</span><span class="ar">→</span><span class="nd"><i>Action</i>Reminders tied to start time</span><span class="ar">→</span><span class="nd"><i>Action</i>Showed or no-show email</span><span class="ar">→</span><span class="nd"><i>Action</i>Survey reminder before each call</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Calendars</span><span class="tag tag-light">Workflows</span></div>
+        </div>
+        <div class="wf reveal" data-c="bsg" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st designed">Designed</span></div>
+          <span class="wf-client">Stacy Harris Consulting</span>
+          <h3 class="wf-title">Roundtable Invitation &amp; Ascension Engine</h3>
+          <p class="wf-desc">Runs monthly roundtable invitations from one switch, prioritised by each contact's relationship stage.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Operator sets next event Active</span><span class="ar">→</span><span class="nd"><i>Action</i>3-step invitation sequence</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Paid workshop or free event</span><span class="ar">→</span><span class="nd"><i>Action</i>Relationship Stage sets priority</span><span class="ar">→</span><span class="nd"><i>Action</i>Ascension queue for curated rooms</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Workflows</span><span class="tag tag-light">Custom Fields</span><span class="tag tag-light">Pipelines</span></div>
+        </div>
+        <div class="wf reveal" data-c="bsg" data-p="zap ghl">
+          <div class="wf-head"><span class="plat zap">Zapier</span><span class="st designed">Scoped</span></div>
+          <span class="wf-client">BSG Connect</span>
+          <h3 class="wf-title">Zoom Transcript → GHL Contact</h3>
+          <p class="wf-desc">Attaches Zoom call transcripts to the matching GHL contact, feeding an upcoming client briefing app.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Zoom transcript ready</span><span class="ar">→</span><span class="nd"><i>Action</i>Match contact by email</span><span class="ar">→</span><span class="nd"><i>Action</i>Attach transcript to GHL record</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Zapier</span><span class="tag tag-light">Zoom</span><span class="tag tag-light">GHL</span></div>
+        </div>
+        <div class="wf reveal" data-c="avision" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st live">Live</span></div>
+          <span class="wf-client">Avision Windows &amp; Doors</span>
+          <h3 class="wf-title">Estimate Follow-Up Reminder</h3>
+          <p class="wf-desc">Chases open estimates until the customer accepts or declines.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Estimate sent</span><span class="ar">→</span><span class="nd"><i>Action</i>Wait 3 days</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Still pending?</span><span class="ar">→</span><span class="nd"><i>Action</i>Reminder to customer</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Estimates</span><span class="tag tag-light">Workflows</span></div>
+        </div>
+        <div class="wf reveal" data-c="avision" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st live">Live</span></div>
+          <span class="wf-client">Avision Windows &amp; Doors</span>
+          <h3 class="wf-title">Estimate Accepted → Auto-Invoice</h3>
+          <p class="wf-desc">Removes the manual step between a signed estimate and billing.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Estimate accepted</span><span class="ar">→</span><span class="nd"><i>Action</i>Invoice created from estimate</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Estimates</span><span class="tag tag-light">GHL Invoices</span></div>
+        </div>
+        <div class="wf reveal" data-c="avision" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st built">Built</span></div>
+          <span class="wf-client">Avision Windows &amp; Doors</span>
+          <h3 class="wf-title">Payment Receipt with Running Balance</h3>
+          <p class="wf-desc">Receipts that list every past payment and the remaining balance.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Payment recorded</span><span class="ar">→</span><span class="nd"><i>Action</i>Append to payment-history field</span><span class="ar">→</span><span class="nd"><i>Action</i>Custom receipt · today, total, balance</span><span class="ar">→</span><span class="nd t"><i>Trigger</i>New invoice → clear history</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Payments</span><span class="tag tag-light">Custom Fields</span><span class="tag tag-light">Email Templates</span></div>
+        </div>
+        <div class="wf reveal" data-c="tms" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st live">Live</span></div>
+          <span class="wf-client">Total Metabolic Solutions</span>
+          <h3 class="wf-title">Client Onboarding &amp; Questionnaire Follow-Up</h3>
+          <p class="wf-desc">Gets every new client their resources and a completed intake questionnaire, with no chasing by the owner.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>New client</span><span class="ar">→</span><span class="nd"><i>Action</i>Welcome email + 2 PDF guides</span><span class="ar">→</span><span class="nd"><i>Action</i>Goal step · form submitted</span><span class="ar">→</span><span class="nd"><i>Action</i>Escalating daily reminders</span><span class="ar">→</span><span class="nd"><i>Action</i>Owner flagged if still missing</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Workflows</span><span class="tag tag-light">Goals</span><span class="tag tag-light">Forms</span></div>
+        </div>
+        <div class="wf reveal" data-c="tms" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st live">Live</span></div>
+          <span class="wf-client">Total Metabolic Solutions</span>
+          <h3 class="wf-title">Plan Purchase Notifications</h3>
+          <p class="wf-desc">Tells the owner exactly which plan each new client bought.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Order submitted</span><span class="ar">→</span><span class="nd if"><i>Condition</i>12-mo PIF / 12-mo / 8-mo / 4-mo</span><span class="ar">→</span><span class="nd"><i>Action</i>Matching internal notification</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Orders</span><span class="tag tag-light">Branches</span></div>
+        </div>
+        <div class="wf reveal" data-c="tms" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st live">Live</span></div>
+          <span class="wf-client">Total Metabolic Solutions</span>
+          <h3 class="wf-title">Foundations Program Check-Ins</h3>
+          <p class="wf-desc">Prompts a personal check-in at 3 weeks and 2 months, routed to each client's assigned coach.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Sign-up</span><span class="ar">→</span><span class="nd"><i>Action</i>Wait 3 weeks → notify coach</span><span class="ar">→</span><span class="nd"><i>Action</i>Wait to 2 months → notify coach</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Workflows</span><span class="tag tag-light">User Routing</span></div>
+        </div>
+        <div class="wf reveal" data-c="tms" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st built">Built</span></div>
+          <span class="wf-client">Total Metabolic Solutions</span>
+          <h3 class="wf-title">Recurring Payment Tag → Monthly Invoices</h3>
+          <p class="wf-desc">Monthly payment plans for coaching programs, without manual billing.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Plan tag e.g. "4 months recurring"</span><span class="ar">→</span><span class="nd"><i>Action</i>Loop · send invoice monthly</span><span class="ar">→</span><span class="nd"><i>Action</i>Stop after plan length</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Invoices</span><span class="tag tag-light">Loops</span></div>
+        </div>
+        <div class="wf reveal" data-c="tms" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st built">Built</span></div>
+          <span class="wf-client">Total Metabolic Solutions</span>
+          <h3 class="wf-title">Program-Length Rebuild (MM12)</h3>
+          <p class="wf-desc">Stops clients getting weekly program emails after their plan ends, replacing a flat 52-week chain.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Sign-up</span><span class="ar">→</span><span class="nd"><i>Action</i>End date = start + plan length</span><span class="ar">→</span><span class="nd"><i>Action</i>Weekly emails in a loop</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Past end date?</span><span class="ar">→</span><span class="nd"><i>Action</i>Remind, notify owner, remove</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Calculated Fields</span><span class="tag tag-light">Loops</span></div>
+        </div>
+        <div class="wf reveal" data-c="other" data-p="ghl n8n">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st built">Built</span></div>
+          <span class="wf-client">Blue Collar Freedom &amp; Connections</span>
+          <h3 class="wf-title">Member Video Intros</h3>
+          <p class="wf-desc">Collects an intro video from each new community member for a "Meet the Members" channel.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Intro video form submitted</span><span class="ar">→</span><span class="nd"><i>Action</i>Admin notified with details</span><span class="ar">→</span><span class="nd"><i>Action</i>(Automated) n8n → Google Drive</span><span class="ar">→</span><span class="nd"><i>Action</i>Share link saved to contact</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Forms</span><span class="tag tag-light">n8n</span><span class="tag tag-light">Google Drive</span></div>
+        </div>
+        <div class="wf reveal" data-c="other" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st built">Built</span></div>
+          <span class="wf-client">WANTED Woman</span>
+          <h3 class="wf-title">"Top 10 Zip Codes" Funnel Automation</h3>
+          <p class="wf-desc">Turns ad traffic into buyers and live-session attendees for a dating coach.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Free report opt-in</span><span class="ar">→</span><span class="nd"><i>Action</i>$9 upsell + $7 bump</span><span class="ar">→</span><span class="nd"><i>Action</i>PlusThis registers for Zoom</span><span class="ar">→</span><span class="nd"><i>Action</i>Tag attended or no-show</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Funnels</span><span class="tag tag-light">PlusThis</span><span class="tag tag-light">Zoom</span></div>
+        </div>
+        <div class="wf reveal" data-c="other" data-p="make">
+          <div class="wf-head"><span class="plat make">Make.com</span><span class="st live">Live</span></div>
+          <span class="wf-client">Reboot Player One</span>
+          <h3 class="wf-title">Website Newsletter Capture</h3>
+          <p class="wf-desc">Makes the custom-coded newsletter forms on three pages save real contacts in Systeme.io.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Form submit + page source</span><span class="ar">→</span><span class="nd"><i>Action</i>Make webhook (no CORS preflight)</span><span class="ar">→</span><span class="nd"><i>Action</i>Systeme.io · create contact + tag</span><span class="ar">→</span><span class="nd"><i>Action</i>Success / error shown on page</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Make.com</span><span class="tag tag-light">Systeme.io API</span><span class="tag tag-light">JavaScript</span></div>
+        </div>
+        <div class="wf reveal" data-c="other" data-p="make">
+          <div class="wf-head"><span class="plat make">Make.com</span><span class="st live">Live</span></div>
+          <span class="wf-client">Healing Numbers 22</span>
           <h3 class="wf-title">Monthly Numerology Reminder Engine</h3>
-          <p class="wf-desc">Every month, recalculates each client's Personal Month and Personal Year from their birth date using a custom formula, then sends each person a personalised email about their current cycle.</p>
+          <p class="wf-desc">Recalculates each client's Personal Month and Year every month and sends a personalised email.</p>
           <div class="flow"><span class="nd t"><i>Trigger</i>Monthly schedule</span><span class="ar">→</span><span class="nd"><i>Action</i>Get client list</span><span class="ar">→</span><span class="nd"><i>Action</i>Formula · Personal Month + Year</span><span class="ar">→</span><span class="nd"><i>Action</i>Personalised email</span></div>
-          <div class="wf-tags"><span class="tag tag-light">Make.com</span><span class="tag tag-light">Formulas</span><span class="tag tag-light">Email Automation</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Make.com</span><span class="tag tag-light">Formulas</span><span class="tag tag-light">Email</span></div>
+        </div>
+        <div class="wf reveal" data-c="other" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="st built">Built</span></div>
+          <span class="wf-client">Business coaching client</span>
+          <h3 class="wf-title">Survey Migration with Auto-Scoring</h3>
+          <p class="wf-desc">Moved a business health-check survey off Zoho with scored results intact.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Survey submitted</span><span class="ar">→</span><span class="nd"><i>Action</i>Math ops total the 1–5 scores</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Score band</span><span class="ar">→</span><span class="nd"><i>Action</i>Band-specific result email + calendar link</span></div>
+          <div class="wf-tags"><span class="tag tag-light">GHL Surveys</span><span class="tag tag-light">Math Operations</span></div>
+        </div>
+        <div class="wf reveal" data-c="other" data-p="mc ghl">
+          <div class="wf-head"><span class="plat mc">ManyChat</span><span class="st built">Built</span></div>
+          <span class="wf-client">Brickhouse Unlimited</span>
+          <h3 class="wf-title">Instagram Follow-to-DM Qualifier</h3>
+          <p class="wf-desc">Qualifies new Instagram followers in DMs.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>New follower</span><span class="ar">→</span><span class="nd"><i>Action</i>DM qualification flow</span><span class="ar">→</span><span class="nd"><i>Action</i>Branch by answers</span></div>
+          <div class="wf-tags"><span class="tag tag-light">ManyChat</span><span class="tag tag-light">GHL</span></div>
+        </div>
+        <div class="wf reveal" data-c="other" data-p="make">
+          <div class="wf-head"><span class="plat make">Make.com</span><span class="st designed">Designed</span></div>
+          <span class="wf-client">Webinar client</span>
+          <h3 class="wf-title">WebinarJam → Kit Integration</h3>
+          <p class="wf-desc">Pushes registrant, attendee and no-show events into Kit tags so the right email sequence runs.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>WebinarJam event</span><span class="ar">→</span><span class="nd"><i>Action</i>Make maps subscriber</span><span class="ar">→</span><span class="nd"><i>Action</i>Apply Kit tag</span><span class="ar">→</span><span class="nd"><i>Action</i>Kit sequence runs</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Make.com</span><span class="tag tag-light">WebinarJam</span><span class="tag tag-light">Kit</span></div>
         </div>
       </div>
+      <div class="lib-more"><button class="btn btn-secondary" id="libMore">Show all 52 workflows ↓</button></div>
     </div>
   </section>
   <script>
   (function(){
-    var b=[].slice.call(document.querySelectorAll('.lib-btn')), w=[].slice.call(document.querySelectorAll('.wf'));
-    b.forEach(function(x){x.addEventListener('click',function(){
-      b.forEach(function(y){y.classList.toggle('on',y===x)});
-      w.forEach(function(c){c.classList.toggle('hide', x.dataset.p!=='all' && c.dataset.p!==x.dataset.p)});
-    })});
+    var C='all',P='all',open=false,LIMIT=12;
+    var w=[].slice.call(document.querySelectorAll('.wf')), more=document.getElementById('libMore');
+    function render(){
+      var shown=0,match=0;
+      w.forEach(function(c){
+        var ok=(C==='all'||c.dataset.c===C)&&(P==='all'||(' '+c.dataset.p+' ').indexOf(' '+P+' ')>-1);
+        if(ok) match++;
+        var vis=ok&&(open||C!=='all'||P!=='all'||shown<LIMIT);
+        if(vis) shown++;
+        c.classList.toggle('hide',!vis);
+      });
+      more.parentNode.style.display=(shown<match)?'':'none';
+    }
+    function wire(cls,set){
+      var b=[].slice.call(document.querySelectorAll(cls));
+      b.forEach(function(x){x.addEventListener('click',function(){b.forEach(function(y){y.classList.toggle('on',y===x)}); set(x.dataset.v); render();})});
+    }
+    wire('.lib-c',function(v){C=v}); wire('.lib-p',function(v){P=v});
+    more.addEventListener('click',function(){open=true;render();});
+    render();
   })();
   </script>
 
