@@ -68,6 +68,41 @@
     .proj-link { font-family:var(--f-mono); font-size:11px; color:var(--blue); display:inline-flex; align-items:center; gap:5px; transition:gap 0.15s; text-decoration:none; }
     .proj-card:hover .proj-link { gap:8px; }
     .proj-link.muted { color:var(--light-muted); cursor:default; }
+    .filter-bar { display:flex; flex-wrap:wrap; gap:8px; margin-top:var(--s3); }
+    .filter-btn { font-family:var(--f-mono); font-size:12px; color:var(--light-text); background:var(--off-white); border:1px solid var(--light-rule); border-radius:99px; padding:8px 16px; cursor:pointer; transition:border-color .15s,color .15s,background .15s; }
+    .filter-btn:hover { border-color:var(--blue); color:var(--blue); }
+    .filter-btn.on { background:var(--blue); border-color:var(--blue); color:#fff; }
+    .filter-btn .fc { opacity:.6; margin-left:4px; }
+    .proj-card.hide { display:none; }
+    .proj-card.is-app { background:linear-gradient(160deg,var(--blue-tint),var(--off-white) 55%); border-color:var(--blue-border); }
+    .proj-card.is-agent .proj-type::before { content:'● '; color:#22c55e; }
+    .proj-status { font-family:var(--f-mono); font-size:10px; color:var(--light-muted); }
+    .lib-section { background:var(--off-white); padding:var(--s6) 0; border-bottom:1px solid var(--light-rule); }
+    .lib-h2 { font-size:clamp(24px,3.2vw,40px); font-weight:700; letter-spacing:-0.03em; line-height:1.15; color:var(--light-text); }
+    .lib-h2 .blue { color:var(--blue); }
+    .lib-lead { font-size:15px; color:var(--light-muted); line-height:1.75; max-width:620px; margin-top:12px; }
+    .lib-stats { display:flex; flex-wrap:wrap; gap:10px; margin-top:var(--s3); }
+    .lib-stat { font-family:var(--f-mono); font-size:11px; color:var(--light-text); background:var(--white); border:1px solid var(--light-rule); border-radius:var(--radius); padding:8px 12px; }
+    .lib-stat b { color:var(--blue); font-size:14px; margin-right:4px; }
+    .lib-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:var(--s4); }
+    .wf { background:var(--white); border:1px solid var(--light-rule); border-radius:var(--radius-lg); padding:22px; display:flex; flex-direction:column; gap:12px; transition:border-color .2s, box-shadow .2s; }
+    .wf:hover { border-color:var(--blue); box-shadow:var(--shadow-blue); }
+    .wf.hide { display:none; }
+    .wf-head { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    .plat { font-family:var(--f-mono); font-size:10px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:3px 8px; border-radius:4px; color:#fff; }
+    .plat.ghl { background:#2563eb; } .plat.n8n { background:#ea4b71; } .plat.make { background:#6d28d9; } .plat.zap { background:#ff4f00; }
+    .wf-client { font-family:var(--f-mono); font-size:10px; color:var(--light-muted); }
+    .wf-title { font-size:17px; font-weight:700; color:var(--light-text); letter-spacing:-0.01em; line-height:1.25; }
+    .wf-desc { font-size:13px; color:var(--light-muted); line-height:1.7; }
+    .flow { display:flex; flex-wrap:wrap; align-items:center; gap:6px; padding:14px; background:var(--off-white); border:1px dashed var(--light-rule); border-radius:var(--radius); }
+    .nd { display:inline-flex; flex-direction:column; gap:2px; font-size:12px; color:var(--light-text); background:var(--white); border:1px solid var(--light-rule); border-radius:6px; padding:6px 9px; line-height:1.3; max-width:100%; }
+    .nd i { font-style:normal; font-family:var(--f-mono); font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:var(--light-muted); }
+    .nd.t { border-color:#22c55e; } .nd.t i { color:#16a34a; }
+    .nd.ai { border-color:#a855f7; } .nd.ai i { color:#9333ea; }
+    .nd.if { border-color:#f59e0b; } .nd.if i { color:#d97706; }
+    .ar { color:var(--blue); font-size:13px; }
+    .wf-tags { display:flex; flex-wrap:wrap; gap:5px; }
+    @media (max-width:960px) { .lib-grid { grid-template-columns:1fr; } }
     .testi-section { background:var(--dark); padding:var(--s6) 0; }
 
     /* CAROUSEL */
@@ -138,7 +173,7 @@
     <div class="container ph-inner">
       <div class="eyebrow">Portfolio</div>
       <h1 class="page-h1">Real work.<br><span class="blue">Real results.</span></h1>
-      <p class="page-lead">Funnels live in production, automations running 24/7, and AI agents replacing hours of manual work every day.</p>
+      <p class="page-lead">Sales funnels, automations, AI agents, and apps — built for real businesses and running in production.</p>
     </div>
   </section>
 
@@ -157,6 +192,10 @@
             <br><br>
             <strong>Voice AI</strong> that outbound-calls clients on payment plans, discusses how to split payments based on the client's own situation, sets due dates, sends automated reminders, calls again on the due date, and automatically revokes course access when the grace period ends.
             <br><br>
+            <strong>Masterclass funnel system</strong> — weekly live masterclass registration pages, a second "owner-style" registration page with scroll-driven photo effects, auto-updating countdowns and add-to-calendar thank-you pages, plus upsell / downsell checkouts for the brand's digital playbooks.
+            <br><br>
+            <strong>AI agent team</strong> — a reporting agent that emails daily and weekly business snapshots, an internal SOP agent that answers team questions from the company playbook, an operations agent that keeps the CRM pipeline clean, and a Voice AI agent that calls registrants to confirm attendance.
+            <br><br>
             Also built: payment-triggered contract delivery, access gated until contract is signed, daily reminder emails for unsigned agreements, Telegram bot for webinar reminders with participant count captured every 10 minutes into a Google Sheet and auto-delivered post-webinar.
           </p>
           <div class="feat-tags">
@@ -169,8 +208,12 @@
             <span class="tag">Access Control</span>
             <span class="tag">Google Sheets</span>
             <span class="tag">Skool</span>
+            <span class="tag">Agent Studio</span>
+            <span class="tag">Meta CAPI</span>
           </div>
           <div class="feat-links">
+            <a href="https://legacybuilderempire.com/live-masterclass" target="_blank" rel="noopener" class="feat-link"><span class="fl-icon">🔗</span><span class="fl-label">legacybuilderempire.com/live-masterclass</span><span class="fl-arr">↗</span></a>
+            <a href="https://legacybuilderempire.com/live-masterclass-owner" target="_blank" rel="noopener" class="feat-link"><span class="fl-icon">🔗</span><span class="fl-label">legacybuilderempire.com/live-masterclass-owner</span><span class="fl-arr">↗</span></a>
             <a href="https://legacybuilderempire.com/join-virtual-real-estate-1211" target="_blank" rel="noopener" class="feat-link"><span class="fl-icon">🔗</span><span class="fl-label">legacybuilderempire.com/join-virtual-real-estate-1211</span><span class="fl-arr">↗</span></a>
             <a href="https://legacybuilderempire.com/2day-summit" target="_blank" rel="noopener" class="feat-link"><span class="fl-icon">🔗</span><span class="fl-label">legacybuilderempire.com/2day-summit</span><span class="fl-arr">↗</span></a>
             <a href="https://legacybuilderempire.com/optin-1" target="_blank" rel="noopener" class="feat-link"><span class="fl-icon">🔗</span><span class="fl-label">legacybuilderempire.com/optin-1</span><span class="fl-arr">↗</span></a>
@@ -200,17 +243,276 @@
             <div class="fv-node">🔒 Unsigned → daily reminder email</div>
             <div class="fv-arr">↓</div>
             <div class="fv-node">🎓 Signed → course access granted</div>
+            <div class="fv-sep">Agent Team</div>
+            <div class="fv-node">📊 Reporting agent → daily + weekly email</div>
+            <div class="fv-arr">↓</div>
+            <div class="fv-node">🧹 Ops agent → pipeline cleanup</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <section class="lib-section" id="automation-library">
+    <div class="container">
+      <div class="eyebrow">Automation Library</div>
+      <h2 class="lib-h2">The workflows <span class="blue">behind the funnels</span></h2>
+      <p class="lib-lead">A look inside the automations I've built in GoHighLevel, n8n, Make.com, and Zapier — what triggers each one, what it does step by step, and the result for the business.</p>
+      <div class="lib-stats">
+        <span class="lib-stat"><b>150+</b>GHL workflows built and organised</span>
+        <span class="lib-stat"><b>4</b>automation platforms</span>
+        <span class="lib-stat"><b>24/7</b>running without manual work</span>
+      </div>
+      <div class="filter-bar" role="toolbar" aria-label="Filter automations by platform">
+        <button class="filter-btn lib-btn on" data-p="all">All<span class="fc">16</span></button>
+        <button class="filter-btn lib-btn" data-p="ghl">GoHighLevel<span class="fc">10</span></button>
+        <button class="filter-btn lib-btn" data-p="n8n">n8n<span class="fc">4</span></button>
+        <button class="filter-btn lib-btn" data-p="make">Make.com<span class="fc">2</span></button>
+      </div>
+      <div class="lib-grid">
+        <div class="wf reveal" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
+          <h3 class="wf-title">Webinar Registration → Show-Up Journey</h3>
+          <p class="wf-desc">The full registrant journey for a weekly live masterclass, split into numbered workflows (WF-0 to WF-4): registration, confirmation, nurture, a reminder ladder, and a live "we're starting" push for late arrivals. Over a thousand registrants have gone through it.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Registration form submitted</span><span class="ar">→</span><span class="nd"><i>Action</i>WF-0 · Tag + set webinar date</span><span class="ar">→</span><span class="nd"><i>Action</i>WF-1 · Email + SMS confirmation</span><span class="ar">→</span><span class="nd"><i>Action</i>WF-2 · Nurture sequence</span><span class="ar">→</span><span class="nd"><i>Action</i>WF-2D / 24H / 3H reminders</span><span class="ar">→</span><span class="nd"><i>Action</i>WF-4 · Live + late-arrival SMS</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Email</span><span class="tag tag-light">SMS</span><span class="tag tag-light">Custom Values</span></div>
+        </div>
+        <div class="wf reveal" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
+          <h3 class="wf-title">SMS Reply Handling</h3>
+          <p class="wf-desc">Catches replies to webinar texts (WF-R), tags the contact by intent, and alerts the team so real questions get a human answer fast, without stopping the reminder sequence.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Contact replies to SMS</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Reply intent</span><span class="ar">→</span><span class="nd"><i>Action</i>Tag + update contact</span><span class="ar">→</span><span class="nd"><i>Action</i>Internal alert to team</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">SMS</span><span class="tag tag-light">Alerts</span></div>
+        </div>
+        <div class="wf reveal" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
+          <h3 class="wf-title">Priority Lead Scoring &amp; Routing</h3>
+          <p class="wf-desc">Scores every registrant from their qualification answers, sends a "qualified lead" event to Meta so ads find more buyers like them, and gets high-intent leads a reminder call.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Form answers saved</span><span class="ar">→</span><span class="nd if"><i>Condition</i>$5K+ set aside OR 680+ credit + owns property</span><span class="ar">→</span><span class="nd"><i>Action</i>Tag priority-lead</span><span class="ar">→</span><span class="nd"><i>Action</i>Meta CAPI qualified event</span><span class="ar">→</span><span class="nd"><i>Action</i>Pipeline card + caller task + SMS</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Meta CAPI</span><span class="tag tag-light">Pipelines</span><span class="tag tag-light">Lead Scoring</span></div>
+        </div>
+        <div class="wf reveal" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
+          <h3 class="wf-title">Registrants → Power Dialer</h3>
+          <p class="wf-desc">Loads each new webinar registrant straight into the call team's power dialer queue, so reps spend their time talking, not building call lists.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Registered for this week</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Has phone + not a student</span><span class="ar">→</span><span class="nd"><i>Action</i>Add to Power Dialer list</span><span class="ar">→</span><span class="nd"><i>Action</i>Assign to call team</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Power Dialer</span><span class="tag tag-light">Sales Ops</span></div>
+        </div>
+        <div class="wf reveal" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
+          <h3 class="wf-title">Weekly Webinar Date Rotation</h3>
+          <p class="wf-desc">A system workflow that rolls the "next webinar" date forward every week, so every email, SMS, and page always shows the right Thursday without anyone editing templates.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Weekly schedule</span><span class="ar">→</span><span class="nd"><i>Action</i>Calculate next Thursday 7 PM ET</span><span class="ar">→</span><span class="nd"><i>Action</i>Update custom value</span><span class="ar">→</span><span class="nd"><i>Action</i>All messages pick up new date</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Custom Values</span><span class="tag tag-light">Scheduling</span></div>
+        </div>
+        <div class="wf reveal" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
+          <h3 class="wf-title">Attended → Free Gift Delivery</h3>
+          <p class="wf-desc">Thanks people who actually showed up to the masterclass with a free resource, and keeps no-shows on a different path.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Tag webinar:attended</span><span class="ar">→</span><span class="nd"><i>Action</i>Wait</span><span class="ar">→</span><span class="nd"><i>Action</i>Free gift email + SMS</span><span class="ar">→</span><span class="nd"><i>Action</i>Move to follow-up stage</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Email</span><span class="tag tag-light">Tags</span></div>
+        </div>
+        <div class="wf reveal" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
+          <h3 class="wf-title">Playbook Purchase → Instant Delivery</h3>
+          <p class="wf-desc">Delivers each digital playbook bought on the upsell pages ($27 Deal Pack, $17 Underwriting Playbook): download email, buyer tags, and a buyer-only follow-up path.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Order form purchase</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Which product</span><span class="ar">→</span><span class="nd"><i>Action</i>Tag buyer</span><span class="ar">→</span><span class="nd"><i>Action</i>Delivery email with PDF</span><span class="ar">→</span><span class="nd"><i>Action</i>Buyer follow-up</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Payments</span><span class="tag tag-light">Digital Delivery</span></div>
+        </div>
+        <div class="wf reveal" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
+          <h3 class="wf-title">Payment → Agreement → Classroom Access</h3>
+          <p class="wf-desc">Sends the client agreement when a payment lands, keeps course access locked until it is signed, nudges unsigned clients every day, and unlocks the classroom the moment they sign.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Payment received</span><span class="ar">→</span><span class="nd"><i>Action</i>Send client agreement</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Signed?</span><span class="ar">→</span><span class="nd"><i>Action</i>Daily reminder if unsigned</span><span class="ar">→</span><span class="nd"><i>Action</i>Grant classroom access</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Documents &amp; Contracts</span><span class="tag tag-light">Memberships</span></div>
+        </div>
+        <div class="wf reveal" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
+          <h3 class="wf-title">Installments &amp; Grace-Period Access Control</h3>
+          <p class="wf-desc">Tracks payment-plan due dates, triggers Voice AI reminder calls, and removes course access automatically if the grace period passes without payment.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Installment due date</span><span class="ar">→</span><span class="nd ai"><i>AI</i>Voice AI reminder call</span><span class="ar">→</span><span class="nd if"><i>Condition</i>Paid within grace period?</span><span class="ar">→</span><span class="nd"><i>Action</i>Keep access</span><span class="ar">→</span><span class="nd"><i>Action</i>Revoke classroom access</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Voice AI</span><span class="tag tag-light">Payments</span></div>
+        </div>
+        <div class="wf reveal" data-p="ghl">
+          <div class="wf-head"><span class="plat ghl">GoHighLevel</span><span class="wf-client">Legacy Builder Empire</span></div>
+          <h3 class="wf-title">Consultation Call Confirmations &amp; Reminders</h3>
+          <p class="wf-desc">Confirms every booked consultation call, reminds the lead before it starts, and alerts the team, so fewer calls are missed.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Appointment booked</span><span class="ar">→</span><span class="nd"><i>Action</i>Confirmation email + SMS</span><span class="ar">→</span><span class="nd"><i>Action</i>Reminders before call</span><span class="ar">→</span><span class="nd"><i>Action</i>Team alert</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Workflows</span><span class="tag tag-light">Calendars</span><span class="tag tag-light">SMS</span></div>
+        </div>
+        <div class="wf reveal" data-p="n8n">
+          <div class="wf-head"><span class="plat n8n">n8n</span><span class="wf-client">Legacy Builder Empire</span></div>
+          <h3 class="wf-title">Zoom Attendance → GHL + Google Sheet</h3>
+          <p class="wf-desc">When the masterclass ends, a worker posts the Zoom attendee list to n8n. n8n upserts each person into GoHighLevel, tags them as attended (which fires the follow-up workflows), and logs them to an attendance sheet.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Webhook from Zoom worker</span><span class="ar">→</span><span class="nd"><i>Action</i>Code · prepare attendee</span><span class="ar">→</span><span class="nd"><i>Action</i>GHL · upsert contact</span><span class="ar">→</span><span class="nd"><i>Action</i>GHL · add attended tags</span><span class="ar">→</span><span class="nd"><i>Action</i>Google Sheet · log row</span></div>
+          <div class="wf-tags"><span class="tag tag-light">n8n</span><span class="tag tag-light">Webhooks</span><span class="tag tag-light">GHL API</span><span class="tag tag-light">Google Sheets</span></div>
+        </div>
+        <div class="wf reveal" data-p="n8n">
+          <div class="wf-head"><span class="plat n8n">n8n</span><span class="wf-client">Legacy Builder Empire</span></div>
+          <h3 class="wf-title">Telegram Webinar Bot + Live Headcount</h3>
+          <p class="wf-desc">A Telegram bot sends webinar reminders, counts live participants every 10 minutes into a Google Sheet, and delivers the attendance report automatically when the session ends.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Webinar schedule</span><span class="ar">→</span><span class="nd"><i>Action</i>Telegram reminders</span><span class="ar">→</span><span class="nd"><i>Action</i>Every 10 min · count participants</span><span class="ar">→</span><span class="nd"><i>Action</i>Google Sheet</span><span class="ar">→</span><span class="nd"><i>Action</i>Post-webinar report</span></div>
+          <div class="wf-tags"><span class="tag tag-light">n8n</span><span class="tag tag-light">Telegram Bot</span><span class="tag tag-light">Google Sheets</span></div>
+        </div>
+        <div class="wf reveal" data-p="n8n">
+          <div class="wf-head"><span class="plat n8n">n8n</span><span class="wf-client">Legacy Builder Empire</span></div>
+          <h3 class="wf-title">Student &amp; Depositor Records Sync</h3>
+          <p class="wf-desc">Two webhook flows that catch every $1,497 enrollment and $500 deposit from GoHighLevel order forms and write them to the right Google Sheet in real time.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>GHL order form webhook</span><span class="ar">→</span><span class="nd if"><i>Condition</i>$1,497 student or $500 deposit</span><span class="ar">→</span><span class="nd"><i>Action</i>Google Sheets · append row</span></div>
+          <div class="wf-tags"><span class="tag tag-light">n8n</span><span class="tag tag-light">Webhooks</span><span class="tag tag-light">Google Sheets</span></div>
+        </div>
+        <div class="wf reveal" data-p="n8n">
+          <div class="wf-head"><span class="plat n8n">n8n</span><span class="wf-client">Internal tool</span></div>
+          <h3 class="wf-title">AI Automation Lead Gatherer</h3>
+          <p class="wf-desc">Runs every day to find people asking for automation help: it searches Reddit and Google, extracts the posts with code, merges and de-duplicates the results, and saves fresh leads to Airtable.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Daily schedule</span><span class="ar">→</span><span class="nd"><i>Action</i>Search Reddit</span><span class="ar">→</span><span class="nd"><i>Action</i>Search Google</span><span class="ar">→</span><span class="nd"><i>Action</i>Code · extract posts</span><span class="ar">→</span><span class="nd"><i>Action</i>Merge results</span><span class="ar">→</span><span class="nd"><i>Action</i>Airtable · save leads</span></div>
+          <div class="wf-tags"><span class="tag tag-light">n8n</span><span class="tag tag-light">HTTP Requests</span><span class="tag tag-light">Code</span><span class="tag tag-light">Airtable</span></div>
+        </div>
+        <div class="wf reveal" data-p="make">
+          <div class="wf-head"><span class="plat make">Make.com</span><span class="wf-client">Reboot Player One</span></div>
+          <h3 class="wf-title">Custom Funnel Form → Systeme.io Leads</h3>
+          <p class="wf-desc">Connects the hand-coded Reboot Player One funnel to Systeme.io. The custom opt-in form posts to a Make.com webhook, and Make creates the contact in Systeme.io so every lead lands in the coaching program's email list.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Funnel form submitted</span><span class="ar">→</span><span class="nd"><i>Action</i>Make webhook receives lead</span><span class="ar">→</span><span class="nd"><i>Action</i>Map name + email</span><span class="ar">→</span><span class="nd"><i>Action</i>Systeme.io · create contact</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Make.com</span><span class="tag tag-light">Webhooks</span><span class="tag tag-light">Systeme.io</span><span class="tag tag-light">Custom HTML Form</span></div>
+        </div>
+        <div class="wf reveal" data-p="make">
+          <div class="wf-head"><span class="plat make">Make.com</span><span class="wf-client">Healing Numbers 22</span></div>
+          <h3 class="wf-title">Monthly Numerology Reminder Engine</h3>
+          <p class="wf-desc">Every month, recalculates each client's Personal Month and Personal Year from their birth date using a custom formula, then sends each person a personalised email about their current cycle.</p>
+          <div class="flow"><span class="nd t"><i>Trigger</i>Monthly schedule</span><span class="ar">→</span><span class="nd"><i>Action</i>Get client list</span><span class="ar">→</span><span class="nd"><i>Action</i>Formula · Personal Month + Year</span><span class="ar">→</span><span class="nd"><i>Action</i>Personalised email</span></div>
+          <div class="wf-tags"><span class="tag tag-light">Make.com</span><span class="tag tag-light">Formulas</span><span class="tag tag-light">Email Automation</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+  (function(){
+    var b=[].slice.call(document.querySelectorAll('.lib-btn')), w=[].slice.call(document.querySelectorAll('.wf'));
+    b.forEach(function(x){x.addEventListener('click',function(){
+      b.forEach(function(y){y.classList.toggle('on',y===x)});
+      w.forEach(function(c){c.classList.toggle('hide', x.dataset.p!=='all' && c.dataset.p!==x.dataset.p)});
+    })});
+  })();
+  </script>
+
   <section class="projects-section">
     <div class="container">
       <div class="eyebrow">All Projects</div>
+      <div class="filter-bar" role="toolbar" aria-label="Filter projects">
+        <button class="filter-btn on" data-f="all">All<span class="fc"></span></button>
+        <button class="filter-btn" data-f="funnels">Funnels<span class="fc"></span></button>
+        <button class="filter-btn" data-f="automations">Automations<span class="fc"></span></button>
+        <a href="#automation-library" class="filter-btn" style="text-decoration:none;border-style:dashed;">Automation Library ↑</a>
+        <button class="filter-btn" data-f="agents">AI Agents<span class="fc"></span></button>
+        <button class="filter-btn" data-f="apps">Apps<span class="fc"></span></button>
+        <button class="filter-btn" data-f="websites">Websites<span class="fc"></span></button>
+      </div>
       <div class="projects-grid" id="all-projects">
-        <div class="proj-card reveal" id="proj-macunlimited">
+        <div class="proj-card reveal is-app" data-cat="apps">
+          <span class="proj-type">Web App · Base44</span>
+          <h3 class="proj-title">6 Figure Flip Deal Coach</h3>
+          <span class="proj-client">Real Estate Investing App — Legacy Builder Empire</span>
+          <p class="proj-desc">An app for beginner fix-and-flip and BRRRR investors. Deal Analyzer (MAO, ROI, cash needed, profit margin in plain English), BRRRR calculator, repair estimator with 27+ categories, an 11-stage deal pipeline CRM, funding readiness score, and an AI pocket coach that suggests the next best action on every deal.</p>
+          <div class="proj-tags"><span class="tag tag-light">Base44</span><span class="tag tag-light">AI Coach</span><span class="tag tag-light">Calculators</span><span class="tag tag-light">CRM</span></div>
+          <div class="proj-footer"><a href="https://six-figure-flip.base44.app/" target="_blank" rel="noopener" class="proj-link">Open App ↗</a></div>
+        </div>
+        <div class="proj-card reveal is-app" data-cat="apps">
+          <span class="proj-type">Web App · HTML/JS · Cloudflare</span>
+          <h3 class="proj-title">Vowtique</h3>
+          <span class="proj-client">Digital Wedding Invitation Platform</span>
+          <p class="proj-desc">My own digital invitation business. A catalog of 50 templates, each with its own opening animation, live-generated theme music, and a 13–15 section flow (story, venues with maps, calendar invite, RSVP, FAQs). Couples can preview with their own names. Premium tier adds a QR guest page with a live photo wall, wishes, quiz, and polls on a Supabase backend.</p>
+          <div class="proj-tags"><span class="tag tag-light">JavaScript</span><span class="tag tag-light">Web Audio</span><span class="tag tag-light">Supabase</span><span class="tag tag-light">Cloudflare Pages</span></div>
+          <div class="proj-footer"><a href="https://vowtique.pages.dev" target="_blank" rel="noopener" class="proj-link">View Live ↗</a></div>
+        </div>
+        <div class="proj-card reveal is-agent" data-cat="agents">
+          <span class="proj-type">AI Agent · Reporting</span>
+          <h3 class="proj-title">Business Reporting Agent</h3>
+          <span class="proj-client">Legacy Builder Empire</span>
+          <p class="proj-desc">Scheduled agent that pulls CRM and social data every morning and every Monday, then emails the owner a clean snapshot: new registrants, priority leads, booked calls, pipeline movement, and week-over-week trends — no dashboards to log into.</p>
+          <div class="proj-tags"><span class="tag tag-light">GoHighLevel</span><span class="tag tag-light">Claude</span><span class="tag tag-light">Scheduled Tasks</span><span class="tag tag-light">Email</span></div>
+          <div class="proj-footer"><span class="proj-link muted">Running daily</span></div>
+        </div>
+        <div class="proj-card reveal is-agent" data-cat="agents">
+          <span class="proj-type">AI Agent · Internal Knowledge</span>
+          <h3 class="proj-title">SOP Agent</h3>
+          <span class="proj-client">Legacy Builder Empire</span>
+          <p class="proj-desc">Internal assistant built in GHL Agent Studio on a private knowledge base of the company's SOPs (masterclass ops, sales and booked calls, student onboarding, approvals, ad buying). The team asks a question and gets the exact steps — and it says so when an answer isn't in the SOPs instead of guessing.</p>
+          <div class="proj-tags"><span class="tag tag-light">GHL Agent Studio</span><span class="tag tag-light">Knowledge Base</span><span class="tag tag-light">SOP Writing</span></div>
+          <div class="proj-footer"><span class="proj-link muted">Built &amp; tested</span></div>
+        </div>
+        <div class="proj-card reveal is-agent" data-cat="agents">
+          <span class="proj-type">AI Agent · Operations</span>
+          <h3 class="proj-title">CRM Operations Agent</h3>
+          <span class="proj-client">Legacy Builder Empire</span>
+          <p class="proj-desc">Keeps the CRM clean on its own: handles new booked calls across 7 calendars, runs a daily pipeline cleanup, reconciles masterclass attendance every Friday, and moves new students into onboarding. Strict guardrails — it tags, moves cards, and adds notes and tasks, but never messages contacts or deletes anything.</p>
+          <div class="proj-tags"><span class="tag tag-light">GHL Agent Studio</span><span class="tag tag-light">Pipelines</span><span class="tag tag-light">Triggers</span><span class="tag tag-light">Guardrails</span></div>
+          <div class="proj-footer"><span class="proj-link muted">Built &amp; tested</span></div>
+        </div>
+        <div class="proj-card reveal is-agent" data-cat="agents">
+          <span class="proj-type">Voice AI · Outbound</span>
+          <h3 class="proj-title">Masterclass Confirmation Agent</h3>
+          <span class="proj-client">Legacy Builder Empire</span>
+          <p class="proj-desc">Voice AI persona that calls webinar registrants in the coach's tone to confirm they're attending, answer quick questions, and remind them how to join — built to lift show-up rate for the weekly live masterclass.</p>
+          <div class="proj-tags"><span class="tag tag-light">Voice AI</span><span class="tag tag-light">GoHighLevel</span><span class="tag tag-light">Script Writing</span></div>
+          <div class="proj-footer"><span class="proj-link muted">Built &amp; tested</span></div>
+        </div>
+        <div class="proj-card reveal is-agent" data-cat="agents">
+          <span class="proj-type">Conversation AI · Voice AI</span>
+          <h3 class="proj-title">Lead Nurture &amp; Payment-Plan Agents</h3>
+          <span class="proj-client">Legacy Builder Empire</span>
+          <p class="proj-desc">Conversation AI that answers and nurtures every lead over SMS, Facebook, and Instagram 24/7, plus a Voice AI agent that calls clients on payment plans, agrees due dates, sends reminders, and revokes course access when a grace period ends.</p>
+          <div class="proj-tags"><span class="tag tag-light">Conversation AI</span><span class="tag tag-light">Voice AI</span><span class="tag tag-light">SMS / FB / IG</span></div>
+          <div class="proj-footer"><span class="proj-link muted">In production</span></div>
+        </div>
+        <div class="proj-card reveal" data-cat="funnels">
+          <span class="proj-type">GHL · Webinar Funnel</span>
+          <h3 class="proj-title">Live Masterclass Funnel</h3>
+          <span class="proj-client">Legacy Builder Empire — Weekly Masterclass</span>
+          <p class="proj-desc">Registration funnel for a weekly live real estate masterclass, including an "owner-style" registration page with floating parallax photos, a countdown that rolls to the next session automatically, and a thank-you page with Google Calendar / .ics buttons. Qualification questions on the form feed lead scoring.</p>
+          <div class="proj-tags"><span class="tag tag-light">GoHighLevel</span><span class="tag tag-light">Custom Code</span><span class="tag tag-light">Countdown</span><span class="tag tag-light">Lead Qualification</span></div>
+          <div class="proj-footer"><a href="https://legacybuilderempire.com/live-masterclass" target="_blank" rel="noopener" class="proj-link">Main ↗</a><a href="https://legacybuilderempire.com/live-masterclass-owner" target="_blank" rel="noopener" class="proj-link">Owner Style ↗</a></div>
+        </div>
+        <div class="proj-card reveal" data-cat="funnels">
+          <span class="proj-type">GHL · Upsell / Downsell</span>
+          <h3 class="proj-title">Masterclass Upsell &amp; Checkout Flow</h3>
+          <span class="proj-client">Legacy Builder Empire — Digital Playbooks</span>
+          <p class="proj-desc">Post-registration offer path selling the brand's digital playbooks: a Deal Pack upsell, an Underwriting Playbook downsell, native order-form checkouts, a free-gift page for non-buyers, and a buyer thank-you page with delivery emails.</p>
+          <div class="proj-tags"><span class="tag tag-light">GoHighLevel</span><span class="tag tag-light">Order Forms</span><span class="tag tag-light">Products</span><span class="tag tag-light">Email</span></div>
+          <div class="proj-footer"><span class="proj-link muted">GoHighLevel build</span></div>
+        </div>
+        <div class="proj-card reveal" data-cat="funnels">
+          <span class="proj-type">GHL · Event Funnel</span>
+          <h3 class="proj-title">Flip to Finish 2-Day Summit</h3>
+          <span class="proj-client">Legacy Builder Empire — Virtual Summit</span>
+          <p class="proj-desc">Five-step funnel for a free 2-day virtual summit: registration with SMS consent, a $47 VIP upsell, a $67 notes &amp; e-book upsell, a $197 Platinum tier, and a thank-you page — every "no thanks" routes to the next step so nobody gets stuck.</p>
+          <div class="proj-tags"><span class="tag tag-light">GoHighLevel</span><span class="tag tag-light">Custom HTML/CSS</span><span class="tag tag-light">Upsells</span></div>
+          <div class="proj-footer"><a href="https://legacybuilderempire.com/2day-summit" target="_blank" rel="noopener" class="proj-link">View Live ↗</a></div>
+        </div>
+        <div class="proj-card reveal" data-cat="funnels">
+          <span class="proj-type">GHL · Sales Funnel</span>
+          <h3 class="proj-title">50th Birthday Sale</h3>
+          <span class="proj-client">Legacy Builder Empire — Seasonal Campaign</span>
+          <p class="proj-desc">Limited-time sale funnel for the coach's birthday: sales page with pick-one playbook, vault, and bundle offers, a checkout with a time-boxed 50% coupon, a thank-you page, and a book-a-call step for buyers who want help.</p>
+          <div class="proj-tags"><span class="tag tag-light">GoHighLevel</span><span class="tag tag-light">Coupons</span><span class="tag tag-light">Checkout</span><span class="tag tag-light">Calendar</span></div>
+          <div class="proj-footer"><span class="proj-link muted">Campaign build</span></div>
+        </div>
+        <div class="proj-card reveal" data-cat="funnels automations">
+          <span class="proj-type">GHL · A2P Compliance</span>
+          <h3 class="proj-title">A2P Seller Opt-In Funnel</h3>
+          <span class="proj-client">MAC Unlimited Inc. — Wholesale Real Estate</span>
+          <p class="proj-desc">Carrier-compliant opt-in funnel so a wholesaling team can text motivated sellers legally: chat-widget consent flow, privacy policy and terms written for SMS consent, a separate no-phone ad landing page, and thank-you pages — built to pass A2P 10DLC review.</p>
+          <div class="proj-tags"><span class="tag tag-light">GoHighLevel</span><span class="tag tag-light">A2P 10DLC</span><span class="tag tag-light">Chat Widget</span><span class="tag tag-light">Compliance</span></div>
+          <div class="proj-footer"><a href="https://sell.macunlimitedinc.com/get-offer" target="_blank" rel="noopener" class="proj-link">View Live ↗</a></div>
+        </div>
+        <div class="proj-card reveal" data-cat="funnels">
+          <span class="proj-type">HTML/CSS · Modular Page</span>
+          <h3 class="proj-title">Virtual Real Estate Webinar Page</h3>
+          <span class="proj-client">Legacy Builder Empire</span>
+          <p class="proj-desc">Long-form webinar registration page split into 9 drop-in sections (hero, live countdown, mission, transformation, origin story, what you'll learn, offer stack + form, testimonials, FAQ) so the team can rearrange or reuse any section in their page builder.</p>
+          <div class="proj-tags"><span class="tag tag-light">HTML / CSS</span><span class="tag tag-light">JavaScript</span><span class="tag tag-light">Page Sections</span></div>
+          <div class="proj-footer"><span class="proj-link muted">Template build</span></div>
+        </div>
+        <div class="proj-card reveal" id="proj-macunlimited" data-cat="funnels websites">
           <span class="proj-type">GHL · Funnels</span>
           <h3 class="proj-title">MacUnlimited Inc.</h3>
           <span class="proj-client">Credit Repair &amp; Funding</span>
@@ -221,7 +523,7 @@
             <a href="https://macunlimitedinc.com/" target="_blank" rel="noopener" class="proj-link">Website ↗</a>
           </div>
         </div>
-        <div class="proj-card reveal" id="proj-brickhouse">
+        <div class="proj-card reveal" id="proj-brickhouse" data-cat="funnels">
           <span class="proj-type">GHL · Webinar Funnel</span>
           <h3 class="proj-title">Brickhouse Unlimited Inc.</h3>
           <span class="proj-client">Business Scaling &amp; Leadership</span>
@@ -231,7 +533,7 @@
             <a href="https://go.brickhouseunlimited.com/optin" target="_blank" rel="noopener" class="proj-link">View Live ↗</a>
           </div>
         </div>
-        <div class="proj-card reveal" id="proj-reboot">
+        <div class="proj-card reveal" id="proj-reboot" data-cat="funnels">
           <span class="proj-type">Custom HTML/CSS · Systeme.io</span>
           <h3 class="proj-title">Reboot Player One</h3>
           <span class="proj-client">Gamified Coaching Funnel</span>
@@ -241,7 +543,7 @@
             <a href="https://www.rebootplayerone.com/" target="_blank" rel="noopener" class="proj-link">View Live ↗</a>
           </div>
         </div>
-        <div class="proj-card reveal" id="proj-healing">
+        <div class="proj-card reveal" id="proj-healing" data-cat="funnels automations websites">
           <span class="proj-type">Make (Integromat) · Funnel · Website</span>
           <h3 class="proj-title">Healing Numbers 22</h3>
           <span class="proj-client">Numerology &amp; Personal Readings</span>
@@ -253,7 +555,7 @@
             <a href="https://www.healingnumbers22.com/" target="_blank" rel="noopener" class="proj-link">Website ↗</a>
           </div>
         </div>
-        <div class="proj-card reveal">
+        <div class="proj-card reveal" data-cat="funnels websites">
           <span class="proj-type">Website · Sales Funnel</span>
           <h3 class="proj-title">Fleur Romano</h3>
           <span class="proj-client">Private Counselling &amp; Healing Group Spaces</span>
@@ -263,7 +565,7 @@
             <a href="https://www.fleurromano.com/" target="_blank" rel="noopener" class="proj-link">View Live ↗</a>
           </div>
         </div>
-        <div class="proj-card reveal">
+        <div class="proj-card reveal" data-cat="funnels">
           <span class="proj-type">Funnels · Ads · Social</span>
           <h3 class="proj-title">Jada VI</h3>
           <span class="proj-client">Manifestation / Spirituality</span>
@@ -271,7 +573,7 @@
           <div class="proj-tags"><span class="tag tag-light">Meta Ads</span><span class="tag tag-light">Funnels</span><span class="tag tag-light">Social Media</span></div>
           <div class="proj-footer"><span class="proj-link muted">Completed</span></div>
         </div>
-        <div class="proj-card reveal">
+        <div class="proj-card reveal" data-cat="websites">
           <span class="proj-type">WordPress · LMS · LinkedIn</span>
           <h3 class="proj-title">Pani Computer &amp; Pullaris</h3>
           <span class="proj-client">Cybersecurity Courses — US</span>
@@ -282,7 +584,7 @@
             <a href="https://panicomputer.com" target="_blank" rel="noopener" class="proj-link">panicomputer.com ↗</a>
           </div>
         </div>
-        <div class="proj-card reveal">
+        <div class="proj-card reveal" data-cat="websites">
           <span class="proj-type">WordPress · Course Management · Social Media</span>
           <h3 class="proj-title">PaniTech Academy</h3>
           <span class="proj-client">Cybersecurity &amp; IT Training — US</span>
@@ -296,6 +598,24 @@
       </div>
     </div>
   </section>
+  <script>
+  (function(){
+    var btns=[].slice.call(document.querySelectorAll('button.filter-btn:not(.lib-btn)'));
+    var cards=[].slice.call(document.querySelectorAll('#all-projects .proj-card'));
+    btns.forEach(function(b){
+      var f=b.dataset.f, n=f==='all'?cards.length:cards.filter(function(c){return (' '+c.dataset.cat+' ').indexOf(' '+f+' ')>-1}).length;
+      b.querySelector('.fc').textContent=n;
+    });
+    function apply(f){
+      if(!btns.some(function(b){return b.dataset.f===f})) f='all';
+      btns.forEach(function(b){b.classList.toggle('on',b.dataset.f===f); b.setAttribute('aria-pressed',b.dataset.f===f)});
+      cards.forEach(function(c){c.classList.toggle('hide', f!=='all' && (' '+c.dataset.cat+' ').indexOf(' '+f+' ')<0)});
+    }
+    btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.f); history.replaceState(null,'','#'+b.dataset.f)})});
+    var h=location.hash.slice(1);
+    if(h && btns.some(function(b){return b.dataset.f===h})){apply(h); window.addEventListener('load',function(){var g=document.querySelector('.filter-bar'); window.scrollTo(0,g.getBoundingClientRect().top+window.scrollY-90);});}
+  })();
+  </script>
 
   <section class="testi-section dark-section">
     <div class="container" style="padding-bottom:0;">
